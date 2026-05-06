@@ -1,150 +1,72 @@
-\# 🎓 MCA - Semester 2 Lab Repository
-
-
-
 <div align="center">
 
+# 🎓 MCA Semester 2 Laboratory Repository
 
+### APJ Abdul Kalam Technological University
 
-\## 💻 MCA Lab Programs \& Practical Works
-
-
-
-<img src="https://img.shields.io/badge/MCA-Semester%202-blue?style=for-the-badge">
-
+<img src="https://img.shields.io/badge/MCA-Semester%202-blue?style=for-the-badge&logo=github">
 <img src="https://img.shields.io/badge/KTU-Lab%20Repository-success?style=for-the-badge">
-
 <img src="https://img.shields.io/badge/Status-Active-brightgreen?style=for-the-badge">
 
+---
 
-
-\---
-
-
-
-📚 Lab Programs • Assignments • Practicals • Source Code
-
-
+### 💻 Object Oriented Programming • DBMS • Networking Labs
 
 </div>
 
+---
 
-
-\---
-
-
-
-\# 📂 Repository Structure
-
-
+## 📂 Repository Structure
 
 ```bash
-
 Semester-2/
-
 │
-
 ├── 20MCA132-Object-Oriented-Programming-Lab/
-
 ├── 20MCA134-Advanced-DBMS-Lab/
-
 └── 20MCA136-Networking-and-System-Administration-Lab/
-
 ```
 
+---
 
+## 📚 Courses Included
 
-\---
-
-
-
-\# 📖 Included Lab Subjects
-
-
-
-| Subject Code | Subject Name |
-
-|--------------|--------------|
-
+| Course Code | Laboratory |
+|-------------|------------|
 | 20MCA132 | Object Oriented Programming Lab |
-
 | 20MCA134 | Advanced DBMS Lab |
+| 20MCA136 | Networking & System Administration Lab |
 
-| 20MCA136 | Networking \& System Administration Lab |
+---
 
+## 🚀 Contents
 
+- Java Programs
+- SQL Queries
+- Networking Experiments
+- Linux Administration Tasks
+- Lab Records
+- Assignments
 
-\---
+---
 
+## 🛠 Technologies Used
 
+<p align="left">
+  <img src="https://skillicons.dev/icons?i=java,mysql,linux,git,github" />
+</p>
 
-\# 🚀 Repository Contents
+---
 
+## 👨‍💻 Maintainer
 
+### Akhil Krishna
 
-✅ Lab Programs  
+MCA Student • Developer • Tech Enthusiast
 
-✅ Practical Assignments  
-
-✅ SQL Queries  
-
-✅ Networking Commands  
-
-✅ Java Programs  
-
-✅ Experiment Records  
-
-✅ Study Materials  
-
-
-
-\---
-
-
-
-\# 🛠 Technologies Used
-
-
-
-\- Java
-
-\- SQL
-
-\- MySQL
-
-\- Linux
-
-\- Networking Tools
-
-
-
-\---
-
-
-
-\# 👨‍💻 Maintained By
-
-
-
-\## Akhil Krishna
-
-
-
-MCA Student | Developer | Tech Enthusiast
-
-
-
-\---
-
-
+---
 
 <div align="center">
 
-
-
-\### ⭐ Star this repository if you find it useful ⭐
-
-
+⭐ Star this repository if you find it useful ⭐
 
 </div>
-
