@@ -2,7 +2,7 @@
 
 import java.util.Scanner;
 
-public class P7_StringManipulation
+public class P07_StringManipulation
 {
     public static void main(String[] args)
     {
