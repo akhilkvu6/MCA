@@ -28,7 +28,7 @@ class Complex
     }
 }
 
-public class P3_ComplexNumberAddition
+public class P03_ComplexNumberAddition
 {
     public static void main(String[] args)
     {
