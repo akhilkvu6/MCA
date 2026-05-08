@@ -51,7 +51,7 @@ class SortStrings
     }
 }
 
-public class P9_SortStrings
+public class P09_SortStrings
 {
     public static void main(String[] args)
     {
