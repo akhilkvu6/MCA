@@ -41,7 +41,7 @@ class CPU
     }
 }
 
-public class P5_InnerClass
+public class P05_InnerClass
 {
     public static void main(String[] args)
     {
