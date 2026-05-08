@@ -38,7 +38,7 @@ class Product
     }
 }
 
-public class P1_CompareObjects
+public class P01_CompareObjects
 {
     public static void main(String[] args)
     {
