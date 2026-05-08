@@ -63,7 +63,7 @@ class AddMatrix
     }
 }
 
-public class P2_MatrixAddition
+public class P02_MatrixAddition
 {
     public static void main(String[] args)
     {
