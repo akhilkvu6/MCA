@@ -25,7 +25,7 @@ class Employee
     }
 }
 
-public class P8_ArrayOfObjects
+public class P08_ArrayOfObjects
 {
     public static void main(String[] args)
     {
