@@ -60,7 +60,7 @@ class Symmetric
     }
 }
 
-public class P4_SymmetricMatrix
+public class P04_SymmetricMatrix
 {
     public static void main(String[] args)
     {
