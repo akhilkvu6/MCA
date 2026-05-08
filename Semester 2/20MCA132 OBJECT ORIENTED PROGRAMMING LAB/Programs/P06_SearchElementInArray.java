@@ -45,7 +45,7 @@ class Array
     }
 }
 
-public class P6_SearchElementInArray
+public class P06_SearchElementInArray
 {
     public static void main(String[] args)
     {
