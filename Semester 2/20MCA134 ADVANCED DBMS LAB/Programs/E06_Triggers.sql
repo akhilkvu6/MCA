@@ -1,0 +1,140 @@
+-- EXERCISE 6 : TRIGGERS
+
+-- CREATE DATABASE
+
+CREATE DATABASE stores;
+
+USE stores;
+
+SHOW DATABASES;
+
+SELECT DATABASE();
+
+-- CREATE TABLE : PRODUCT
+
+CREATE TABLE Product
+(
+    PdtId INT PRIMARY KEY,
+    Pname VARCHAR(20),
+    Price DOUBLE(5,2),
+    Qtyinstock INT
+);
+
+-- CREATE TABLE : SALE
+
+CREATE TABLE Sale
+(
+    saleId INT PRIMARY KEY,
+    Deliveryaddress VARCHAR(50)
+);
+
+-- CREATE TABLE : SALEITEM
+
+CREATE TABLE Saleitem
+(
+    saleId INT,
+    PdtId INT,
+    Qty INT,
+
+    PRIMARY KEY(saleId,PdtId),
+
+    FOREIGN KEY(saleId)
+    REFERENCES Sale(saleId),
+
+    FOREIGN KEY(PdtId)
+    REFERENCES Product(PdtId)
+);
+
+-- DISPLAY TABLE STRUCTURE
+
+DESC Product;
+
+DESC Sale;
+
+DESC Saleitem;
+
+-- INSERT VALUES INTO PRODUCT
+
+INSERT INTO Product
+(PdtId, Pname, Price, Qtyinstock)
+
+VALUES
+(101,'Pencil',5.00,10),
+(102,'Pen',3.00,10);
+
+-- DISPLAY PRODUCT TABLE
+
+SELECT *
+FROM Product;
+
+-- INSERT VALUES INTO SALE
+
+INSERT INTO Sale
+(saleId,Deliveryaddress)
+
+VALUES
+(001,'home123'),
+(002,'home345');
+
+-- DISPLAY SALE TABLE
+
+SELECT *
+FROM Sale;
+
+-- DROP TRIGGER IF EXISTS
+
+DROP TRIGGER IF EXISTS updateAvailabeQuantity;
+
+-- CREATE TRIGGER
+
+DELIMITER //
+
+CREATE TRIGGER updateAvailabeQuantity
+
+AFTER INSERT
+ON Saleitem
+
+FOR EACH ROW
+
+BEGIN
+
+    UPDATE Product
+
+    SET Qtyinstock = Qtyinstock - NEW.Qty
+
+    WHERE PdtId = NEW.PdtId;
+
+END //
+
+DELIMITER ;
+
+-- INSERT VALUES INTO SALEITEM
+
+INSERT INTO Saleitem
+VALUES (001,102,8);
+
+-- DISPLAY PRODUCT TABLE
+
+SELECT *
+FROM Product;
+
+INSERT INTO Saleitem
+VALUES (002,101,3);
+
+-- DISPLAY PRODUCT TABLE
+
+SELECT *
+FROM Product;
+
+INSERT INTO Saleitem
+VALUES (002,102,1);
+
+-- DISPLAY PRODUCT TABLE
+
+SELECT *
+FROM Product;
+
+-- DISPLAY SALEITEM TABLE
+
+SELECT *
+FROM Saleitem;
