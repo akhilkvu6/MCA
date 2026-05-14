@@ -1,50 +1,27 @@
-# 20MCA134 ADVANCED DBMS LAB
+# 🚀 20MCA134 ADVANCED DBMS LAB
 
-## MCA Semester 2 Laboratory Repository
+<div align="center">
 
-This repository contains SQL programs, PL/SQL procedures, joins, triggers, stored procedures, MongoDB programs, and detailed documentation for Advanced DBMS Laboratory.
+## 🗄️ MCA Semester 2 Advanced DBMS Laboratory Repository
 
----
+Professional DBMS Lab Repository containing SQL programs, PL/SQL procedures, joins, triggers, stored procedures, MongoDB programs, and detailed documentation for Advanced Database Management Systems Laboratory.
 
-# Repository Features
+![MySQL](https://img.shields.io/badge/MySQL-Database-blue?style=for-the-badge&logo=mysql)
+![MongoDB](https://img.shields.io/badge/MongoDB-NoSQL-green?style=for-the-badge&logo=mongodb)
+![SQL](https://img.shields.io/badge/SQL-Queries-orange?style=for-the-badge)
+![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github)
+![MCA](https://img.shields.io/badge/MCA-Semester%202-success?style=for-the-badge)
 
-- Structured exercise-wise programs
-- Professional file naming convention
-- Detailed documentation for every exercise
-- SQL and MongoDB practice programs
-- Theory and syntax explanations
-- Variations and examples
-- Dry runs and algorithms
-- Complexity analysis
-- Viva questions
-- GitHub organized structure
+</div>
 
 ---
 
-# Documentation Structure Used
-
-Each exercise/documentation includes:
-
-- Aim
-- Theory
-- Syntax
-- Variations
-- Algorithm
-- Dry Run
-- Complexity Analysis
-- Advantages
-- Limitations
-- Applications
-- Viva Questions
-
----
-
-# Repository Structure
+# 📂 Repository Structure
 
 ```text
 20MCA134 ADVANCED DBMS LAB/
 │
-├── Programs/
+├── 📁 Programs/
 │   ├── E01_CompanyDatabase.sql
 │   ├── E01_CompanyDatabase.md
 │   ├── E02_SQLQueries.sql
@@ -57,9 +34,9 @@ Each exercise/documentation includes:
 │   ├── E05_StoredProcedure.md
 │   ├── E06_Triggers.sql
 │   ├── E06_Triggers.md
-│   ├── E07_MongoDB.md
+│   └── E07_MongoDB.md
 │
-├── mongoDB/
+├── 📁 mongoDB/
 │   ├── 01_connect.py
 │   ├── 02_list_databases.py
 │   ├── 03_list_collections.py
@@ -86,29 +63,61 @@ Each exercise/documentation includes:
 │   ├── README.md
 │   └── test.json
 │
-└── README.md
+└── 📄 README.md
 ```
 
 ---
 
-# Topics Covered
+# ✨ Repository Features
 
-# 1. SQL Fundamentals
+✅ Structured Exercise-wise Programs  
+✅ Detailed Documentation for Every Exercise  
+✅ SQL + MongoDB Practice Programs  
+✅ Theory and Syntax Explanations  
+✅ Variations and Examples  
+✅ Algorithms and Dry Runs  
+✅ Complexity Analysis  
+✅ Viva Questions Included  
+✅ GitHub Organized Structure  
 
-## Database Operations
+---
+
+# 📘 Documentation Structure
+
+Each exercise/documentation contains:
+
+- 🎯 Aim
+- 📖 Theory
+- 🧠 Syntax
+- 🔄 Variations
+- ⚙️ Algorithm
+- 📝 Dry Run
+- 📊 Complexity Analysis
+- ✅ Advantages
+- ⚠️ Limitations
+- 🌍 Applications
+- ❓ Viva Questions
+
+---
+
+# 💡 Topics Covered
+
+# 🗄️ SQL Fundamentals
+
+## 🔹 Database Operations
 - CREATE DATABASE
 - DROP DATABASE
 - USE DATABASE
 - SHOW DATABASES
 
-## Table Operations
+## 🔹 Table Operations
 - CREATE TABLE
 - ALTER TABLE
 - DROP TABLE
 - TRUNCATE TABLE
 - RENAME TABLE
 
-## Constraints
+## 🔹 Constraints
 - PRIMARY KEY
 - FOREIGN KEY
 - UNIQUE
@@ -118,7 +127,7 @@ Each exercise/documentation includes:
 
 ---
 
-# 2. DDL Commands
+# 🧱 DDL Commands
 
 - CREATE
 - ALTER
@@ -128,7 +137,7 @@ Each exercise/documentation includes:
 
 ---
 
-# 3. DML Commands
+# ✏️ DML Commands
 
 - INSERT
 - UPDATE
@@ -137,9 +146,9 @@ Each exercise/documentation includes:
 
 ---
 
-# 4. SQL Queries
+# 🔍 SQL Queries
 
-## Clauses
+## 🔹 Clauses
 - WHERE
 - ORDER BY
 - GROUP BY
@@ -147,7 +156,7 @@ Each exercise/documentation includes:
 - DISTINCT
 - LIMIT
 
-## Functions
+## 🔹 Functions
 - Aggregate Functions
 - String Functions
 - Numeric Functions
@@ -155,7 +164,7 @@ Each exercise/documentation includes:
 
 ---
 
-# 5. Joins
+# 🔗 Joins
 
 - INNER JOIN
 - LEFT JOIN
@@ -167,7 +176,7 @@ Each exercise/documentation includes:
 
 ---
 
-# 6. Subqueries
+# 🧠 Subqueries
 
 - Single Row Subquery
 - Multi Row Subquery
@@ -180,7 +189,7 @@ Each exercise/documentation includes:
 
 ---
 
-# 7. Stored Procedures
+# ⚙️ Stored Procedures
 
 - IN Parameters
 - OUT Parameters
@@ -192,7 +201,7 @@ Each exercise/documentation includes:
 
 ---
 
-# 8. PL/SQL Programs
+# 💻 PL/SQL Programs
 
 - Even/Odd
 - Prime Number
@@ -206,7 +215,7 @@ Each exercise/documentation includes:
 
 ---
 
-# 9. Triggers
+# ⚡ Triggers
 
 - BEFORE INSERT
 - AFTER INSERT
@@ -215,7 +224,7 @@ Each exercise/documentation includes:
 - BEFORE DELETE
 - AFTER DELETE
 
-## Trigger Concepts
+## 🔹 Trigger Concepts
 - NEW Keyword
 - OLD Keyword
 - FOR EACH ROW
@@ -225,7 +234,7 @@ Each exercise/documentation includes:
 
 ---
 
-# 10. Transactions
+# 🔄 Transactions
 
 - COMMIT
 - ROLLBACK
@@ -234,21 +243,21 @@ Each exercise/documentation includes:
 
 ---
 
-# 11. Views and Indexes
+# 📊 Views and Indexes
 
-## Views
+## 🔹 Views
 - CREATE VIEW
 - DROP VIEW
 - UPDATE VIEW
 
-## Indexes
+## 🔹 Indexes
 - CREATE INDEX
 - UNIQUE INDEX
 - Composite Index
 
 ---
 
-# 12. Normalization
+# 📐 Normalization
 
 - 1NF
 - 2NF
@@ -257,7 +266,7 @@ Each exercise/documentation includes:
 
 ---
 
-# 13. MongoDB Fundamentals
+# 🍃 MongoDB Fundamentals
 
 - Database
 - Collection
@@ -267,7 +276,7 @@ Each exercise/documentation includes:
 
 ---
 
-# 14. MongoDB CRUD Operations
+# 🧾 MongoDB CRUD Operations
 
 - insertOne()
 - insertMany()
@@ -280,9 +289,9 @@ Each exercise/documentation includes:
 
 ---
 
-# 15. MongoDB Queries and Operators
+# 🔎 MongoDB Queries and Operators
 
-## Operators
+## 🔹 Operators
 - $eq
 - $gt
 - $lt
@@ -291,7 +300,7 @@ Each exercise/documentation includes:
 - $and
 - $or
 
-## Aggregation
+## 🔹 Aggregation
 - $match
 - $group
 - $sort
@@ -300,64 +309,65 @@ Each exercise/documentation includes:
 
 ---
 
-# GitHub Improvements
+# 🛠️ Software Used
 
-## Included
-- Structured repository organization
-- Exercise-wise folder structure
-- Detailed documentation
-- Consistent file naming
-- MongoDB tutorial documentation
-
-## Planned Improvements
-- Repository badges
-- Table of contents
-- Query output screenshots
-- ER diagrams
-- Flowcharts
-- MongoDB screenshots
+| 💻 Software | 📌 Purpose |
+|---|---|
+| MySQL Workbench | SQL & Database Management |
+| MongoDB | NoSQL Database |
+| VS Code | Code Editor |
+| Git | Version Control |
+| GitHub | Repository Hosting |
 
 ---
 
-# Software Used
+# 🌍 Applications
 
-- MySQL Workbench
+- 🎓 MCA Lab Preparation
+- 💼 Placement Preparation
+- 📖 SQL Learning
+- 🍃 MongoDB Practice
+- 🧠 DBMS Concept Learning
+- 🎯 Viva Preparation
+- 📚 Academic Reference
+
+---
+
+# ❓ Viva Preparation Topics
+
+- SQL Fundamentals
+- DDL and DML Commands
+- Constraints
+- Joins
+- Subqueries
+- Transactions
+- Stored Procedures
+- Functions
+- Triggers
+- PL/SQL
 - MongoDB
-- VS Code
-- Git
-- GitHub
+- Normalization
 
 ---
 
-# Applications
+# 📈 Planned Improvements
 
-- MCA Lab Preparation
-- SQL Practice
-- MongoDB Practice
-- Viva Preparation
-- Placement Preparation
-- Database Learning
-- Academic Reference
-
----
-
-# Viva Preparation Topics
-
-## SQL Fundamentals
-## DDL and DML Commands
-## Joins
-## Constraints
-## Transactions
-## Stored Procedures
-## Functions
-## Triggers
-## PL/SQL
-## MongoDB
-## Normalization
+- 📸 Query Output Screenshots
+- 📑 Table of Contents
+- 📊 ER Diagrams
+- 🌊 Flowcharts
+- 🍃 MongoDB Screenshots
+- 🏷️ GitHub Badges
 
 ---
 
-# Author
+<div align="center">
 
-Akhil Krishna  
-MCA Semester 2
+# 👨‍💻 Author
+
+## Akhil Krishna  
+### MCA Semester 2
+
+⭐ Star the repository if you find it useful!
+
+</div>
