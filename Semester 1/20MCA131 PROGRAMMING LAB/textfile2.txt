@@ -1,0 +1,4 @@
+Line 1: This is the first line.
+Line 3: Python file handling is easy.
+Line 5: Only odd-numbered lines will be copied.
+Line 7: Final odd line example.

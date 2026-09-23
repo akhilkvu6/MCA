@@ -1,0 +1,7 @@
+Line 1: This is the first line.
+Line 2: This is the second line.
+Line 3: Python file handling is easy.
+Line 4: This line should not be copied.
+Line 5: Only odd-numbered lines will be copied.
+Line 6: Even lines will be skipped.
+Line 7: Final odd line example.
