@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 else if (pass.length() < 6) {
                     e2.setError("Password must be at least 6 characters");
                 }
-                else if (username.equals("user") && pass.equals("admin123")) {
+                else if (username.equals("akhil") && pass.equals("akhil@123")) {
 
                     Toast.makeText(
                             MainActivity.this,

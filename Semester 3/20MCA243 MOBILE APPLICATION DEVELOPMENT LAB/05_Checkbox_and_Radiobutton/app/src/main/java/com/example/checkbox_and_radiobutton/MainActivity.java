@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -35,66 +34,49 @@ public class MainActivity extends AppCompatActivity {
         h = findViewById(R.id.h);
 
         t = findViewById(R.id.tv);
-
         rg = findViewById(R.id.rg);
 
-        // Gender Toast
-        rg.setOnCheckedChangeListener(
-                new RadioGroup.OnCheckedChangeListener() {
-
-                    @Override
-                    public void onCheckedChanged(
-                            RadioGroup group,
-                            int checkedId) {
-
-                        if (checkedId == R.id.male) {
-
-                            Toast.makeText(
-                                    MainActivity.this,
-                                    "Male",
-                                    Toast.LENGTH_SHORT
-                            ).show();
-
-                        } else if (checkedId == R.id.female) {
-
-                            Toast.makeText(
-                                    MainActivity.this,
-                                    "Female",
-                                    Toast.LENGTH_SHORT
-                            ).show();
-                        }
-                    }
+        // Gender Toast (Optional live feedback)
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.male) {
+                    Toast.makeText(MainActivity.this, "Male", Toast.LENGTH_SHORT).show();
+                } else if (checkedId == R.id.female) {
+                    Toast.makeText(MainActivity.this, "Female", Toast.LENGTH_SHORT).show();
                 }
-        );
+            }
+        });
 
         // Submit Button
         b1.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
+                String result = "";
 
-                t.setText("Languages Known:");
+                // 1. Get Selected Gender
+                int selectedGenderId = rg.getCheckedRadioButtonId();
+                if (selectedGenderId != -1) {
+                    RadioButton selectedGenderButton = findViewById(selectedGenderId);
+                    result += "Gender: " + selectedGenderButton.getText().toString() + "\n";
+                } else {
+                    result += "Gender: Not Selected\n";
+                }
 
+                // 2. Get Known Languages
+                result += "Languages Known:";
                 if (e.isChecked()) {
-                    t.setText(
-                            t.getText().toString()
-                                    + " " + e.getText()
-                    );
+                    result += " " + e.getText().toString();
                 }
-
                 if (m.isChecked()) {
-                    t.setText(
-                            t.getText().toString()
-                                    + " " + m.getText()
-                    );
+                    result += " " + m.getText().toString();
+                }
+                if (h.isChecked()) {
+                    result += " " + h.getText().toString();
                 }
 
-                if (h.isChecked()) {
-                    t.setText(
-                            t.getText().toString()
-                                    + " " + h.getText()
-                    );
-                }
+                // Display combined result
+                t.setText(result);
 
                 Toast.makeText(
                         MainActivity.this,
