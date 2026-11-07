@@ -4,64 +4,64 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "Appstate";
+    private TextView tvState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.d("Appstate", "Created");
-        Toast.makeText(this, "Created", Toast.LENGTH_SHORT).show();
+        tvState = findViewById(R.id.tvState);
+        updateStatus("Created");
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-
-        Log.d("Appstate", "Starting");
-        Toast.makeText(this, "Starting", Toast.LENGTH_SHORT).show();
+        updateStatus("Starting");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
-        Log.d("Appstate", "Resuming");
-        Toast.makeText(this, "Resuming", Toast.LENGTH_SHORT).show();
+        updateStatus("Resuming");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-
-        Log.d("Appstate", "Paused");
-        Toast.makeText(this, "Paused", Toast.LENGTH_SHORT).show();
+        updateStatus("Paused");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-
-        Log.d("Appstate", "Stopped");
-        Toast.makeText(this, "Stopped", Toast.LENGTH_SHORT).show();
+        updateStatus("Stopped");
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-
-        Log.d("Appstate", "Restarted");
-        Toast.makeText(this, "Restarted", Toast.LENGTH_SHORT).show();
+        updateStatus("Restarted");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        updateStatus("Destroyed");
+    }
 
-        Log.d("Appstate", "Destroyed");
-        Toast.makeText(this, "Destroyed", Toast.LENGTH_SHORT).show();
+    private void updateStatus(String state) {
+        Log.d(TAG, state);
+        Toast.makeText(this, state, Toast.LENGTH_SHORT).show();
+        if (tvState != null) {
+            tvState.setText("Current State: " + state);
+        }
     }
 }
