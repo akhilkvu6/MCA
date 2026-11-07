@@ -25,64 +25,51 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         b1 = findViewById(R.id.submit);
-
+        rg = findViewById(R.id.rg);
         r1 = findViewById(R.id.male);
         r2 = findViewById(R.id.female);
-
         e = findViewById(R.id.e);
         m = findViewById(R.id.m);
         h = findViewById(R.id.h);
-
         t = findViewById(R.id.tv);
-        rg = findViewById(R.id.rg);
 
-        // Gender Toast (Optional live feedback)
-        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == R.id.male) {
-                    Toast.makeText(MainActivity.this, "Male", Toast.LENGTH_SHORT).show();
-                } else if (checkedId == R.id.female) {
-                    Toast.makeText(MainActivity.this, "Female", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        // Submit Button
+        // Submit Button Click
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String result = "";
+                StringBuilder result = new StringBuilder();
 
-                // 1. Get Selected Gender
+                // 1. Gender check
                 int selectedGenderId = rg.getCheckedRadioButtonId();
                 if (selectedGenderId != -1) {
-                    RadioButton selectedGenderButton = findViewById(selectedGenderId);
-                    result += "Gender: " + selectedGenderButton.getText().toString() + "\n";
+                    RadioButton selectedGender = findViewById(selectedGenderId);
+                    result.append("Gender: ").append(selectedGender.getText().toString()).append("\n");
                 } else {
-                    result += "Gender: Not Selected\n";
+                    result.append("Gender: Not Selected\n");
                 }
 
-                // 2. Get Known Languages
-                result += "Languages Known:";
+                // 2. Languages check
+                StringBuilder langs = new StringBuilder();
                 if (e.isChecked()) {
-                    result += " " + e.getText().toString();
+                    langs.append("English ");
                 }
                 if (m.isChecked()) {
-                    result += " " + m.getText().toString();
+                    langs.append("Malayalam ");
                 }
                 if (h.isChecked()) {
-                    result += " " + h.getText().toString();
+                    langs.append("Hindi ");
                 }
 
-                // Display combined result
-                t.setText(result);
+                if (langs.length() > 0) {
+                    result.append("Languages Known: ").append(langs.toString().trim());
+                } else {
+                    result.append("Languages Known: None selected");
+                }
 
-                Toast.makeText(
-                        MainActivity.this,
-                        "Registration Submitted",
-                        Toast.LENGTH_SHORT
-                ).show();
+                // Display on screen
+                t.setText(result.toString());
+
+                Toast.makeText(MainActivity.this, "Submitted Successfully", Toast.LENGTH_SHORT).show();
             }
         });
     }
