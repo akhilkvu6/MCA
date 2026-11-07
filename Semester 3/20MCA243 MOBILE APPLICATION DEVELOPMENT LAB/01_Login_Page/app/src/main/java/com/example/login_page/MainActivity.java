@@ -26,16 +26,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String user = username.getText().toString();
+                String user = username.getText().toString().trim();
                 String pass = password.getText().toString();
 
                 if (user.isEmpty()) {
                     username.setError("Enter username");
                 } else if (pass.isEmpty()) {
                     password.setError("Enter password");
-                } else if (pass.length() < 6) {
-                    password.setError("Password must be at least 6 characters");
-                } else if (user.equals("akhil") && pass.equals("akhil@123")) {
+                } else if ((user.equalsIgnoreCase("admin") && pass.equals("1234")) ||
+                           (user.equalsIgnoreCase("akhil") && pass.equals("akhil@123"))) {
                     Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(MainActivity.this, "Invalid credentials", Toast.LENGTH_SHORT).show();
