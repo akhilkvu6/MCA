@@ -19,49 +19,31 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        e1 = (EditText) findViewById(R.id.edittext1);
-        e2 = (EditText) findViewById(R.id.edittext2);
-        b1 = (Button) findViewById(R.id.btn1);
+        e1 = findViewById(R.id.edittext1);
+        e2 = findViewById(R.id.edittext2);
+        b1 = findViewById(R.id.btn1);
 
         b1.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
-
                 String username = e1.getText().toString().trim();
                 String pass = e2.getText().toString();
 
                 if (username.isEmpty()) {
                     e1.setError("Enter username");
-                }
-                else if (pass.isEmpty()) {
+                } else if (pass.isEmpty()) {
                     e2.setError("Enter password");
-                }
-                else if (pass.length() < 6) {
-                    e2.setError("Password must be at least 6 characters");
-                }
-                else if (username.equals("akhil") && pass.equals("akhil@123")) {
+                } else if ((username.equalsIgnoreCase("admin") && pass.equals("1234")) ||
+                           (username.equalsIgnoreCase("akhil") && pass.equals("akhil@123")) ||
+                           (username.equalsIgnoreCase("user") && pass.equals("1234"))) {
 
-                    Toast.makeText(
-                            MainActivity.this,
-                            "Login successful",
-                            Toast.LENGTH_SHORT
-                    ).show();
+                    Toast.makeText(MainActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
 
-                    Intent intent = new Intent(
-                            MainActivity.this,
-                            MainActivity2.class
-                    );
-
+                    Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                    intent.putExtra("USER", username);
                     startActivity(intent);
-                }
-                else {
-
-                    Toast.makeText(
-                            MainActivity.this,
-                            "Login failed",
-                            Toast.LENGTH_SHORT
-                    ).show();
+                } else {
+                    Toast.makeText(MainActivity.this, "Invalid credentials", Toast.LENGTH_SHORT).show();
                 }
             }
         });
