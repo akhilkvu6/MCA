@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 280" width="100%" height="auto" style="max-width: 680px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+<defs>
+    <linearGradient id="gradPrimary" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#1565C0" />
+        <stop offset="100%" stop-color="#1E88E5" />
+    </linearGradient>
+    <linearGradient id="gradAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#2E7D32" />
+        <stop offset="100%" stop-color="#43A047" />
+    </linearGradient>
+    <linearGradient id="gradOrange" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#E65100" />
+        <stop offset="100%" stop-color="#F57C00" />
+    </linearGradient>
+    <linearGradient id="gradPurple" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#6A1B9A" />
+        <stop offset="100%" stop-color="#8E24AA" />
+    </linearGradient>
+    <linearGradient id="gradTeal" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#00695C" />
+        <stop offset="100%" stop-color="#00897B" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+</defs>
+
+<rect width="680" height="280" fill="#F8FAFC" rx="10" stroke="#CBD5E1" stroke-width="1.5" />
+<text x="340" y="28" font-size="16" font-weight="bold" fill="#0F172A" text-anchor="middle">Adapter Pattern: Data Source to ListView</text>
+<g transform="translate(30, 50)">
+    <!-- Data Source -->
+    <rect x="0" y="20" width="170" height="140" rx="6" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.5" />
+    <text x="85" y="45" font-size="13" font-weight="bold" fill="#B45309" text-anchor="middle">Data Source</text>
+    <g font-family="monospace" font-size="11" fill="#451A03">
+        <text x="25" y="75">String[] arr = {</text>
+        <text x="40" y="95">"Deepak",</text>
+        <text x="40" y="115">"Subi", ...</text>
+        <text x="25" y="135">};</text>
+    </g>
+
+    <!-- Arrow 1 -->
+    <path d="M 175 90 L 225 90" stroke="#475569" stroke-width="2" marker-end="url(#arrow)" />
+
+    <!-- ArrayAdapter -->
+    <rect x="230" y="0" width="180" height="180" rx="6" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" />
+    <text x="320" y="30" font-size="14" font-weight="bold" fill="#1D4ED8" text-anchor="middle">ArrayAdapter</text>
+    <text x="320" y="55" font-size="10.5" fill="#475569" text-anchor="middle">Binds data to row views</text>
+    <rect x="245" y="70" width="150" height="40" rx="4" fill="#FFFFFF" stroke="#93C5FD" />
+    <text x="320" y="88" font-size="10" fill="#1E40AF" text-anchor="middle">android.R.layout.</text>
+    <text x="320" y="102" font-size="10" fill="#1E40AF" text-anchor="middle">simple_list_item_1</text>
+    <text x="320" y="135" font-size="11" font-weight="bold" fill="#15803D" text-anchor="middle">getView() Method</text>
+    <text x="320" y="155" font-size="10" fill="#64748B" text-anchor="middle">Recycles child views</text>
+
+    <!-- Arrow 2 -->
+    <path d="M 415 90 L 465 90" stroke="#475569" stroke-width="2" marker-end="url(#arrow)" />
+
+    <!-- ListView -->
+    <rect x="470" y="15" width="150" height="150" rx="6" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.5" />
+    <text x="545" y="40" font-size="13" font-weight="bold" fill="#15803D" text-anchor="middle">ListView UI</text>
+    <rect x="485" y="55" width="120" height="25" rx="3" fill="#FFFFFF" stroke="#CBD5E1" />
+    <text x="545" y="72" font-size="10.5" fill="#0F172A" text-anchor="middle">Deepak</text>
+    <rect x="485" y="85" width="120" height="25" rx="3" fill="#FFFFFF" stroke="#CBD5E1" />
+    <text x="545" y="102" font-size="10.5" fill="#0F172A" text-anchor="middle">Subi</text>
+    <rect x="485" y="115" width="120" height="25" rx="3" fill="#FFFFFF" stroke="#CBD5E1" />
+    <text x="545" y="132" font-size="10.5" fill="#0F172A" text-anchor="middle">Misira</text>
+</g>
+
+</svg>

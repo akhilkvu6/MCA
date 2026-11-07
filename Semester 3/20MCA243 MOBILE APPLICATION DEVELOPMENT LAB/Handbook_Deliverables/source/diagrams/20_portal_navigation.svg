@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 340" width="100%" height="auto" style="max-width: 680px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+<defs>
+    <linearGradient id="gradPrimary" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#1565C0" />
+        <stop offset="100%" stop-color="#1E88E5" />
+    </linearGradient>
+    <linearGradient id="gradAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#2E7D32" />
+        <stop offset="100%" stop-color="#43A047" />
+    </linearGradient>
+    <linearGradient id="gradOrange" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#E65100" />
+        <stop offset="100%" stop-color="#F57C00" />
+    </linearGradient>
+    <linearGradient id="gradPurple" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#6A1B9A" />
+        <stop offset="100%" stop-color="#8E24AA" />
+    </linearGradient>
+    <linearGradient id="gradTeal" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#00695C" />
+        <stop offset="100%" stop-color="#00897B" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+</defs>
+
+<rect width="680" height="340" fill="#F8FAFC" rx="10" stroke="#CBD5E1" stroke-width="1.5" />
+<text x="340" y="28" font-size="16" font-weight="bold" fill="#0F172A" text-anchor="middle">Multi-Page Information &amp; Utility Portal Navigation Graph</text>
+<g transform="translate(30, 45)">
+    <!-- Central Dashboard -->
+    <rect x="230" y="80" width="180" height="70" rx="8" fill="#1E293B" filter="url(#shadow)" />
+    <text x="320" y="112" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Main Portal Hub</text>
+    <text x="320" y="132" font-size="10" fill="#94A3B8" text-anchor="middle">Dashboard Activity</text>
+
+    <!-- Outgoing paths -->
+    <!-- Up: Student Profile -->
+    <path d="M 320 80 L 320 40" stroke="#2563EB" stroke-width="2" marker-end="url(#arrow)" />
+    <rect x="240" y="0" width="160" height="40" rx="6" fill="#EFF6FF" stroke="#2563EB" />
+    <text x="320" y="25" font-size="11" font-weight="bold" fill="#1D4ED8" text-anchor="middle">Academic Profile Screen</text>
+
+    <!-- Left: External CET Website -->
+    <path d="M 230 115 L 140 115" stroke="#D97706" stroke-width="2" marker-end="url(#arrow)" />
+    <rect x="0" y="95" width="135" height="40" rx="6" fill="#FEF3C7" stroke="#D97706" />
+    <text x="67" y="115" font-size="10" font-weight="bold" fill="#B45309" text-anchor="middle">CET Website</text>
+    <text x="67" y="128" font-size="9" fill="#78350F" text-anchor="middle">(Implicit Intent)</text>
+
+    <!-- Right: Campus Maps -->
+    <path d="M 410 115 L 490 115" stroke="#D97706" stroke-width="2" marker-end="url(#arrow)" />
+    <rect x="495" y="95" width="135" height="40" rx="6" fill="#FEF3C7" stroke="#D97706" />
+    <text x="562" y="115" font-size="10" font-weight="bold" fill="#B45309" text-anchor="middle">Campus Maps</text>
+    <text x="562" y="128" font-size="9" fill="#78350F" text-anchor="middle">(Implicit Intent)</text>
+
+    <!-- Down-Left: Calculator Utility -->
+    <path d="M 280 150 L 200 200" stroke="#16A34A" stroke-width="2" marker-end="url(#arrow)" />
+    <rect x="130" y="200" width="140" height="40" rx="6" fill="#F0FDF4" stroke="#16A34A" />
+    <text x="200" y="225" font-size="11" font-weight="bold" fill="#15803D" text-anchor="middle">Calculator Utility</text>
+
+    <!-- Down-Right: Settings & SharedPreferences -->
+    <path d="M 360 150 L 440 200" stroke="#9333EA" stroke-width="2" marker-end="url(#arrow)" />
+    <rect x="370" y="200" width="150" height="40" rx="6" fill="#FAF5FF" stroke="#9333EA" />
+    <text x="445" y="225" font-size="11" font-weight="bold" fill="#6B21A8" text-anchor="middle">Settings &amp; Prefs</text>
+</g>
+
+</svg>

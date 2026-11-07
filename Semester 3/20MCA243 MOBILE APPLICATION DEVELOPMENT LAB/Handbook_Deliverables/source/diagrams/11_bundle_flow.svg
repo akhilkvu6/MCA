@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 240" width="100%" height="auto" style="max-width: 640px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+<defs>
+    <linearGradient id="gradPrimary" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#1565C0" />
+        <stop offset="100%" stop-color="#1E88E5" />
+    </linearGradient>
+    <linearGradient id="gradAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#2E7D32" />
+        <stop offset="100%" stop-color="#43A047" />
+    </linearGradient>
+    <linearGradient id="gradOrange" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#E65100" />
+        <stop offset="100%" stop-color="#F57C00" />
+    </linearGradient>
+    <linearGradient id="gradPurple" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#6A1B9A" />
+        <stop offset="100%" stop-color="#8E24AA" />
+    </linearGradient>
+    <linearGradient id="gradTeal" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#00695C" />
+        <stop offset="100%" stop-color="#00897B" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+</defs>
+
+<rect width="640" height="240" fill="#F8FAFC" rx="10" stroke="#CBD5E1" stroke-width="1.5" />
+<text x="320" y="28" font-size="16" font-weight="bold" fill="#0F172A" text-anchor="middle">Android Bundle Data Container</text>
+<g transform="translate(40, 50)">
+    <rect x="0" y="0" width="560" height="150" rx="8" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.5" />
+    <text x="280" y="25" font-size="13" font-weight="bold" fill="#1E293B" text-anchor="middle">Bundle object: Map&lt;String, Object&gt; (Parcelable key-value carrier)</text>
+    <rect x="30" y="45" width="150" height="80" rx="4" fill="#EFF6FF" stroke="#3B82F6" />
+    <text x="105" y="70" font-size="11" font-weight="bold" fill="#1D4ED8" text-anchor="middle">Key: "username"</text>
+    <text x="105" y="95" font-size="12" font-family="monospace" fill="#0F172A" text-anchor="middle">"akhil" (String)</text>
+
+    <rect x="205" y="45" width="150" height="80" rx="4" fill="#F0FDF4" stroke="#22C55E" />
+    <text x="280" y="70" font-size="11" font-weight="bold" fill="#15803D" text-anchor="middle">Key: "roll_no"</text>
+    <text x="280" y="95" font-size="12" font-family="monospace" fill="#0F172A" text-anchor="middle">24 (Integer)</text>
+
+    <rect x="380" y="45" width="150" height="80" rx="4" fill="#FEF3C7" stroke="#F59E0B" />
+    <text x="455" y="70" font-size="11" font-weight="bold" fill="#B45309" text-anchor="middle">Key: "is_enrolled"</text>
+    <text x="455" y="95" font-size="12" font-family="monospace" fill="#0F172A" text-anchor="middle">true (Boolean)</text>
+</g>
+
+</svg>

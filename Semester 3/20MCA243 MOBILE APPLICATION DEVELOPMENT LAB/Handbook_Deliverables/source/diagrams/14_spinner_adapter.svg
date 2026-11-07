@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 240" width="100%" height="auto" style="max-width: 660px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+<defs>
+    <linearGradient id="gradPrimary" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#1565C0" />
+        <stop offset="100%" stop-color="#1E88E5" />
+    </linearGradient>
+    <linearGradient id="gradAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#2E7D32" />
+        <stop offset="100%" stop-color="#43A047" />
+    </linearGradient>
+    <linearGradient id="gradOrange" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#E65100" />
+        <stop offset="100%" stop-color="#F57C00" />
+    </linearGradient>
+    <linearGradient id="gradPurple" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#6A1B9A" />
+        <stop offset="100%" stop-color="#8E24AA" />
+    </linearGradient>
+    <linearGradient id="gradTeal" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#00695C" />
+        <stop offset="100%" stop-color="#00897B" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+</defs>
+
+<rect width="660" height="240" fill="#F8FAFC" rx="10" stroke="#CBD5E1" stroke-width="1.5" />
+<text x="330" y="28" font-size="16" font-weight="bold" fill="#0F172A" text-anchor="middle">Spinner Dropdown &amp; OnItemSelectedListener Event Flow</text>
+<g transform="translate(35, 50)">
+    <rect x="0" y="20" width="160" height="110" rx="6" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5" />
+    <text x="80" y="45" font-size="13" font-weight="bold" fill="#1D4ED8" text-anchor="middle">Fruit ArrayList</text>
+    <text x="80" y="70" font-size="11" font-family="monospace" fill="#0F172A" text-anchor="middle">["Apple", "Mango",</text>
+    <text x="80" y="90" font-size="11" font-family="monospace" fill="#0F172A" text-anchor="middle"> "Pineapple", ...]</text>
+
+    <path d="M 165 75 L 220 75" stroke="#475569" stroke-width="2" marker-end="url(#arrow)" />
+
+    <rect x="225" y="10" width="180" height="130" rx="6" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.5" />
+    <text x="315" y="35" font-size="13" font-weight="bold" fill="#B45309" text-anchor="middle">Spinner Widget</text>
+    <rect x="240" y="50" width="150" height="30" rx="4" fill="#FFFFFF" stroke="#CBD5E1" />
+    <text x="255" y="70" font-size="11" fill="#0F172A">Mango</text>
+    <text x="375" y="70" font-size="11" fill="#64748B">▼</text>
+    <text x="315" y="105" font-size="10" fill="#78350F" text-anchor="middle">User selects an item</text>
+
+    <path d="M 410 75 L 465 75" stroke="#475569" stroke-width="2" marker-end="url(#arrow)" />
+
+    <rect x="470" y="15" width="160" height="120" rx="6" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.5" />
+    <text x="550" y="40" font-size="12" font-weight="bold" fill="#15803D" text-anchor="middle">Event Callback</text>
+    <text x="550" y="65" font-size="10" font-family="monospace" fill="#166534" text-anchor="middle">onItemSelected()</text>
+    <text x="550" y="95" font-size="10" fill="#0F172A" text-anchor="middle">tv.setText("Selected:")</text>
+    <text x="550" y="115" font-size="10" fill="#2563EB" text-anchor="middle">Toast.show()</text>
+</g>
+
+</svg>

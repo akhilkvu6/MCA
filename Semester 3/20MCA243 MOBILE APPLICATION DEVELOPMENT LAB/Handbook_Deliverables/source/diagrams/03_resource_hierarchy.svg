@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 340" width="100%" height="auto" style="max-width: 680px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+<defs>
+    <linearGradient id="gradPrimary" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#1565C0" />
+        <stop offset="100%" stop-color="#1E88E5" />
+    </linearGradient>
+    <linearGradient id="gradAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#2E7D32" />
+        <stop offset="100%" stop-color="#43A047" />
+    </linearGradient>
+    <linearGradient id="gradOrange" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#E65100" />
+        <stop offset="100%" stop-color="#F57C00" />
+    </linearGradient>
+    <linearGradient id="gradPurple" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#6A1B9A" />
+        <stop offset="100%" stop-color="#8E24AA" />
+    </linearGradient>
+    <linearGradient id="gradTeal" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#00695C" />
+        <stop offset="100%" stop-color="#00897B" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+</defs>
+
+<rect width="680" height="340" fill="#F8FAFC" rx="10" stroke="#CBD5E1" stroke-width="1.5" />
+<text x="340" y="30" font-size="16" font-weight="bold" fill="#0F172A" text-anchor="middle">Android Resource Subdirectories (res/)</text>
+
+<g transform="translate(40, 55)">
+    <rect x="0" y="0" width="180" height="110" rx="6" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5" />
+    <text x="90" y="30" font-size="14" font-weight="bold" fill="#1D4ED8" text-anchor="middle">res/layout/</text>
+    <text x="90" y="55" font-size="11" fill="#475569" text-anchor="middle">XML UI Design</text>
+    <text x="90" y="75" font-size="11" fill="#64748B" text-anchor="middle">activity_main.xml</text>
+    <text x="90" y="95" font-size="10" font-family="monospace" fill="#0F172A" text-anchor="middle">R.layout.activity_main</text>
+
+    <rect x="210" y="0" width="180" height="110" rx="6" fill="#F0FDF4" stroke="#22C55E" stroke-width="1.5" />
+    <text x="300" y="30" font-size="14" font-weight="bold" fill="#15803D" text-anchor="middle">res/values/</text>
+    <text x="300" y="55" font-size="11" fill="#475569" text-anchor="middle">Constants &amp; Themes</text>
+    <text x="300" y="75" font-size="11" fill="#64748B" text-anchor="middle">strings.xml, colors.xml</text>
+    <text x="300" y="95" font-size="10" font-family="monospace" fill="#0F172A" text-anchor="middle">R.string.app_name</text>
+
+    <rect x="420" y="0" width="180" height="110" rx="6" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.5" />
+    <text x="510" y="30" font-size="14" font-weight="bold" fill="#B45309" text-anchor="middle">res/drawable/</text>
+    <text x="510" y="55" font-size="11" fill="#475569" text-anchor="middle">Graphics &amp; Shapes</text>
+    <text x="510" y="75" font-size="11" fill="#64748B" text-anchor="middle">btn_bg.xml, logo.png</text>
+    <text x="510" y="95" font-size="10" font-family="monospace" fill="#0F172A" text-anchor="middle">R.drawable.btn_bg</text>
+
+    <rect x="105" y="135" width="180" height="110" rx="6" fill="#F3E8FF" stroke="#A855F7" stroke-width="1.5" />
+    <text x="195" y="165" font-size="14" font-weight="bold" fill="#7E22CE" text-anchor="middle">res/mipmap/</text>
+    <text x="195" y="190" font-size="11" fill="#475569" text-anchor="middle">Launcher Icons</text>
+    <text x="195" y="210" font-size="11" fill="#64748B" text-anchor="middle">ic_launcher (densities)</text>
+    <text x="195" y="230" font-size="10" font-family="monospace" fill="#0F172A" text-anchor="middle">R.mipmap.ic_launcher</text>
+
+    <rect x="315" y="135" width="180" height="110" rx="6" fill="#CCFBF1" stroke="#14B8A6" stroke-width="1.5" />
+    <text x="405" y="165" font-size="14" font-weight="bold" fill="#0F766E" text-anchor="middle">res/menu/ &amp; xml/</text>
+    <text x="405" y="190" font-size="11" fill="#475569" text-anchor="middle">Menus &amp; Config</text>
+    <text x="405" y="210" font-size="11" fill="#64748B" text-anchor="middle">options_menu.xml</text>
+    <text x="405" y="230" font-size="10" font-family="monospace" fill="#0F172A" text-anchor="middle">R.menu.options_menu</text>
+</g>
+
+</svg>

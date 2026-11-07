@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 340" width="100%" height="auto" style="max-width: 700px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+<defs>
+    <linearGradient id="gradPrimary" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#1565C0" />
+        <stop offset="100%" stop-color="#1E88E5" />
+    </linearGradient>
+    <linearGradient id="gradAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#2E7D32" />
+        <stop offset="100%" stop-color="#43A047" />
+    </linearGradient>
+    <linearGradient id="gradOrange" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#E65100" />
+        <stop offset="100%" stop-color="#F57C00" />
+    </linearGradient>
+    <linearGradient id="gradPurple" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#6A1B9A" />
+        <stop offset="100%" stop-color="#8E24AA" />
+    </linearGradient>
+    <linearGradient id="gradTeal" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#00695C" />
+        <stop offset="100%" stop-color="#00897B" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+</defs>
+
+<rect width="700" height="340" fill="#F8FAFC" rx="10" stroke="#CBD5E1" stroke-width="1.5" />
+<text x="350" y="32" font-size="16" font-weight="bold" fill="#0F172A" text-anchor="middle">The 4 Core Android Application Components</text>
+
+<g transform="translate(35, 55)">
+    <!-- Activity -->
+    <rect x="0" y="0" width="145" height="240" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" />
+    <circle cx="72" cy="35" r="20" fill="#2563EB" />
+    <text x="72" y="42" font-size="18" fill="#FFFFFF" text-anchor="middle">📱</text>
+    <text x="72" y="75" font-size="15" font-weight="bold" fill="#1E40AF" text-anchor="middle">Activity</text>
+    <text x="72" y="100" font-size="11" font-weight="bold" fill="#475569" text-anchor="middle">Single UI Screen</text>
+    <text x="72" y="125" font-size="10.5" fill="#334155" text-anchor="middle">Provides the user</text>
+    <text x="72" y="140" font-size="10.5" fill="#334155" text-anchor="middle">interface window.</text>
+    <text x="72" y="165" font-size="10" fill="#64748B" text-anchor="middle">Extends Activity</text>
+    <text x="72" y="180" font-size="10" fill="#64748B" text-anchor="middle">or AppCompatActivity</text>
+    <text x="72" y="215" font-size="10" font-weight="bold" fill="#2563EB" text-anchor="middle">Has Lifecycle</text>
+
+    <!-- Service -->
+    <rect x="160" y="0" width="145" height="240" rx="8" fill="#F0FDF4" stroke="#16A34A" stroke-width="2" />
+    <circle cx="232" cy="35" r="20" fill="#16A34A" />
+    <text x="232" y="42" font-size="18" fill="#FFFFFF" text-anchor="middle">⚙️</text>
+    <text x="232" y="75" font-size="15" font-weight="bold" fill="#166534" text-anchor="middle">Service</text>
+    <text x="232" y="100" font-size="11" font-weight="bold" fill="#475569" text-anchor="middle">Background Tasks</text>
+    <text x="232" y="125" font-size="10.5" fill="#334155" text-anchor="middle">Runs without UI</text>
+    <text x="232" y="140" font-size="10.5" fill="#334155" text-anchor="middle">for long tasks.</text>
+    <text x="232" y="165" font-size="10" fill="#64748B" text-anchor="middle">Music playback,</text>
+    <text x="232" y="180" font-size="10" fill="#64748B" text-anchor="middle">data download</text>
+    <text x="232" y="215" font-size="10" font-weight="bold" fill="#16A34A" text-anchor="middle">Started / Bound</text>
+
+    <!-- Broadcast Receiver -->
+    <rect x="320" y="0" width="145" height="240" rx="8" fill="#FFF7ED" stroke="#EA580C" stroke-width="2" />
+    <circle cx="392" cy="35" r="20" fill="#EA580C" />
+    <text x="392" y="42" font-size="18" fill="#FFFFFF" text-anchor="middle">📡</text>
+    <text x="392" y="75" font-size="14" font-weight="bold" fill="#9A3412" text-anchor="middle">Broadcast</text>
+    <text x="392" y="90" font-size="14" font-weight="bold" fill="#9A3412" text-anchor="middle">Receiver</text>
+    <text x="392" y="115" font-size="11" font-weight="bold" fill="#475569" text-anchor="middle">System Events</text>
+    <text x="392" y="135" font-size="10.5" fill="#334155" text-anchor="middle">Listens for battery low,</text>
+    <text x="392" y="150" font-size="10.5" fill="#334155" text-anchor="middle">boot done, SMS</text>
+    <text x="392" y="175" font-size="10" fill="#64748B" text-anchor="middle">onReceive(Context, Intent)</text>
+    <text x="392" y="215" font-size="10" font-weight="bold" fill="#EA580C" text-anchor="middle">Event Gateway</text>
+
+    <!-- Content Provider -->
+    <rect x="480" y="0" width="145" height="240" rx="8" fill="#FAF5FF" stroke="#9333EA" stroke-width="2" />
+    <circle cx="552" cy="35" r="20" fill="#9333EA" />
+    <text x="552" y="42" font-size="18" fill="#FFFFFF" text-anchor="middle">🗄️</text>
+    <text x="552" y="75" font-size="14" font-weight="bold" fill="#6B21A8" text-anchor="middle">Content</text>
+    <text x="552" y="90" font-size="14" font-weight="bold" fill="#6B21A8" text-anchor="middle">Provider</text>
+    <text x="552" y="115" font-size="11" font-weight="bold" fill="#475569" text-anchor="middle">Data Sharing</text>
+    <text x="552" y="135" font-size="10.5" fill="#334155" text-anchor="middle">Manages structured</text>
+    <text x="552" y="150" font-size="10.5" fill="#334155" text-anchor="middle">data between apps</text>
+    <text x="552" y="175" font-size="10" fill="#64748B" text-anchor="middle">Contacts, MediaStore</text>
+    <text x="552" y="215" font-size="10" font-weight="bold" fill="#9333EA" text-anchor="middle">URI Access</text>
+</g>
+
+</svg>

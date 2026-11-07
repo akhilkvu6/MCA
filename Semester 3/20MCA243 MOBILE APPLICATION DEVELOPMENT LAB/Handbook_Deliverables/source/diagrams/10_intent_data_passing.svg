@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 240" width="100%" height="auto" style="max-width: 660px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+<defs>
+    <linearGradient id="gradPrimary" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#1565C0" />
+        <stop offset="100%" stop-color="#1E88E5" />
+    </linearGradient>
+    <linearGradient id="gradAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#2E7D32" />
+        <stop offset="100%" stop-color="#43A047" />
+    </linearGradient>
+    <linearGradient id="gradOrange" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#E65100" />
+        <stop offset="100%" stop-color="#F57C00" />
+    </linearGradient>
+    <linearGradient id="gradPurple" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#6A1B9A" />
+        <stop offset="100%" stop-color="#8E24AA" />
+    </linearGradient>
+    <linearGradient id="gradTeal" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#00695C" />
+        <stop offset="100%" stop-color="#00897B" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+</defs>
+
+<rect width="660" height="240" fill="#F8FAFC" rx="10" stroke="#CBD5E1" stroke-width="1.5" />
+<text x="330" y="28" font-size="16" font-weight="bold" fill="#0F172A" text-anchor="middle">Intent Data Exchange via Extras Key-Value Pairs</text>
+
+<g transform="translate(35, 50)">
+    <rect x="0" y="0" width="230" height="150" rx="6" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5" />
+    <text x="115" y="25" font-size="13" font-weight="bold" fill="#1E40AF" text-anchor="middle">Sender (MainActivity)</text>
+    <g font-family="monospace" font-size="11" fill="#0F172A">
+        <text x="15" y="55">Intent i = new Intent(...);</text>
+        <text x="15" y="80" fill="#D97706">i.putExtra("USER", "akhil");</text>
+        <text x="15" y="105" fill="#D97706">i.putExtra("ID", 101);</text>
+        <text x="15" y="130">startActivity(i);</text>
+    </g>
+
+    <!-- Bus -->
+    <path d="M 235 75 L 345 75" stroke="#F59E0B" stroke-width="4" marker-end="url(#arrow)" />
+    <rect x="245" y="35" width="90" height="30" rx="4" fill="#FEF3C7" stroke="#F59E0B" />
+    <text x="290" y="55" font-size="10" font-weight="bold" fill="#B45309" text-anchor="middle">Intent Extras</text>
+
+    <rect x="350" y="0" width="240" height="150" rx="6" fill="#F0FDF4" stroke="#22C55E" stroke-width="1.5" />
+    <text x="470" y="25" font-size="13" font-weight="bold" fill="#166534" text-anchor="middle">Receiver (SecondActivity)</text>
+    <g font-family="monospace" font-size="11" fill="#0F172A">
+        <text x="365" y="55">Intent i = getIntent();</text>
+        <text x="365" y="80" fill="#15803D">String u = i.getStringExtra(</text>
+        <text x="385" y="100" fill="#15803D">"USER");</text>
+        <text x="365" y="125" fill="#15803D">int id = i.getIntExtra("ID", 0);</text>
+    </g>
+</g>
+
+</svg>

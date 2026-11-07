@@ -1,0 +1,3808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Android Programming Complete Theory and Practical Handbook - Second Edition (20MCA243)</title>
+    <style>
+    
+@page {
+    size: A4 portrait;
+    margin: 13mm 11mm 15mm 11mm;
+    @bottom-right {
+        content: counter(page);
+        font-family: Georgia, 'Times New Roman', serif;
+        font-size: 8.5pt;
+        color: #64748B;
+    }
+    @bottom-left {
+        content: "20MCA243 | Mobile Application Development Lab | College of Engineering Trivandrum";
+        font-family: Georgia, 'Times New Roman', serif;
+        font-size: 7.5pt;
+        color: #94A3B8;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 9.5pt;
+    line-height: 1.4;
+    color: #1E293B;
+    background-color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+}
+
+/* Headings */
+h1 {
+    font-size: 22pt;
+    font-weight: bold;
+    color: #0F172A;
+    margin: 0 0 3px 0;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 14pt;
+    font-weight: bold;
+    color: #1E3A8A;
+    margin: 0 0 8px 0;
+    letter-spacing: -0.3px;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 10.5pt;
+    font-weight: bold;
+    color: #0F172A;
+    margin: 8px 0 4px 0;
+    border-bottom: 1px solid #E2E8F0;
+    padding-bottom: 2px;
+}
+
+p {
+    margin: 0 0 6px 0;
+    text-align: justify;
+}
+
+.lead-text {
+    font-size: 10pt;
+    color: #334155;
+    margin-bottom: 8px;
+}
+
+/* Direct Start Header Banner */
+.header-banner {
+    border-bottom: 3px double #1E3A8A;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.course-badge {
+    font-size: 8pt;
+    font-weight: bold;
+    color: #2563EB;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 3px;
+}
+
+/* Chapter Headers */
+.chapter-break {
+    page-break-before: always;
+}
+
+.chapter-header {
+    margin-top: 4px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #0F172A;
+    padding-bottom: 4px;
+}
+
+.part-tag {
+    font-size: 7.5pt;
+    font-weight: bold;
+    color: #64748B;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
+.chapter-title {
+    font-size: 13pt;
+    color: #0F172A;
+    margin: 0;
+}
+
+/* Two Column Layout */
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.col-left, .col-right {
+    min-width: 0;
+}
+
+/* Information Boxes */
+.box {
+    margin: 6px 0 8px 0;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 8.5pt;
+    line-height: 1.35;
+    page-break-inside: avoid;
+}
+
+.box-title {
+    font-size: 8pt;
+    font-weight: bold;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+}
+
+.box-definition { background-color: #F8FAFC; border-left: 4px solid #0284C7; }
+.box-definition .box-title { color: #0369A1; }
+
+.box-concept { background-color: #F8FAFC; border-left: 4px solid #2563EB; }
+.box-concept .box-title { color: #1D4ED8; }
+
+.box-syntax { background-color: #F1F5F9; border-left: 4px solid #475569; }
+.box-syntax .box-title { color: #334155; }
+
+.box-example { background-color: #F0FDF4; border-left: 4px solid #16A34A; }
+.box-example .box-title { color: #15803D; }
+
+.box-exam-tip { background-color: #FEF3C7; border-left: 4px solid #D97706; }
+.box-exam-tip .box-title { color: #B45309; }
+
+.box-mistake { background-color: #FEF2F2; border-left: 4px solid #DC2626; }
+.box-mistake .box-title { color: #B91C1C; }
+
+.box-remember { background-color: #FAF5FF; border-left: 4px solid #9333EA; }
+.box-remember .box-title { color: #7E22CE; }
+
+/* Short Code Blocks */
+pre:not(.full-code-block) {
+    background-color: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-left: 3px solid #3B82F6;
+    border-radius: 4px;
+    padding: 6px 8px;
+    margin: 5px 0 8px 0;
+    overflow-x: hidden;
+    font-family: Consolas, 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 8pt;
+    line-height: 1.3;
+    color: #0F172A;
+    page-break-inside: avoid;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+code {
+    font-family: Consolas, 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 8pt;
+    color: #B91C1C;
+    background-color: #F1F5F9;
+    padding: 1px 3px;
+    border-radius: 3px;
+}
+
+pre code {
+    color: inherit;
+    background-color: transparent;
+    padding: 0;
+}
+
+/* ============================================================== */
+/* DEDICATED FULL-WIDTH CODE PAGES (SECOND EDITION REDESIGN)      */
+/* ============================================================== */
+.full-code-container {
+    width: 100%;
+    margin: 8px 0 12px 0;
+    page-break-inside: auto;
+}
+
+.code-file-header {
+    background-color: #0F172A;
+    color: #F8FAFC;
+    padding: 5px 10px;
+    font-family: Consolas, 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 8pt;
+    font-weight: bold;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom: 2px solid #3B82F6;
+    letter-spacing: 0.3px;
+}
+
+.code-file-header .file-icon {
+    margin-right: 5px;
+    color: #60A5FA;
+}
+
+.code-file-header code {
+    color: #93C5FD;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 8pt;
+}
+
+.full-code-block {
+    width: 100%;
+    background-color: #F8FAFC;
+    border: 1px solid #CBD5E1;
+    border-top: none;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding: 8px 10px;
+    margin: 0;
+    font-family: Consolas, 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 8pt;
+    line-height: 1.32;
+    color: #0F172A;
+    tab-size: 4;
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-x: hidden;
+    page-break-inside: auto;
+}
+
+/* Academic Tables */
+.academic-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 6px 0 10px 0;
+    font-size: 8pt;
+    page-break-inside: avoid;
+}
+
+.academic-table th {
+    background-color: #F1F5F9;
+    color: #0F172A;
+    font-weight: bold;
+    text-align: left;
+    padding: 4px 6px;
+    border: 1px solid #CBD5E1;
+}
+
+.academic-table td {
+    padding: 3px 6px;
+    border: 1px solid #E2E8F0;
+    vertical-align: top;
+    line-height: 1.3;
+}
+
+.academic-table tr:nth-child(even) td {
+    background-color: #F8FAFC;
+}
+
+/* Diagrams */
+.diagram-container {
+    text-align: center;
+    margin: 6px 0 10px 0;
+    page-break-inside: avoid;
+}
+
+.diagram-img {
+    max-height: 160px;
+    width: auto;
+    max-width: 95%;
+    border: 1px solid #E2E8F0;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.diagram-caption {
+    font-size: 7.5pt;
+    font-style: italic;
+    color: #64748B;
+    margin-top: 2px;
+}
+
+/* Lists */
+ul, ol {
+    margin: 0 0 6px 0;
+    padding-left: 16px;
+}
+
+li {
+    margin-bottom: 2px;
+    font-size: 9pt;
+}
+
+.algo-list li {
+    font-size: 8.5pt;
+    margin-bottom: 3px;
+}
+
+.formula {
+    font-family: Consolas, monospace;
+    background-color: #F1F5F9;
+    padding: 2px 6px;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 2px 0;
+    font-weight: bold;
+    color: #1E3A8A;
+    font-size: 8.5pt;
+}
+
+/* Viva Voce Container */
+.viva-container {
+    margin-top: 4px;
+}
+
+.viva-item {
+    margin-bottom: 3.5px;
+    padding: 3.5px 7px;
+    border: 1px solid #E2E8F0;
+    border-radius: 3px;
+    background-color: #FFFFFF;
+    page-break-inside: avoid;
+}
+
+.viva-q {
+    font-weight: bold;
+    color: #1E3A8A;
+    font-size: 8.5pt;
+    margin-bottom: 1.5px;
+}
+
+.viva-a {
+    color: #334155;
+    font-size: 8pt;
+    line-height: 1.28;
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="header-banner">
+        <div class="course-badge">20MCA243 | MOBILE APPLICATION DEVELOPMENT LAB | MCA SEMESTER 3</div>
+        <h1>ANDROID PROGRAMMING</h1>
+        <h2>INTRODUCTION TO ANDROID | THEORY &amp; PRACTICAL HANDBOOK (SECOND EDITION)</h2>
+    </div>
+
+    
+<!-- CHAPTER 1 -->
+<div class="chapter-header" style="margin-top: 0;">
+    <div class="part-tag">PART I | ANDROID CORE ARCHITECTURE &amp; THEORY</div>
+    <h2 class="chapter-title">CHAPTER 1: INTRODUCTION TO ANDROID &amp; DEVELOPMENT ENVIRONMENT</h2>
+</div>
+
+<p class="lead-text">Android is an open-source, Linux-based mobile operating system and comprehensive software stack engineered for touchscreen mobile devices (smartphones, tablets), wearable technology (Wear OS), smart televisions (Android TV), and automotive entertainment platforms (Android Automotive). Founded by Andy Rubin in 2003 and acquired by Google in 2005, Android is maintained under the stewardship of the Open Handset Alliance (OHA) and distributed primarily under the permissive Apache 2.0 open-source license.</p>
+
+<div class="box box-definition">
+    <div class="box-title">DEFINITION | ANDROID OPERATING SYSTEM</div>
+    <p><strong>Android</strong> is an open-source, multi-layered software platform comprising a modified Linux kernel, hardware abstraction layer (HAL), native C/C++ core libraries, the Android Runtime (ART) execution engine, an application framework, and pre-installed system applications, providing an abstraction barrier between mobile hardware and end-user applications.</p>
+</div>
+
+<h3>1.1 Chronological Version History: Android 1.0 through Android 17</h3>
+<p>Android releases follow a disciplined progression designated by incremental API levels, numerical version strings, and historically iconic confectionery codenames. Understanding this evolutionary lineage is essential for targeting hardware capabilities and managing backward compatibility.</p>
+
+<table class="academic-table">
+    <thead>
+        <tr>
+            <th style="width: 10%;">Version</th>
+            <th style="width: 22%;">Public Name &amp; Codename</th>
+            <th style="width: 10%;">API Level</th>
+            <th style="width: 8%;">Year</th>
+            <th style="width: 50%;">Major Architectural Milestones &amp; Features</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Android 1.0</strong></td>
+            <td>Base / "Apple Pie"</td>
+            <td>API 1</td>
+            <td>2008</td>
+            <td>HTC Dream (G1) launch, notification pull-down drawer, WebKit browser, Android Market, SQLite integration.</td>
+        </tr>
+        <tr>
+            <td><strong>Android 1.1</strong></td>
+            <td>"Banana Bread" / "Petit Four"</td>
+            <td>API 2</td>
+            <td>2009</td>
+            <td>Save attachments in MMS, support for showing/hiding dialer in active call, API stabilization.</td>
+        </tr>
+        <tr>
+            <td><strong>Android 1.5</strong></td>
+            <td><strong>Cupcake</strong></td>
+            <td>API 3</td>
+            <td>2009</td>
+            <td>First public confectionery name. On-screen virtual keyboard (IME framework), video recording/playback, app widgets.</td>
+        </tr>
+        <tr>
+            <td><strong>Android 1.6</strong></td>
+            <td><strong>Donut</strong></td>
+            <td>API 4</td>
+            <td>2009</td>
+            <td>Quick Search Box, Text-to-Speech (TTS) synthesis engine, WVGA resolution support, VPN management framework.</td>
+        </tr>
+        <tr>
+            <td><strong>Android 2.0 / 2.1</strong></td>
+            <td><strong>Eclair</strong></td>
+            <td>API 5–7</td>
+            <td>2009</td>
+            <td>Google Maps turn-by-turn navigation, HTML5 browser support, multi-account contact sync, live wallpapers.</td>
+        </tr>
+        <tr>
+            <td><strong>Android 2.2</strong></td>
+            <td><strong>Froyo</strong> (Frozen Yogurt)</td>
+            <td>API 8</td>
+            <td>2010</td>
+            <td>Dalvik Just-In-Time (JIT) compiler (2x–5x performance boost), USB tethering, Wi-Fi hotspot functionality, cloud messaging.</td>
+        </tr>
+        <tr>
+            <td><strong>Android 2.3</strong></td>
+            <td><strong>Gingerbread</strong></td>
+            <td>API 9–10</td>
+            <td>2010</td>
+            <td>Native Development Kit (NDK) gaming APIs, concurrent garbage collector, Near Field Communication (NFC), front camera support.</td>
+        </tr>
+        <tr>
+            <td><strong>Android 3.0–3.2</strong></td>
+            <td><strong>Honeycomb</strong></td>
+            <td>API 11–13</td>
+            <td>2011</td>
+            <td>Tablet-optimized holographic UI, Action Bar, Fragment framework introduced, multicore CPU hardware acceleration.</td>
+        </tr>
+        <tr>
+            <td><strong>Android 4.0</strong></td>
+            <td><strong>Ice Cream Sandwich</strong></td>
+            <td>API 14–15</td>
+            <td>2011</td>
+            <td>Unified phone/tablet UI, Roboto typeface, Holo theme, virtual on-screen navigation keys, swipe-to-dismiss gesture.</td>
+        </tr>
+        <tr>
+            <td><strong>Android 4.1–4.3</strong></td>
+            <td><strong>Jelly Bean</strong></td>
+            <td>API 16–18</td>
+            <td>2012</td>
+            <td>Project Butter (60 fps VSYNC rendering), expandable rich notifications, Google Now, Bluetooth Low Energy (BLE).</td>
+        </tr>
+        <tr>
+            <td><strong>Android 4.4</strong></td>
+            <td><strong>KitKat</strong></td>
+            <td>API 19–20</td>
+            <td>2013</td>
+            <td>Project Svelte (memory footprint reduced to 512MB RAM devices), Storage Access Framework (SAF), experimental ART preview.</td>
+        </tr>
+        <tr>
+            <td><strong>Android 5.0 / 5.1</strong></td>
+            <td><strong>Lollipop</strong></td>
+            <td>API 21–22</td>
+            <td>2014</td>
+            <td>Material Design language, Android Runtime (ART) permanently replaces Dalvik, 64-bit CPU architecture, JobScheduler.</td>
+        </tr>
+        <tr>
+            <td><strong>Android 6.0</strong></td>
+            <td><strong>Marshmallow</strong></td>
+            <td>API 23</td>
+            <td>2015</td>
+            <td>Dynamic runtime permissions model (<code>requestPermissions</code>), Doze battery saving state, USB Type-C, Fingerprint API.</td>
+        </tr>
+        <tr>
+            <td><strong>Android 7.0 / 7.1</strong></td>
+            <td><strong>Nougat</strong></td>
+            <td>API 24–25</td>
+            <td>2016</td>
+            <td>Multi-window split-screen multitasking, Vulkan 3D graphics API, Profile-Guided Compilation (ART JIT + AOT hybrid).</td>
+        </tr>
+        <tr>
+            <td><strong>Android 8.0 / 8.1</strong></td>
+            <td><strong>Oreo</strong></td>
+            <td>API 26–27</td>
+            <td>2017</td>
+            <td>Project Treble (modular OS updates), mandatory Notification Channels, Picture-in-Picture (PiP), background execution limits.</td>
+        </tr>
+        <tr>
+            <td><strong>Android 9.0</strong></td>
+            <td><strong>Pie</strong></td>
+            <td>API 28</td>
+            <td>2018</td>
+            <td>Gesture navigation bar, Display Cutout (notch) support, Adaptive Battery (on-device ML), mandatory TLS network security.</td>
+        </tr>
+        <tr>
+            <td><strong>Android 10</strong></td>
+            <td>"Quince Tart" (Android 10)</td>
+            <td>API 29</td>
+            <td>2019</td>
+            <td>Public dessert naming retired; Scoped Storage privacy sandbox, system-wide Dark Theme, Project Mainline modular updates.</td>
+        </tr>
+        <tr>
+            <td><strong>Android 11</strong></td>
+            <td>"Red Velvet Cake" (Android 11)</td>
+            <td>API 30</td>
+            <td>2020</td>
+            <td>Dedicated Conversations notification section, Chat Bubbles, one-time permissions, Wireless ADB debugging support.</td>
+        </tr>
+        <tr>
+            <td><strong>Android 12 / 12L</strong></td>
+            <td>"Snow Cone" (Android 12)</td>
+            <td>API 31–32</td>
+            <td>2021</td>
+            <td>Material You dynamic color theming, Privacy Dashboard, mic/cam indicator badges, mandatory <code>android:exported</code> in manifest.</td>
+        </tr>
+        <tr>
+            <td><strong>Android 13</strong></td>
+            <td>"Tiramisu" (Android 13)</td>
+            <td>API 33</td>
+            <td>2022</td>
+            <td>Per-app language preferences, system Photo Picker privacy, runtime Notification permission (<code>POST_NOTIFICATIONS</code>).</td>
+        </tr>
+        <tr>
+            <td><strong>Android 14</strong></td>
+            <td>"Upside Down Cake" (Android 14)</td>
+            <td>API 34</td>
+            <td>2023</td>
+            <td>Ultra HDR image rendering, predictive back navigation gesture preview, non-linear font scaling up to 200%.</td>
+        </tr>
+        <tr>
+            <td><strong>Android 15</strong></td>
+            <td>"Vanilla Ice Cream" (Android 15)</td>
+            <td>API 35</td>
+            <td>2024</td>
+            <td>Stable release. Default edge-to-edge layouts, Private Space isolated app profile, 16KB memory page size compatibility.</td>
+        </tr>
+        <tr>
+            <td><strong>Android 16</strong></td>
+            <td>"Baklava" (Android 16)</td>
+            <td>API 36</td>
+            <td>2025</td>
+            <td>Scheduled H1 2025. Transition to trunk-stable engineering model, Ongoing Activity / Live Updates chips, integrated photo picker.</td>
+        </tr>
+        <tr>
+            <td><strong>Android 17</strong></td>
+            <td>Future Exploratory Milestone</td>
+            <td>API 37+</td>
+            <td>2026</td>
+            <td>Internal AOSP development milestone advancing on-device AI integration, system modularity, and extended privacy sandboxes.</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="box box-concept">
+    <div class="box-title">PUBLIC DESSERT NAMES VERSUS INTERNAL ENGINEERING CODENAMES</div>
+    <p>From Android 1.5 (Cupcake) through Android 9 (Pie), Google utilized dessert confection names for public consumer marketing. Starting with Android 10, Google transitioned consumer branding to numerical releases (Android 10, 11, 12...) for international clarity. However, Google's internal engineering teams continue assigning alphabetical dessert codenames (Quince Tart, Red Velvet Cake, Snow Cone, Tiramisu, Upside Down Cake, Vanilla Ice Cream, Baklava) to manage branch merges within the Android Open Source Project (AOSP).</p>
+</div>
+
+<h3>1.2 The Android SDK Build Configuration Parameters</h3>
+<p>Every Android Studio module declares three fundamental integer version properties inside its <code>build.gradle</code> or <code>build.gradle.kts</code> script:</p>
+
+<div class="formula">minSdk &le; targetSdk &le; compileSdk</div>
+
+<ul>
+    <li><strong><code>compileSdk</code>:</strong> The exact Android platform SDK version used by the Gradle build system to compile the Java/Kotlin source code. It dictates which framework APIs, classes, and methods are visible to the developer at compile-time. Compiling against API 34 enables using Android 14 APIs, but does not alter runtime behavior on older devices.</li>
+    <li><strong><code>minSdk</code>:</strong> The minimum API level required for a device to install and execute the application. The Google Play Store and local OS package installer (PackageManager) actively enforce this threshold, blocking devices running an earlier OS version.</li>
+    <li><strong><code>targetSdk</code>:</strong> Declares the API level against which the application has been designed, implemented, and thoroughly tested. Instructs the Android OS to activate new security restrictions, permission models, and UI behavioral shifts introduced in that version (e.g., Scoped Storage on API 29, <code>android:exported</code> on API 31). Setting a higher <code>targetSdk</code> ensures modern OS compliance.</li>
+</ul>
+
+<h3>1.3 Android Studio Development Toolchain Overview</h3>
+<ul>
+    <li><strong>Android SDK (Software Development Kit):</strong> Core libraries (<code>android.jar</code>), build tools (AAPT2, D8), platform tools (ADB), and hardware system images.</li>
+    <li><strong>Android Studio IDE:</strong> Official development environment built on JetBrains IntelliJ IDEA, providing intelligent Java code completion, graphical layout designers, and memory profilers.</li>
+    <li><strong>AAPT2 (Android Asset Packaging Tool 2):</strong> Parses and compiles XML layout resources, assets, and values into binary XML and generates the static Java <code>R.java</code> class.</li>
+    <li><strong>D8 / R8 Compiler:</strong> Converts compiled Java bytecode (<code>.class</code> files) into highly optimized Dalvik Executable (<code>.dex</code>) format and performs code shrinking/obfuscation.</li>
+    <li><strong>Gradle Automation:</strong> Modular task-runner that manages dependencies, compiler toolchains, flavor variants, and packaging into output artifacts.</li>
+    <li><strong>APK vs AAB:</strong> An <strong>APK (Android Package)</strong> is a signed ZIP archive ready for direct installation on a device. An <strong>AAB (Android App Bundle)</strong> is a publishing format uploaded to Google Play that allows Google's Dynamic Delivery system to generate customized, lightweight APKs tailored to each user's exact screen density and CPU architecture, saving ~35% storage.</li>
+</ul>
+
+<!-- CHAPTER 2 -->
+<div class="chapter-break"></div>
+<div class="chapter-header">
+    <div class="part-tag">PART I | ANDROID CORE ARCHITECTURE &amp; THEORY</div>
+    <h2 class="chapter-title">CHAPTER 2: ANDROID 5-TIER SYSTEM ARCHITECTURE</h2>
+</div>
+
+<p class="lead-text">Android's operating system architecture is organized into five modular, decoupled layers. Lower layers provide system hardware abstraction and core OS security, while upper layers expose high-level Java APIs for application development.</p>
+
+<div class="diagram-container">
+    <img src="diagrams/01_android_architecture.svg" alt="Android Architecture Diagram" class="diagram-img" style="max-height: 240px;" />
+    <div class="diagram-caption">Figure 2.1: The 5-Tier Android Software Architecture Stack from Linux Kernel to Applications.</div>
+</div>
+
+<h3>2.1 Linux Kernel Layer</h3>
+<p>The bedrock of Android is a specialized Linux Kernel (Long Term Support branch). It interfaces directly with device hardware and provides essential operating system capabilities:</p>
+<ul>
+    <li><strong>Process Isolation &amp; Sandboxing:</strong> Each Android application runs inside its own isolated process space under a distinct Linux User ID (UID). An application cannot access memory, files, or execution state belonging to another application without explicit permissions.</li>
+    <li><strong>Binder IPC (Inter-Process Communication):</strong> A high-throughput kernel driver facilitating remote procedure calls (RPC) and shared memory buffer transfers between separate process boundaries.</li>
+    <li><strong>Low Memory Killer (LMK):</strong> A kernel-level driver that monitors physical RAM and systematically terminates dormant background processes based on an Out-Of-Memory (OOM) score when available system RAM drops below critical thresholds.</li>
+    <li><strong>Hardware Drivers:</strong> Houses hardware-specific device drivers including display drivers, camera sensor pipelines, Bluetooth, flash memory, audio DACs, and power management (Wakelocks).</li>
+</ul>
+
+<h3>2.2 Hardware Abstraction Layer (HAL)</h3>
+<p>The <strong>HAL</strong> provides standard C/C++ interface contracts that hardware vendors (e.g., Qualcomm, MediaTek) implement to expose proprietary chipset capabilities to the upper Java framework without modifying framework code. Standard modules include Camera HAL, Audio HAL, Sensors HAL, and Bluetooth HAL.</p>
+
+<h3>2.3 Native C/C++ Libraries</h3>
+<p>Positioned directly above the HAL, these compiled native user-space libraries power resource-intensive subsystem tasks:</p>
+<ul>
+    <li><strong>SQLite:</strong> High-performance, embedded, ACID-compliant relational SQL engine used for structured persistent storage across Android apps.</li>
+    <li><strong>WebKit / Blink:</strong> Native web rendering engine powering embedded <code>WebView</code> controls.</li>
+    <li><strong>OpenGL ES &amp; Vulkan:</strong> Hardware-accelerated 2D/3D graphics rendering pipelines communicating directly with the mobile GPU.</li>
+    <li><strong>Media Framework:</strong> Native codecs supporting hardware decode/encode of audio/video formats (H.264, VP9, AAC, MP3).</li>
+    <li><strong>Bionic:</strong> Google's custom BSD-derived C standard library, engineered specifically for low memory footprints and rapid thread execution.</li>
+</ul>
+
+<h3>2.4 Android Runtime (ART)</h3>
+<p>Introduced in Android 5.0 to supersede the legacy Dalvik VM, <strong>ART</strong> is the managed runtime execution engine that executes Dalvik Executable (<code>.dex</code>) bytecode. ART features:</p>
+<ul>
+    <li><strong>Ahead-Of-Time (AOT) Compilation:</strong> Translates DEX bytecode into native machine instructions (ELF binary) during application installation via the <code>dex2oat</code> tool, drastically reducing CPU cycles during app execution.</li>
+    <li><strong>Profile-Guided JIT (Just-In-Time) Hybrid:</strong> Re-introduced in Android 7.0, ART profiles app usage dynamically, compiling frequently accessed "hot paths" to native code while storing profiles to optimize future startup.</li>
+    <li><strong>Concurrent Garbage Collection (GC):</strong> Advanced compacting garbage collectors minimize application pause times, eliminating visual frame drops ("jank").</li>
+</ul>
+
+<h3>2.5 Application Framework Layer</h3>
+<p>The Java/Kotlin API layer that exposes high-level operating system services to developers. Core framework managers include:</p>
+<ul>
+    <li><strong><code>ActivityManager</code>:</strong> Regulates the lifecycle of visual applications and manages the global navigation back stack.</li>
+    <li><strong><code>WindowManager</code>:</strong> Creates and coordinates display windows, view hierarchies, and surface layouts on screen.</li>
+    <li><strong><code>PackageManager</code>:</strong> Queries installed applications, inspects manifests, and validates security permissions.</li>
+    <li><strong><code>NotificationManager</code>:</strong> Posts and manages user alerts in the system notification drawer.</li>
+    <li><strong><code>ContentProviders</code>:</strong> Mediates secure inter-application data sharing and database querying.</li>
+</ul>
+
+<!-- CHAPTER 3 -->
+<div style="margin-top: 14px;"></div>
+<div class="chapter-header">
+    <div class="part-tag">PART I | ANDROID CORE ARCHITECTURE &amp; THEORY</div>
+    <h2 class="chapter-title">CHAPTER 3: ANDROID STUDIO PROJECT STRUCTURE</h2>
+</div>
+
+<p class="lead-text">An Android Studio project adheres to a standardized directory layout separating executable source code, XML layouts, asset binaries, and build automation scripts.</p>
+
+<div class="diagram-container">
+    <img src="diagrams/02_project_hierarchy.svg" alt="Project Hierarchy" class="diagram-img" style="max-height: 200px;" />
+    <div class="diagram-caption">Figure 3.1: Standard Android Studio Project File Organization.</div>
+</div>
+
+<h3>3.1 Filesystem Anatomy</h3>
+<ul>
+    <li><strong><code>app/src/main/AndroidManifest.xml</code>:</strong> The central deployment descriptor and system contract. Declares the app package name, all four components (Activities, Services, Receivers, Providers), required permissions, and hardware feature requirements.</li>
+    <li><strong><code>app/src/main/java/</code>:</strong> Root directory containing all Java package directories and classes (e.g., <code>com.example.login_page.MainActivity</code>).</li>
+    <li><strong><code>app/src/main/res/</code>:</strong> Directory housing static application resources:
+        <ul>
+            <li><code>layout/</code>: XML layout files defining the visual structure of screens (e.g., <code>activity_main.xml</code>).</li>
+            <li><code>values/</code>: XML files defining constants: <code>strings.xml</code> (text), <code>colors.xml</code> (palette), <code>themes.xml</code> (styles).</li>
+            <li><code>drawable/</code>: Vector drawables (XML vectors) and raster graphics (PNG/JPG).</li>
+            <li><code>mipmap/</code>: App launcher icons configured across screen density buckets (mdpi to xxxhdpi).</li>
+        </ul>
+    </li>
+    <li><strong><code>build.gradle</code>:</strong> Gradle build script defining compiler target versions, external library dependencies, and build flavors.</li>
+</ul>
+
+<h3>3.2 AAPT2 and the Compiled R Class</h3>
+<p>During the compilation build phase, the Android Asset Packaging Tool 2 (AAPT2) parses every file within <code>res/</code> and compiles them into a static Java class named <code>R.java</code>. Every resource declared with an ID is assigned a static final 32-bit hexadecimal integer:</p>
+
+<div class="box box-syntax">
+    <div class="box-title">SYNTAX &amp; CODE | PROGRAMMATIC RESOURCE RESOLUTION VIA R CLASS</div>
+    <pre><code>// 1. Inflating an XML layout onto an Activity window
+setContentView(R.layout.activity_main);
+
+// 2. Binding a visual UI widget by its compiled hexadecimal ID
+EditText etUser = findViewById(R.id.username);
+Button btnLogin = findViewById(R.id.login);
+
+// 3. Programmatically retrieving string and color values
+String appTitle = getString(R.string.app_name);
+int primaryColor = getColor(R.color.blue);</code></pre>
+</div>
+
+<!-- CHAPTER 4 -->
+<div style="margin-top: 14px;"></div>
+<div class="chapter-header">
+    <div class="part-tag">PART I | ANDROID CORE ARCHITECTURE &amp; THEORY</div>
+    <h2 class="chapter-title">CHAPTER 4: ANDROID RESOURCES, QUALIFIERS &amp; SIZING UNITS</h2>
+</div>
+
+<p class="lead-text">Android devices encompass a vast range of physical screen sizes, pixel densities, and language locales. To guarantee a uniform, crisp visual presentation, Android employs abstract measurement units and configuration qualifiers.</p>
+
+<div class="diagram-container">
+    <img src="diagrams/03_resource_hierarchy.svg" alt="Resource Hierarchy" class="diagram-img" style="max-height: 200px;" />
+    <div class="diagram-caption">Figure 4.1: Specialization of the res/ resource hierarchy and R-class constants.</div>
+</div>
+
+<h3>4.1 Density-Independent Units: dp versus sp</h3>
+<p>Hardcoding physical pixels (<code>px</code>) causes catastrophic layout variance across devices: a 100px button on a 160 dpi screen spans ~0.62 inches, but shrinks to ~0.2 inches on a 480 dpi display. Android solves this through density-independent units:</p>
+
+<table class="academic-table">
+    <thead>
+        <tr><th>Dimension Unit</th><th>Full Name</th><th>Scaling Factors</th><th>Mandatory Usage Rule</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong><code>dp</code> / <code>dip</code></strong></td>
+            <td>Density-independent Pixels</td>
+            <td>Scales with screen density based on a 160 dpi baseline ($1	ext{dp} = 1	ext{px}$ at 160 dpi).</td>
+            <td><strong>Strictly use for layout dimensions:</strong> widths, heights, margins, padding, and borders.</td>
+        </tr>
+        <tr>
+            <td><strong><code>sp</code></strong></td>
+            <td>Scale-independent Pixels</td>
+            <td>Scales with screen density <em>and</em> the user's system font accessibility scaling factor.</td>
+            <td><strong>Strictly reserved for typography:</strong> <code>android:textSize</code>.</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="box box-concept">
+    <div class="box-title">MATHEMATICAL PIXEL CONVERSION FORMULA</div>
+    <p>The Android OS dynamically converts <code>dp</code> into physical screen pixels (<code>px</code>) at runtime using:</p>
+    <div class="formula">px = dp &times; \left(rac{	ext{dpi}}{160}ight)</div>
+    <p>Baseline densities: <strong>mdpi</strong> (160 dpi, $1	imes$), <strong>hdpi</strong> (240 dpi, $1.5	imes$), <strong>xhdpi</strong> (320 dpi, $2	imes$), <strong>xxhdpi</strong> (480 dpi, $3	imes$), <strong>xxxhdpi</strong> (640 dpi, $4	imes$).</p>
+</div>
+
+<h3>4.2 Resource Configuration Qualifiers</h3>
+<p>The Android runtime dynamically selects alternative resources from qualified subdirectories based on active device state:</p>
+<table class="academic-table">
+    <thead><tr><th>Qualifier Category</th><th>Folder Syntax</th><th>Triggering Runtime Condition</th></tr></thead>
+    <tbody>
+        <tr><td><strong>Orientation</strong></td><td><code>res/layout-land/</code></td><td>User rotates device into landscape mode.</td></tr>
+        <tr><td><strong>Night Mode</strong></td><td><code>res/values-night/</code></td><td>User enables system-wide Dark Theme (Night mode).</td></tr>
+        <tr><td><strong>Smallest Width</strong></td><td><code>res/layout-sw600dp/</code></td><td>Device screen width exceeds 600dp (standard 7-inch+ tablet).</td></tr>
+        <tr><td><strong>Screen Density</strong></td><td><code>res/drawable-xxhdpi/</code></td><td>High-density screen (~480 dpi) to ensure sharp bitmap rendering.</td></tr>
+        <tr><td><strong>Locale / Language</strong></td><td><code>res/values-hi/</code></td><td>Device language configured to Hindi (localized UI text).</td></tr>
+    </tbody>
+</table>
+
+<!-- CHAPTER 5 & 6 -->
+<div class="chapter-break"></div>
+<div class="chapter-header">
+    <div class="part-tag">PART I | ANDROID CORE ARCHITECTURE &amp; THEORY</div>
+    <h2 class="chapter-title">CHAPTERS 5 &amp; 6: APPLICATION COMPONENTS &amp; ANDROIDMANIFEST.XML</h2>
+</div>
+
+<div class="diagram-container">
+    <img src="diagrams/04_app_components.svg" alt="App Components" class="diagram-img" style="max-height: 200px;" />
+    <div class="diagram-caption">Figure 5.1: The Four Core Android Application Building Blocks.</div>
+</div>
+
+<h3>5.1 The Four Fundamental Application Components</h3>
+<ul>
+    <li><strong>1. Activity:</strong> Represents a single visual screen with an interactive user interface (subclasses <code>AppCompatActivity</code>). It serves as the primary gateway for user interaction.</li>
+    <li><strong>2. Service:</strong> A background execution component that performs long-running background tasks (e.g., audio playback, file downloading, socket polling) without providing a visual user interface.</li>
+    <li><strong>3. BroadcastReceiver:</strong> A gateway component that registers to receive system-wide announcements or app broadcasts (e.g., battery low, boot completed, SMS received). It has no persistent UI and executes brief logic inside <code>onReceive()</code>.</li>
+    <li><strong>4. ContentProvider:</strong> Manages a secure, structured repository of persistent app data (typically SQLite) and exposes standard CRUD interfaces (<code>query</code>, <code>insert</code>, <code>update</code>, <code>delete</code>) for cross-process data sharing across applications.</li>
+</ul>
+
+<h3>6.1 The AndroidManifest.xml Deployment Contract</h3>
+<p>The <code>AndroidManifest.xml</code> file is the root deployment descriptor of an Android application. The operating system inspects this manifest prior to instantiating any component. Any component not declared in the manifest cannot be executed by the OS.</p>
+
+<div class="box box-syntax">
+    <div class="box-title">SYNTAX | COMPLETE ANDROIDMANIFEST.XML WITH INTENT FILTERS</div>
+    <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.myapp"&gt;
+
+    &lt;!-- System Permissions Declarations --&gt;
+    &lt;uses-permission android:name="android.permission.INTERNET" /&gt;
+
+    &lt;application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.AppCompat.Light"&gt;
+
+        &lt;!-- Main Launcher Activity (Entry Point) --&gt;
+        &lt;activity
+            android:name=".MainActivity"
+            android:exported="true"&gt;
+            &lt;intent-filter&gt;
+                &lt;action android:name="android.intent.action.MAIN" /&gt;
+                &lt;category android:name="android.intent.category.LAUNCHER" /&gt;
+            &lt;/intent-filter&gt;
+        &lt;/activity&gt;
+
+        &lt;!-- Secondary Private Activity --&gt;
+        &lt;activity
+            android:name=".SecondActivity"
+            android:exported="false" /&gt;
+    &lt;/application&gt;
+&lt;/manifest&gt;</code></pre>
+</div>
+
+<!-- CHAPTER 7 -->
+<div class="chapter-break"></div>
+<div class="chapter-header">
+    <div class="part-tag">PART I | ANDROID CORE ARCHITECTURE &amp; THEORY</div>
+    <h2 class="chapter-title">CHAPTER 7: ACTIVITY &amp; ACTIVITY LIFECYCLE STATE MACHINE</h2>
+</div>
+
+<p class="lead-text">An Android Activity is governed by a deterministic, callback-driven state machine managed by the Android OS framework. As the user navigates into, away from, and back to an app, the OS transitions the Activity through distinct lifecycle states, firing corresponding callback methods.</p>
+
+<div class="diagram-container">
+    <img src="diagrams/05_activity_lifecycle.svg" alt="Activity Lifecycle Flowchart" class="diagram-img" style="max-height: 240px;" />
+    <div class="diagram-caption">Figure 7.1: The Android Activity Lifecycle State Machine with Return Transitions.</div>
+</div>
+
+<h3>7.1 The Seven Lifecycle Callbacks</h3>
+<ul>
+    <li><strong><code>onCreate(Bundle savedInstanceState)</code>:</strong> Fired when the Activity is first instantiated in memory. Perform static initializations: inflate layout via <code>setContentView()</code>, bind view variables via <code>findViewById()</code>, and configure listener callbacks.</li>
+    <li><strong><code>onStart()</code>:</strong> Fired when the Activity becomes visible to the user on screen, but is not yet interactive in the foreground.</li>
+    <li><strong><code>onResume()</code>:</strong> Fired when the Activity enters the active foreground running state and begins receiving user touch input.</li>
+    <li><strong><code>onPause()</code>:</strong> Fired when the Activity is partially obscured (e.g., by a dialog, incoming phone call, or split-screen mode). Pause lightweight animations or commit unsaved inputs.</li>
+    <li><strong><code>onStop()</code>:</strong> Fired when the Activity is completely hidden from view. Heavy background tasks should be halted and state saved to <code>SharedPreferences</code>.</li>
+    <li><strong><code>onRestart()</code>:</strong> Fired when an Activity that was previously stopped transitions back toward the visible foreground prior to <code>onStart()</code>.</li>
+    <li><strong><code>onDestroy()</code>:</strong> Final cleanup hook before the Activity instance is completely purged from process RAM (called via <code>finish()</code> or OS reclaiming memory).</li>
+</ul>
+
+<div class="box box-mistake">
+    <div class="box-title">COMMON MISTAKE | SuperNotCalledException</div>
+    <p>Every lifecycle callback implementation in Java <strong>must</strong> invoke its parent class method (e.g. <code>super.onCreate(savedInstanceState);</code>) as its very first statement. Omitting this super call causes the runtime framework to throw a fatal <code>SuperNotCalledException</code>, crashing the app.</p>
+</div>
+
+<!-- CHAPTER 8, 9 & 10 -->
+<div class="chapter-break"></div>
+<div class="chapter-header">
+    <div class="part-tag">PART I | ANDROID CORE ARCHITECTURE &amp; THEORY</div>
+    <h2 class="chapter-title">CHAPTERS 8, 9 &amp; 10: UI WIDGETS, LAYOUT MANAGERS &amp; VIEW HIERARCHY</h2>
+</div>
+
+<div class="diagram-container">
+    <img src="diagrams/06_view_hierarchy.svg" alt="View Hierarchy" class="diagram-img" style="max-height: 200px;" />
+    <div class="diagram-caption">Figure 8.1: View and ViewGroup Composite Tree Hierarchy.</div>
+</div>
+
+<div class="diagram-container">
+    <img src="diagrams/07_layout_hierarchy.svg" alt="Layout Hierarchy" class="diagram-img" style="max-height: 200px;" />
+    <div class="diagram-caption">Figure 9.1: Child Positioning Semantics across Android Layout Managers.</div>
+</div>
+
+<h3>8.1 Fundamental UI Widgets Taxonomy</h3>
+<table class="academic-table">
+    <thead><tr><th>UI Component</th><th>Java Class</th><th>Primary Purpose &amp; Configuration Attributes</th></tr></thead>
+    <tbody>
+        <tr><td><strong>TextView</strong></td><td><code>android.widget.TextView</code></td><td>Renders read-only formatted text. Key attributes: <code>android:text</code>, <code>textSize</code>, <code>textColor</code>, <code>textStyle</code>.</td></tr>
+        <tr><td><strong>EditText</strong></td><td><code>android.widget.EditText</code></td><td>User text input field. Key attributes: <code>android:hint</code>, <code>inputType="textPassword|number"</code>, <code>maxLength</code>.</td></tr>
+        <tr><td><strong>Button</strong></td><td><code>android.widget.Button</code></td><td>Clickable push button that triggers action callbacks. Key attribute: <code>android:text</code>.</td></tr>
+        <tr><td><strong>CheckBox</strong></td><td><code>android.widget.CheckBox</code></td><td>Two-state toggle supporting independent multi-selection. Method: <code>isChecked()</code>.</td></tr>
+        <tr><td><strong>RadioButton</strong></td><td><code>android.widget.RadioButton</code></td><td>Single-choice circular option button. Must be hosted inside a <code>RadioGroup</code> to enforce mutual exclusion.</td></tr>
+        <tr><td><strong>Spinner</strong></td><td><code>android.widget.Spinner</code></td><td>Compact dropdown selector populated via an <code>ArrayAdapter</code>.</td></tr>
+        <tr><td><strong>ListView</strong></td><td><code>android.widget.ListView</code></td><td>Vertically scrollable collection container featuring view recycling via an adapter.</td></tr>
+    </tbody>
+</table>
+
+<h3>9.1 Layout Managers Overview</h3>
+<ul>
+    <li><strong><code>LinearLayout</code>:</strong> Arranges child elements in a single sequential direction (<code>android:orientation="vertical"</code> or <code>"horizontal"</code>). Supports proportional spacing using <code>android:layout_weight</code>.</li>
+    <li><strong><code>RelativeLayout</code>:</strong> Arranges child elements relative to their parent container boundaries (e.g. <code>alignParentTop="true"</code>) or relative to sibling views (e.g. <code>layout_below="@id/header"</code>).</li>
+    <li><strong><code>ConstraintLayout</code>:</strong> Flexible, flat layout manager that positions widgets using dual-axis constraints anchored to parent edges or sibling guidelines, eliminating costly view nesting.</li>
+    <li><strong><code>ScrollView</code>:</strong> A container providing vertical scrolling when child content exceeds physical screen boundaries. <em>Mandatory Rule: A ScrollView can host strictly one direct child ViewGroup!</em></li>
+</ul>
+
+<h3>9.2 Core XML Layout Attribute Comparisons</h3>
+<table class="academic-table">
+    <thead><tr><th>Comparison</th><th>First Option</th><th>Second Option</th><th>Key Difference &amp; Usage Rule</th></tr></thead>
+    <tbody>
+        <tr>
+            <td><strong><code>padding</code> vs <code>margin</code></strong></td>
+            <td><code>android:padding</code>: Internal spacing inside view perimeter.</td>
+            <td><code>android:layout_margin</code>: External spacing outside view border.</td>
+            <td>Padding expands touchable area; margin creates distance between sibling views.</td>
+        </tr>
+        <tr>
+            <td><strong><code>gravity</code> vs <code>layout_gravity</code></strong></td>
+            <td><code>android:gravity</code>: Aligns content <em>inside</em> the view (e.g., text in button).</td>
+            <td><code>android:layout_gravity</code>: Aligns the <em>view itself</em> inside its parent container.</td>
+            <td>Gravity controls internal alignment; layout_gravity controls external container placement.</td>
+        </tr>
+        <tr>
+            <td><strong><code>match_parent</code> vs <code>wrap_content</code></strong></td>
+            <td><code>match_parent</code>: Expands view to occupy 100% of available parent dimension.</td>
+            <td><code>wrap_content</code>: Shrinks view to encompass only its internal content.</td>
+            <td>Use <code>match_parent</code> for full-width inputs; use <code>wrap_content</code> for buttons and labels.</td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- CHAPTER 11 & 12 -->
+<div class="chapter-break"></div>
+<div class="chapter-header">
+    <div class="part-tag">PART I | ANDROID CORE ARCHITECTURE &amp; THEORY</div>
+    <h2 class="chapter-title">CHAPTERS 11 &amp; 12: EVENT HANDLING &amp; INTENT MESSAGING</h2>
+</div>
+
+<div class="diagram-container">
+    <img src="diagrams/08_explicit_intent.svg" alt="Explicit Intent" class="diagram-img" style="max-height: 200px;" />
+    <div class="diagram-caption">Figure 12.1: Explicit Intent Navigation between Activity 1 and Activity 2.</div>
+</div>
+
+<div class="diagram-container">
+    <img src="diagrams/09_implicit_intent.svg" alt="Implicit Intent" class="diagram-img" style="max-height: 200px;" />
+    <div class="diagram-caption">Figure 12.2: Implicit Intent Resolution through the Android OS PackageManager.</div>
+</div>
+
+<h3>11.1 Event Handling Architecture</h3>
+<p>User interactions (taps, text input, selections) generate asynchronous event objects dispatched to registered listener interfaces:</p>
+
+<div class="box box-syntax">
+    <div class="box-title">SYNTAX | ANONYMOUS ONCLICKLISTENER REGISTRATION</div>
+    <pre><code>Button btn = findViewById(R.id.btnSubmit);
+btn.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        // Asynchronous touch callback executed on the UI Thread
+        Toast.makeText(MainActivity.this, "Action Triggered", Toast.LENGTH_SHORT).show();
+    }
+});</code></pre>
+</div>
+
+<h3>12.1 Explicit versus Implicit Intents</h3>
+<table class="academic-table">
+    <thead><tr><th>Criteria</th><th>Explicit Intent</th><th>Implicit Intent</th></tr></thead>
+    <tbody>
+        <tr><td><strong>Definition</strong></td><td>Directly designates the exact target Java class in the local package.</td><td>Declares an abstract <strong>Action</strong> and <strong>Data URI</strong> for external handling.</td></tr>
+        <tr><td><strong>Syntax</strong></td><td><code>new Intent(this, SecondActivity.class)</code></td><td><code>new Intent(Intent.ACTION_VIEW, Uri.parse("https://cet.ac.in"))</code></td></tr>
+        <tr><td><strong>Target Component</strong></td><td>Known, internal application screen.</td><td>Any external installed application registered to handle the action.</td></tr>
+        <tr><td><strong>Security &amp; Resolution</strong></td><td>Deterministic; resolved instantly within the app sandbox.</td><td>Resolved dynamically by the OS <code>PackageManager</code> via Intent Filters.</td></tr>
+        <tr><td><strong>Failure Mode</strong></td><td>Fails at compile-time if class missing.</td><td>Throws <code>ActivityNotFoundException</code> if no matching app exists (wrap in try-catch).</td></tr>
+    </tbody>
+</table>
+
+<h3>12.2 Data Transfer via Intent Extras Bundle</h3>
+<p>Intents transfer primitive and serializable data across Activity boundaries using an internal <code>Bundle</code> payload:</p>
+<div class="box box-syntax">
+    <div class="box-title">SYNTAX | ATTACHING AND EXTRACTING INTENT EXTRAS</div>
+    <pre><code>// 1. Sender Activity (Packing Data)
+Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+intent.putExtra("USER_KEY", username);
+intent.putExtra("AGE_KEY", 22);
+startActivity(intent);
+
+// 2. Receiver Activity (Unpacking Data in onCreate)
+Intent receivedIntent = getIntent();
+String user = receivedIntent.getStringExtra("USER_KEY");
+int age = receivedIntent.getIntExtra("AGE_KEY", 0); // Requires default value for primitives</code></pre>
+</div>
+
+<!-- CHAPTER 13, 14 & 15 -->
+<div class="chapter-break"></div>
+<div class="chapter-header">
+    <div class="part-tag">PART I | ANDROID CORE ARCHITECTURE &amp; THEORY</div>
+    <h2 class="chapter-title">CHAPTERS 13, 14 &amp; 15: SHAREDPREFERENCES, ADAPTERS &amp; STORAGE</h2>
+</div>
+
+<div class="diagram-container">
+    <img src="diagrams/12_shared_preferences_flow.svg" alt="SharedPreferences Flow" class="diagram-img" style="max-height: 200px;" />
+    <div class="diagram-caption">Figure 13.1: SharedPreferences Key-Value Storage Architecture.</div>
+</div>
+
+<div class="diagram-container">
+    <img src="diagrams/13_listview_adapter.svg" alt="ListView Adapter Flow" class="diagram-img" style="max-height: 200px;" />
+    <div class="diagram-caption">Figure 14.1: Adapter Bridge between Java Collections and AdapterView rows.</div>
+</div>
+
+<h3>13.1 SharedPreferences API</h3>
+<p><code>SharedPreferences</code> stores primitive key-value pairs (String, int, boolean, float, long) in private XML files located under <code>/data/data/&lt;package_name&gt;/shared_prefs/</code>. Ideal for session tokens, user settings, and remember-me states.</p>
+
+<div class="box box-syntax">
+    <div class="box-title">SYNTAX | SHAREDPREFERENCES CRUD OPERATIONS</div>
+    <pre><code>// Opening Preferences in Private Mode
+SharedPreferences sp = getSharedPreferences("UserSession", MODE_PRIVATE);
+
+// Writing Data
+sp.edit()
+  .putString("USERNAME", "akhil")
+  .putBoolean("IS_LOGGED_IN", true)
+  .apply(); // Asynchronous disk write (safe for UI thread)
+
+// Reading Data (with fallback defaults)
+String user = sp.getString("USERNAME", "Guest");
+boolean logged = sp.getBoolean("IS_LOGGED_IN", false);
+
+// Clearing Session Data
+sp.edit().clear().apply();</code></pre>
+</div>
+
+<h3>14.1 The Adapter Pattern &amp; View Recycling</h3>
+<p>An <strong>Adapter</strong> acts as a structural bridge between an in-memory data collection (such as an <code>ArrayList&lt;String&gt;</code>) and an <code>AdapterView</code> (such as <code>ListView</code> or <code>Spinner</code>). To conserve memory, Android recycles views: rather than creating 1,000 views for a 1,000-item list, the framework only instantiates enough views to fill the physical screen (~10 views) and re-binds them as the user scrolls.</p>
+
+<h3>15.1 Android Storage Options Comparison</h3>
+<table class="academic-table">
+    <thead><tr><th>Storage Mechanism</th><th>Data Format</th><th>File Visibility</th><th>Lifecycle Persistence</th><th>Ideal Use Case</th></tr></thead>
+    <tbody>
+        <tr><td><strong>SharedPreferences</strong></td><td>Key-Value XML</td><td>Private to App</td><td>Persistent until app data cleared.</td><td>User preferences, flags, auth tokens.</td></tr>
+        <tr><td><strong>Internal Storage</strong></td><td>Raw files / caches</td><td>Private to App</td><td>Persistent until uninstalled.</td><td>Private app documents, temporary cache files.</td></tr>
+        <tr><td><strong>External Storage</strong></td><td>Scoped Media files</td><td>Public / Scoped</td><td>Persistent (user-managed).</td><td>Photos, videos, shared PDF documents.</td></tr>
+        <tr><td><strong>SQLite / Room</strong></td><td>Relational SQL DB</td><td>Private to App</td><td>Persistent structured data.</td><td>Complex datasets, offline caching, catalogs.</td></tr>
+    </tbody>
+</table>
+
+<!-- CHAPTER 16, 17, 18 & 19 -->
+<div style="margin-top: 14px;"></div>
+<div class="chapter-header">
+    <div class="part-tag">PART I | ANDROID CORE ARCHITECTURE &amp; THEORY</div>
+    <h2 class="chapter-title">CHAPTERS 16 - 19: FORMS, MENUS, PERMISSIONS &amp; DEBUGGING</h2>
+</div>
+
+<h3>16.1 Form Validation Best Practices</h3>
+<p>Defensive validation prevents invalid data submissions and avoids runtime exceptions:</p>
+<div class="box box-syntax">
+    <div class="box-title">SYNTAX | INPUT VALIDATION AND VISUAL ERROR BADGES</div>
+    <pre><code>String user = etUser.getText().toString().trim();
+String pass = etPass.getText().toString();
+
+if (user.isEmpty()) {
+    etUser.setError("Username is required");
+    etUser.requestFocus();
+    return;
+}
+if (pass.length() &lt; 4) {
+    etPass.setError("Password must be at least 4 characters");
+    etPass.requestFocus();
+    return;
+}</code></pre>
+</div>
+
+<h3>17.1 Dialogs and Menus</h3>
+<ul>
+    <li><strong>AlertDialog:</strong> Modal popup dialog constructed using the builder pattern:
+        <pre><code>new AlertDialog.Builder(this)
+    .setTitle("Exit Application")
+    .setMessage("Are you sure you want to log out?")
+    .setPositiveButton("Yes", (dialog, which) -> finish())
+    .setNegativeButton("No", null)
+    .show();</code></pre>
+    </li>
+    <li><strong>Notification Channels (API 26+):</strong> All notifications must be posted to a registered <code>NotificationChannel</code> specifying importance levels.</li>
+</ul>
+
+<h3>18.1 Android Security &amp; Permissions</h3>
+<ul>
+    <li><strong>Normal Permissions:</strong> Declared in <code>AndroidManifest.xml</code> (e.g. <code>INTERNET</code>). Automatically granted at install time.</li>
+    <li><strong>Dangerous Permissions:</strong> Access sensitive hardware or user data (e.g. <code>CAMERA</code>, <code>ACCESS_FINE_LOCATION</code>). Must be requested dynamically at runtime using <code>requestPermissions()</code> on API 23+.</li>
+</ul>
+
+<h3>19.1 Debugging with Logcat</h3>
+<p>Logcat records system and application diagnostic output across five priority levels:</p>
+<ul>
+    <li><code>Log.v(TAG, msg);</code> &mdash; <strong>Verbose:</strong> Detailed low-level diagnostic tracing.</li>
+    <li><code>Log.d(TAG, msg);</code> &mdash; <strong>Debug:</strong> General developer diagnostic information.</li>
+    <li><code>Log.i(TAG, msg);</code> &mdash; <strong>Info:</strong> Informational application milestones.</li>
+    <li><code>Log.w(TAG, msg);</code> &mdash; <strong>Warning:</strong> Non-fatal unexpected conditions.</li>
+    <li><code>Log.e(TAG, msg);</code> &mdash; <strong>Error:</strong> Critical exceptions and application errors.</li>
+</ul>
+
+    
+<div class="chapter-break"></div>
+<div class="chapter-header">
+    <div class="part-tag">PART II | JAVA PROGRAMMING FUNDAMENTALS FOR ANDROID</div>
+    <h2 class="chapter-title">JAVA OBJECT-ORIENTED &amp; EVENT-DRIVEN FOUNDATIONS</h2>
+</div>
+
+<p class="lead-text">Android native development in Java builds extensively upon Object-Oriented Programming (OOP) paradigms, polymorphic inheritance hierarchies, interface-driven callbacks, dynamic collections, and exception handling. Mastering these targeted concepts is essential for understanding how the Android framework dispatches events and orchestrates component lifecycles.</p>
+
+<div class="two-col">
+    <div class="col-left">
+        <h3>1. Class Inheritance in Android</h3>
+        <p>In Android, every screen is created by sub-classing framework classes:</p>
+        <pre><code>// Activity Hierarchy
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+}</code></pre>
+        <p>The <code>super.onCreate(savedInstanceState)</code> call is mandatory; omitting it throws a <code>SuperNotCalledException</code> runtime crash.</p>
+
+        <h3>2. Interfaces and Callback Listeners</h3>
+        <p>Asynchronous event dispatching relies on Java interfaces:</p>
+        <pre><code>// Defining Interface
+public interface OnClickListener {
+    void onClick(View v);
+}
+
+// Anonymous Implementation in Android
+button.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        // Callback method invoked on touch event
+    }
+});</code></pre>
+    </div>
+    <div class="col-right">
+        <h3>3. Dynamic Collections: ArrayList&lt;E&gt;</h3>
+        <p>Unlike fixed-length arrays, <code>ArrayList</code> provides resizeable collections used by adapters to power dynamic lists and spinners:</p>
+        <pre><code>import java.util.ArrayList;
+
+ArrayList&lt;String&gt; fruitList = new ArrayList&lt;&gt;();
+fruitList.add("Apple");
+fruitList.add("Mango");
+fruitList.add("Banana");
+
+// Accessing by index
+String item = fruitList.get(0); // "Apple"
+int count = fruitList.size();   // 3
+
+// Iterating collection
+for (String f : fruitList) {
+    Log.d("Fruit", f);
+}</code></pre>
+
+        <h3>4. Defensive Exception Handling</h3>
+        <p>Mobile applications must handle parsing and activity resolution errors gracefully without terminating the process:</p>
+        <pre><code>try {
+    double num = Double.parseDouble(inputStr);
+    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+    startActivity(intent);
+} catch (NumberFormatException e) {
+    editText.setError("Invalid numeric format");
+} catch (ActivityNotFoundException e) {
+    Toast.makeText(this, "No app available", Toast.LENGTH_SHORT).show();
+}</code></pre>
+    </div>
+</div>
+
+    
+<!-- ============================================================== -->
+<!-- PROGRAM 01: USER LOGIN PAGE WITH VALIDATION & TOAST           -->
+<!-- ============================================================== -->
+<div class="chapter-break"></div>
+<div class="chapter-header">
+    <div class="part-tag">PART III | 10 ORIGINAL UNIVERSITY PRACTICAL PROGRAMS (20MCA243)</div>
+    <h2 class="chapter-title">PROGRAM 01: USER LOGIN PAGE WITH VALIDATION &amp; TOAST NOTIFICATIONS</h2>
+</div>
+
+<h3>1. Aim</h3>
+<p>To design an interactive user authentication screen using <code>LinearLayout</code>, capture user credentials via <code>EditText</code>, perform defensive input validation with visual error badges (<code>setError()</code>), and provide immediate transient feedback using Android <code>Toast</code> notifications.</p>
+
+<h3>2. Theoretical Principles</h3>
+<p>User authentication interfaces require structured vertical stacking of form controls and defensive client-side validation. In Android, <code>LinearLayout</code> coordinates children along a single vertical axis. Input strings extracted via <code>getText().toString().trim()</code> are validated against emptiness and credential requirements. When validation fails, <code>setError()</code> anchors a warning popup to the offending widget. Upon successful authentication, <code>Toast.makeText().show()</code> displays a floating message that automatically dismisses without disrupting the underlying Activity lifecycle.</p>
+
+<h3>3. Components &amp; APIs Used</h3>
+<ul>
+    <li><strong>Layout Container:</strong> <code>LinearLayout</code> (vertical orientation, centered gravity, 30dp padding).</li>
+    <li><strong>Widgets:</strong> <code>TextView</code> (header), <code>EditText</code> (username), <code>EditText</code> (password with <code>android:inputType="textPassword"</code>), <code>Button</code> (login trigger).</li>
+    <li><strong>Core APIs:</strong> <code>setContentView()</code>, <code>findViewById()</code>, <code>setOnClickListener()</code>, <code>getText().toString().trim()</code>, <code>isEmpty()</code>, <code>setError()</code>, <code>Toast.makeText(..., Toast.LENGTH_SHORT).show()</code>.</li>
+</ul>
+
+<h3>4. Program Algorithm</h3>
+<ol class="algo-list">
+    <li><strong>Step 1:</strong> Launch the Activity and inflate <code>activity_main.xml</code> via <code>setContentView()</code> in <code>onCreate()</code>.</li>
+    <li><strong>Step 2:</strong> Bind Java widget references (<code>username</code>, <code>password</code>, <code>login</code>) using <code>findViewById()</code>.</li>
+    <li><strong>Step 3:</strong> Attach an asynchronous <code>View.OnClickListener</code> to the login button.</li>
+    <li><strong>Step 4:</strong> In <code>onClick()</code>, extract string contents: <code>user = username.getText().toString().trim()</code> and <code>pass = password.getText().toString()</code>.</li>
+    <li><strong>Step 5:</strong> If <code>user.isEmpty()</code>, execute <code>username.setError("Enter username")</code> and return.</li>
+    <li><strong>Step 6:</strong> If <code>pass.isEmpty()</code>, execute <code>password.setError("Enter password")</code> and return.</li>
+    <li><strong>Step 7:</strong> Compare credentials against authorized pairs (e.g. <code>admin/1234</code> or <code>akhil/akhil@123</code>).</li>
+    <li><strong>Step 8:</strong> If matching, display <code>Toast.makeText(..., "Login Successful", Toast.LENGTH_SHORT).show()</code>; otherwise show <code>"Invalid credentials"</code>.</li>
+</ol>
+
+<div class="diagram-container">
+    <img src="diagrams/16_login_flowchart.svg" alt="Login Flowchart" class="diagram-img" style="max-height: 220px;" />
+    <div class="diagram-caption">Figure P1.1: Program 01 Logic Flowchart.</div>
+</div>
+
+<!-- DEDICATED FULL-WIDTH CODE PAGES -->
+
+<!-- Continuous Natural Flow -->
+
+
+<div class="full-code-container">
+    <div class="code-file-header">
+        <span class="file-icon">&#128196;</span> XML Layout Implementation &mdash; <code>01_Login_Page/app/src/main/res/layout/activity_main.xml</code>
+    </div>
+    <pre class="full-code-block"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:orientation=&quot;vertical&quot;
+    android:gravity=&quot;center&quot;
+    android:padding=&quot;30dp&quot;&gt;
+
+    &lt;TextView
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;LOGIN&quot;
+        android:textSize=&quot;28sp&quot;
+        android:textStyle=&quot;bold&quot;
+        android:layout_marginBottom=&quot;30dp&quot; /&gt;
+
+    &lt;EditText
+        android:id=&quot;@+id/username&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:hint=&quot;Username&quot;
+        android:inputType=&quot;text&quot;
+        android:layout_marginBottom=&quot;15dp&quot; /&gt;
+
+    &lt;EditText
+        android:id=&quot;@+id/password&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:hint=&quot;Password&quot;
+        android:inputType=&quot;textPassword&quot;
+        android:layout_marginBottom=&quot;20dp&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/login&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;LOGIN&quot; /&gt;
+
+&lt;/LinearLayout&gt;
+</code></pre>
+</div>
+
+
+<div class="full-code-container">
+    <div class="code-file-header">
+        <span class="file-icon">&#128196;</span> Java Source Code Implementation &mdash; <code>01_Login_Page/app/src/main/java/com/example/login_page/MainActivity.java</code>
+    </div>
+    <pre class="full-code-block"><code>package com.example.login_page;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText username, password;
+    Button login;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        username = findViewById(R.id.username);
+        password = findViewById(R.id.password);
+        login = findViewById(R.id.login);
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String user = username.getText().toString().trim();
+                String pass = password.getText().toString();
+
+                if (user.isEmpty()) {
+                    username.setError(&quot;Enter username&quot;);
+                } else if (pass.isEmpty()) {
+                    password.setError(&quot;Enter password&quot;);
+                } else if ((user.equalsIgnoreCase(&quot;admin&quot;) &amp;&amp; pass.equals(&quot;1234&quot;)) ||
+                           (user.equalsIgnoreCase(&quot;akhil&quot;) &amp;&amp; pass.equals(&quot;akhil@123&quot;))) {
+                    Toast.makeText(MainActivity.this, &quot;Login Successful&quot;, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MainActivity.this, &quot;Invalid credentials&quot;, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+}
+</code></pre>
+</div>
+
+
+<!-- DETAILED WALKTHROUGH & EXAMINATION REVIEW -->
+
+<!-- Continuous Natural Flow -->
+
+<h3>5. Detailed Code Walkthrough</h3>
+<ul>
+    <li><strong>Lines 21–23:</strong> <code>findViewById()</code> resolves the R-class integer tokens (<code>R.id.username</code>, <code>R.id.password</code>, <code>R.id.login</code>) to concrete in-memory view instances created by AAPT2.</li>
+    <li><strong>Line 25:</strong> <code>login.setOnClickListener(...)</code> registers an anonymous inner class implementing <code>View.OnClickListener</code>. The framework dispatches touch events to <code>onClick(View view)</code> on the Main UI Thread.</li>
+    <li><strong>Lines 29–30:</strong> <code>username.getText().toString().trim()</code> safely extracts user input, converting the editable buffer to an immutable String and stripping extraneous whitespace.</li>
+    <li><strong>Lines 32–35:</strong> Defensive guards check <code>isEmpty()</code>. If blank, <code>setError()</code> displays an inline warning badge and pops a focus indicator.</li>
+    <li><strong>Lines 36–41:</strong> <code>user.equalsIgnoreCase(...)</code> performs case-insensitive username comparison combined with strict case-sensitive password verification, triggering appropriate Toast messages.</li>
+</ul>
+
+<h3>6. Practical Variations (Predefined &rarr; User Input &rarr; Dynamic State)</h3>
+<ul>
+    <li><strong>Variation 1.1 (Predefined Credentials Check):</strong> Directly validating against static constants inside the Java file (as implemented above).</li>
+    <li><strong>Variation 1.2 (Dynamic Length &amp; Character Validation):</strong> Enhancing validation to enforce a minimum 8-character password constraint:
+        <pre><code>if (pass.length() &lt; 8) { password.setError("Password must be at least 8 characters"); return; }</code></pre>
+    </li>
+    <li><strong>Variation 1.3 (Dynamic Credential Registration):</strong> Storing newly registered users dynamically into a collection (<code>HashMap&lt;String, String&gt;</code>) so newly registered accounts can authenticate immediately at runtime.</li>
+</ul>
+
+<h3>7. Common Mistakes &amp; Viva Focus Points</h3>
+<div class="box box-mistake">
+    <div class="box-title">COMMON MISTAKE | Forgetting .show() on Toast</div>
+    <p>Writing <code>Toast.makeText(this, "Success", Toast.LENGTH_SHORT);</code> creates the Toast object in memory but fails to display it on screen. Calling <code>.show()</code> is mandatory to register the toast with the system NotificationManager service.</p>
+</div>
+<div class="box box-exam-tip">
+    <div class="box-title">VIVA FOCUS | android:inputType="textPassword"</div>
+    <p>Setting <code>inputType="textPassword"</code> masks keystrokes with dots and disables dictionary word suggestions, clipboard history previews, and third-party keyboard telemetry for security.</p>
+</div>
+
+<!-- ============================================================== -->
+<!-- PROGRAM 02: SIMPLE CALCULATOR WITH ARITHMETIC OPERATIONS       -->
+<!-- ============================================================== -->
+<div class="chapter-break"></div>
+<div class="chapter-header">
+    <div class="part-tag">PART III | 10 ORIGINAL UNIVERSITY PRACTICAL PROGRAMS (20MCA243)</div>
+    <h2 class="chapter-title">PROGRAM 02: SIMPLE CALCULATOR WITH ARITHMETIC OPERATIONS</h2>
+</div>
+
+<h3>1. Aim</h3>
+<p>To implement a full-featured arithmetic calculator application in Android using nested horizontal and vertical <code>LinearLayout</code> containers, capturing numeric input through an interactive grid of buttons, handling four basic arithmetic operations (+, -, *, /), and performing defensive division-by-zero checks.</p>
+
+<h3>2. Theoretical Principles</h3>
+<p>A responsive calculator UI requires proportional distribution of buttons across the screen. This is achieved using nested <code>LinearLayout</code> containers with <code>android:layout_weight="1"</code> and <code>android:layout_width="0dp"</code> / <code>android:layout_height="0dp"</code>. The calculator state machine maintains two double-precision operands and an active operator symbol (+, -, *, /). Defensive checks catch empty operand entries and prevent runtime <code>ArithmeticException</code> or <code>Infinity</code> values when dividing by zero.</p>
+
+<h3>3. Components &amp; APIs Used</h3>
+<ul>
+    <li><strong>Layout:</strong> Root vertical <code>LinearLayout</code> hosting an <code>EditText</code> display and 5 nested horizontal <code>LinearLayout</code> button rows.</li>
+    <li><strong>Widgets:</strong> <code>EditText</code> (input/output screen with <code>inputType="numberDecimal"</code>), 16 numeric and operational <code>Button</code> controls (0-9, ., +, -, *, /, =, C).</li>
+    <li><strong>Core APIs:</strong> <code>Double.parseDouble()</code>, <code>String.valueOf()</code>, <code>setText()</code>, <code>setSelection()</code>, <code>setError()</code>, <code>Toast.makeText()</code>.</li>
+</ul>
+
+<h3>4. Program Algorithm</h3>
+<ol class="algo-list">
+    <li><strong>Step 1:</strong> Inflate <code>activity_main.xml</code> in <code>onCreate()</code> and bind references to the display <code>EditText (t1)</code> and all 16 buttons.</li>
+    <li><strong>Step 2:</strong> Attach click listeners to digit buttons (0–9) that append their respective characters to the display string.</li>
+    <li><strong>Step 3:</strong> When an operator button (+, -, *, /) is clicked, parse the current display text into <code>firstOperand</code>, record the operator character, and clear the display for the next number.</li>
+    <li><strong>Step 4:</strong> When the equals button (=) is clicked, parse the current display text into <code>secondOperand</code>.</li>
+    <li><strong>Step 5:</strong> Evaluate the operation using a <code>switch-case</code> structure. If the operator is division (/) and <code>secondOperand == 0</code>, display an error Toast ("Cannot divide by zero!").</li>
+    <li><strong>Step 6:</strong> Render the calculated result back to the display <code>EditText</code>. When Clear (C) is pressed, reset all operands and clear the display.</li>
+</ol>
+
+<div class="diagram-container">
+    <img src="diagrams/07_layout_hierarchy.svg" alt="Layout Hierarchy" class="diagram-img" style="max-height: 200px;" />
+    <div class="diagram-caption">Figure P2.1: Proportional Layout Weight Architecture in Calculator Grid.</div>
+</div>
+
+<!-- DEDICATED FULL-WIDTH CODE PAGES -->
+
+<!-- Continuous Natural Flow -->
+
+
+<div class="full-code-container">
+    <div class="code-file-header">
+        <span class="file-icon">&#128196;</span> Complete XML Layout Source Code (228 Lines) &mdash; <code>02_Simple_Calculator/app/src/main/res/layout/activity_main.xml</code>
+    </div>
+    <pre class="full-code-block"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout
+    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:orientation=&quot;vertical&quot;
+    android:padding=&quot;8dp&quot;&gt;
+
+    &lt;EditText
+        android:id=&quot;@+id/t1&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;0dp&quot;
+        android:layout_weight=&quot;2&quot;
+        android:gravity=&quot;end|center_vertical&quot;
+        android:padding=&quot;16dp&quot;
+        android:textSize=&quot;36sp&quot;
+        android:textStyle=&quot;bold&quot;
+        android:hint=&quot;0&quot;
+        android:inputType=&quot;numberDecimal&quot; /&gt;
+
+    &lt;!-- Row 1 --&gt;
+    &lt;LinearLayout
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;0dp&quot;
+        android:layout_weight=&quot;1&quot;
+        android:orientation=&quot;horizontal&quot;&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/b1&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;match_parent&quot;
+            android:layout_weight=&quot;1&quot;
+            android:layout_margin=&quot;2dp&quot;
+            android:textSize=&quot;22sp&quot;
+            android:text=&quot;1&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/b2&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;match_parent&quot;
+            android:layout_weight=&quot;1&quot;
+            android:layout_margin=&quot;2dp&quot;
+            android:textSize=&quot;22sp&quot;
+            android:text=&quot;2&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/b3&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;match_parent&quot;
+            android:layout_weight=&quot;1&quot;
+            android:layout_margin=&quot;2dp&quot;
+            android:textSize=&quot;22sp&quot;
+            android:text=&quot;3&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/b12&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;match_parent&quot;
+            android:layout_weight=&quot;1&quot;
+            android:layout_margin=&quot;2dp&quot;
+            android:textSize=&quot;22sp&quot;
+            android:text=&quot;+&quot; /&gt;
+
+    &lt;/LinearLayout&gt;
+
+    &lt;!-- Row 2 --&gt;
+    &lt;LinearLayout
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;0dp&quot;
+        android:layout_weight=&quot;1&quot;
+        android:orientation=&quot;horizontal&quot;&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/b4&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;match_parent&quot;
+            android:layout_weight=&quot;1&quot;
+            android:layout_margin=&quot;2dp&quot;
+            android:textSize=&quot;22sp&quot;
+            android:text=&quot;4&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/b5&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;match_parent&quot;
+            android:layout_weight=&quot;1&quot;
+            android:layout_margin=&quot;2dp&quot;
+            android:textSize=&quot;22sp&quot;
+            android:text=&quot;5&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/b6&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;match_parent&quot;
+            android:layout_weight=&quot;1&quot;
+            android:layout_margin=&quot;2dp&quot;
+            android:textSize=&quot;22sp&quot;
+            android:text=&quot;6&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/b13&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;match_parent&quot;
+            android:layout_weight=&quot;1&quot;
+            android:layout_margin=&quot;2dp&quot;
+            android:textSize=&quot;22sp&quot;
+            android:text=&quot;-&quot; /&gt;
+
+    &lt;/LinearLayout&gt;
+
+    &lt;!-- Row 3 --&gt;
+    &lt;LinearLayout
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;0dp&quot;
+        android:layout_weight=&quot;1&quot;
+        android:orientation=&quot;horizontal&quot;&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/b7&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;match_parent&quot;
+            android:layout_weight=&quot;1&quot;
+            android:layout_margin=&quot;2dp&quot;
+            android:textSize=&quot;22sp&quot;
+            android:text=&quot;7&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/b8&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;match_parent&quot;
+            android:layout_weight=&quot;1&quot;
+            android:layout_margin=&quot;2dp&quot;
+            android:textSize=&quot;22sp&quot;
+            android:text=&quot;8&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/b9&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;match_parent&quot;
+            android:layout_weight=&quot;1&quot;
+            android:layout_margin=&quot;2dp&quot;
+            android:textSize=&quot;22sp&quot;
+            android:text=&quot;9&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/b14&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;match_parent&quot;
+            android:layout_weight=&quot;1&quot;
+            android:layout_margin=&quot;2dp&quot;
+            android:textSize=&quot;22sp&quot;
+            android:text=&quot;x&quot; /&gt;
+
+    &lt;/LinearLayout&gt;
+
+    &lt;!-- Row 4 --&gt;
+    &lt;LinearLayout
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;0dp&quot;
+        android:layout_weight=&quot;1&quot;
+        android:orientation=&quot;horizontal&quot;&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/b0&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;match_parent&quot;
+            android:layout_weight=&quot;1&quot;
+            android:layout_margin=&quot;2dp&quot;
+            android:textSize=&quot;22sp&quot;
+            android:text=&quot;0&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/b10&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;match_parent&quot;
+            android:layout_weight=&quot;1&quot;
+            android:layout_margin=&quot;2dp&quot;
+            android:textSize=&quot;22sp&quot;
+            android:text=&quot;.&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/b11&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;match_parent&quot;
+            android:layout_weight=&quot;1&quot;
+            android:layout_margin=&quot;2dp&quot;
+            android:textSize=&quot;18sp&quot;
+            android:text=&quot;DEL&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/b15&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;match_parent&quot;
+            android:layout_weight=&quot;1&quot;
+            android:layout_margin=&quot;2dp&quot;
+            android:textSize=&quot;22sp&quot;
+            android:text=&quot;/&quot; /&gt;
+
+    &lt;/LinearLayout&gt;
+
+    &lt;!-- Row 5 --&gt;
+    &lt;LinearLayout
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;0dp&quot;
+        android:layout_weight=&quot;1&quot;
+        android:orientation=&quot;horizontal&quot;&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/bac&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;match_parent&quot;
+            android:layout_weight=&quot;2&quot;
+            android:layout_margin=&quot;2dp&quot;
+            android:textSize=&quot;22sp&quot;
+            android:text=&quot;AC&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/b16&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;match_parent&quot;
+            android:layout_weight=&quot;2&quot;
+            android:layout_margin=&quot;2dp&quot;
+            android:textSize=&quot;22sp&quot;
+            android:text=&quot;=&quot; /&gt;
+
+    &lt;/LinearLayout&gt;
+
+&lt;/LinearLayout&gt;
+</code></pre>
+</div>
+
+
+
+<!-- Continuous Natural Flow -->
+
+
+<div class="full-code-container">
+    <div class="code-file-header">
+        <span class="file-icon">&#128196;</span> Complete Java Source Code (169 Lines) &mdash; <code>02_Simple_Calculator/app/src/main/java/com/example/simple_calculator/MainActivity.java</code>
+    </div>
+    <pre class="full-code-block"><code>package com.example.simple_calculator;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText t1;
+    Button b0, b1, b2, b3, b4, b5, b6, b7, b8, b9;
+    Button b10, b11, b12, b13, b14, b15, b16, bac;
+
+    String firstNumber = &quot;&quot;;
+    String operator = &quot;&quot;;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        t1 = findViewById(R.id.t1);
+
+        b0 = findViewById(R.id.b0);
+        b1 = findViewById(R.id.b1);
+        b2 = findViewById(R.id.b2);
+        b3 = findViewById(R.id.b3);
+        b4 = findViewById(R.id.b4);
+        b5 = findViewById(R.id.b5);
+        b6 = findViewById(R.id.b6);
+        b7 = findViewById(R.id.b7);
+        b8 = findViewById(R.id.b8);
+        b9 = findViewById(R.id.b9);
+
+        b10 = findViewById(R.id.b10); // .
+        b11 = findViewById(R.id.b11); // backspace
+        b12 = findViewById(R.id.b12); // +
+        b13 = findViewById(R.id.b13); // -
+        b14 = findViewById(R.id.b14); // x
+        b15 = findViewById(R.id.b15); // /
+        b16 = findViewById(R.id.b16); // =
+        bac = findViewById(R.id.bac); // AC
+
+        // Digits
+        View.OnClickListener digitListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Button b = (Button) view;
+                t1.append(b.getText().toString());
+            }
+        };
+
+        b0.setOnClickListener(digitListener);
+        b1.setOnClickListener(digitListener);
+        b2.setOnClickListener(digitListener);
+        b3.setOnClickListener(digitListener);
+        b4.setOnClickListener(digitListener);
+        b5.setOnClickListener(digitListener);
+        b6.setOnClickListener(digitListener);
+        b7.setOnClickListener(digitListener);
+        b8.setOnClickListener(digitListener);
+        b9.setOnClickListener(digitListener);
+
+        // Decimal point
+        b10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String text = t1.getText().toString();
+                if (!text.contains(&quot;.&quot;)) {
+                    if (text.isEmpty()) {
+                        t1.append(&quot;0.&quot;);
+                    } else {
+                        t1.append(&quot;.&quot;);
+                    }
+                }
+            }
+        });
+
+        // Operators (+, -, x, /)
+        View.OnClickListener opListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String currentText = t1.getText().toString().trim();
+                if (!currentText.isEmpty()) {
+                    firstNumber = currentText;
+                    Button b = (Button) view;
+                    operator = b.getText().toString();
+                    t1.setText(&quot;&quot;);
+                }
+            }
+        };
+
+        b12.setOnClickListener(opListener);
+        b13.setOnClickListener(opListener);
+        b14.setOnClickListener(opListener);
+        b15.setOnClickListener(opListener);
+
+        // Backspace
+        b11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String text = t1.getText().toString();
+                if (!text.isEmpty()) {
+                    t1.setText(text.substring(0, text.length() - 1));
+                }
+            }
+        });
+
+        // All Clear (AC)
+        bac.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                t1.setText(&quot;&quot;);
+                firstNumber = &quot;&quot;;
+                operator = &quot;&quot;;
+            }
+        });
+
+        // Equals (=)
+        b16.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String secondNumber = t1.getText().toString().trim();
+
+                if (firstNumber.isEmpty() || secondNumber.isEmpty() || operator.isEmpty()) {
+                    Toast.makeText(MainActivity.this, &quot;Enter numbers and operator&quot;, Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                try {
+                    double num1 = Double.parseDouble(firstNumber);
+                    double num2 = Double.parseDouble(secondNumber);
+                    double result = 0;
+
+                    if (operator.equals(&quot;+&quot;)) {
+                        result = num1 + num2;
+                    } else if (operator.equals(&quot;-&quot;)) {
+                        result = num1 - num2;
+                    } else if (operator.equals(&quot;x&quot;)) {
+                        result = num1 * num2;
+                    } else if (operator.equals(&quot;/&quot;)) {
+                        if (num2 == 0) {
+                            Toast.makeText(MainActivity.this, &quot;Cannot divide by zero&quot;, Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        result = num1 / num2;
+                    }
+
+                    // Format nicely: display whole numbers without trailing .0
+                    String resultStr;
+                    if (result == (long) result) {
+                        resultStr = String.valueOf((long) result);
+                    } else {
+                        resultStr = String.valueOf(result);
+                    }
+
+                    t1.setText(resultStr);
+                    firstNumber = resultStr;
+                    operator = &quot;&quot;;
+                } catch (NumberFormatException e) {
+                    Toast.makeText(MainActivity.this, &quot;Invalid number&quot;, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+}
+</code></pre>
+</div>
+
+
+<!-- DETAILED WALKTHROUGH & EXAMINATION REVIEW -->
+
+<!-- Continuous Natural Flow -->
+
+<h3>5. Detailed Code Walkthrough</h3>
+<ul>
+    <li><strong>XML Grid Layout:</strong> The display <code>EditText</code> is assigned <code>android:layout_weight="2"</code>, allocating double the vertical proportion compared to each button row (<code>weight="1"</code>). Within each row, buttons specify <code>android:layout_width="0dp"</code> and <code>android:layout_weight="1"</code>, guaranteeing exactly 25% horizontal width for each of the 4 columns across all screen sizes.</li>
+    <li><strong>Numeric Input Handling:</strong> Each numeric button appends its character to <code>t1.getText()</code> and positions the cursor at the end via <code>t1.setSelection(t1.getText().length())</code>.</li>
+    <li><strong>Operator Processing:</strong> When an operation button is pressed, the text is converted into a <code>double</code> via <code>Double.parseDouble(t1.getText().toString())</code> and stored in <code>firstNum</code>. The active operator (+, -, *, /) is saved in a <code>char</code> variable.</li>
+    <li><strong>Defensive Division Guard:</strong> Before computing division, the code explicitly verifies <code>if (secondNum == 0)</code> to prevent displaying <code>Infinity</code> or NaN, notifying the user via a Toast.</li>
+</ul>
+
+<h3>6. Practical Variations</h3>
+<ul>
+    <li><strong>Variation 2.1 (Two Independent EditText Operands):</strong> Rather than a single sequential display, provide two distinct <code>EditText</code> inputs (Operand 1 and Operand 2) with 4 calculation buttons.</li>
+    <li><strong>Variation 2.2 (Scientific Math Extension):</strong> Incorporating <code>Math.sqrt()</code>, <code>Math.pow()</code>, and percentage calculations.</li>
+    <li><strong>Variation 2.3 (Calculation History Log):</strong> Storing previous calculation strings in an <code>ArrayList&lt;String&gt;</code> and displaying them in a popup dialog or secondary Activity.</li>
+</ul>
+
+<h3>7. Common Mistakes &amp; Viva Focus Points</h3>
+<div class="box box-mistake">
+    <div class="box-title">COMMON MISTAKE | Double.parseDouble() on Empty String</div>
+    <p>Invoking <code>Double.parseDouble("")</code> when the user taps an operator button before entering numbers throws an unhandled <code>NumberFormatException</code>, crashing the app. Always check <code>t1.getText().toString().isEmpty()</code> first.</p>
+</div>
+<div class="box box-exam-tip">
+    <div class="box-title">VIVA FOCUS | android:layout_width="0dp" with layout_weight</div>
+    <p>Setting <code>width="0dp"</code> bypasses the initial measuring pass by the parent LinearLayout. The layout engine calculates dimensions strictly based on the assigned weight ratio, improving UI rendering performance.</p>
+</div>
+
+<!-- ============================================================== -->
+<!-- PROGRAM 03: EXPLICIT INTENT & TWO-ACTIVITY NAVIGATION          -->
+<!-- ============================================================== -->
+<div class="chapter-break"></div>
+<div class="chapter-header">
+    <div class="part-tag">PART III | 10 ORIGINAL UNIVERSITY PRACTICAL PROGRAMS (20MCA243)</div>
+    <h2 class="chapter-title">PROGRAM 03: EXPLICIT INTENT &amp; TWO-ACTIVITY NAVIGATION</h2>
+</div>
+
+<h3>1. Aim</h3>
+<p>To implement screen-to-screen navigation between two Activities using an <strong>Explicit Intent</strong>, transferring user credentials from <code>MainActivity</code> to <code>MainActivity2</code> (Homepage) via an Intent Extras <code>Bundle</code>, and providing a Logout mechanism to terminate the session.</p>
+
+<h3>2. Theoretical Principles</h3>
+<p>An <strong>Explicit Intent</strong> explicitly specifies the target component class (e.g., <code>new Intent(this, MainActivity2.class)</code>). Data is transferred across process boundaries by bundling key-value pairs into the Intent using <code>putExtra(key, value)</code>. In the destination Activity, <code>getIntent().getStringExtra(key)</code> extracts the payload. Calling <code>finish()</code> pops the secondary Activity off the back-stack, returning the user to the caller.</p>
+
+<h3>3. Components &amp; APIs Used</h3>
+<ul>
+    <li><strong>Components:</strong> <code>MainActivity</code> (Login screen), <code>MainActivity2</code> (Home dashboard screen).</li>
+    <li><strong>Manifest Declarations:</strong> Both Activities registered in <code>AndroidManifest.xml</code>.</li>
+    <li><strong>Core APIs:</strong> <code>Intent</code>, <code>putExtra()</code>, <code>getIntent()</code>, <code>getStringExtra()</code>, <code>startActivity()</code>, <code>finish()</code>.</li>
+</ul>
+
+<h3>4. Program Algorithm</h3>
+<ol class="algo-list">
+    <li><strong>Step 1:</strong> In <code>MainActivity</code>, collect username and password from <code>EditText</code> controls upon button click.</li>
+    <li><strong>Step 2:</strong> Validate inputs. If credentials match, instantiate an Explicit Intent targeting <code>MainActivity2.class</code>.</li>
+    <li><strong>Step 3:</strong> Attach user data: <code>intent.putExtra("username", user);</code> and invoke <code>startActivity(intent);</code>.</li>
+    <li><strong>Step 4:</strong> In <code>MainActivity2.onCreate()</code>, extract the bundle: <code>String user = getIntent().getStringExtra("username");</code>.</li>
+    <li><strong>Step 5:</strong> Render the welcome banner on a <code>TextView</code>: <code>"Welcome, " + user</code>.</li>
+    <li><strong>Step 6:</strong> When the user clicks the "Logout" button in <code>MainActivity2</code>, invoke <code>finish();</code> to return to the login screen.</li>
+</ol>
+
+<div class="diagram-container">
+    <img src="diagrams/08_explicit_intent.svg" alt="Explicit Intent" class="diagram-img" style="max-height: 200px;" />
+    <div class="diagram-caption">Figure P3.1: Explicit Intent Navigation and Bundle Transfer.</div>
+</div>
+
+<!-- DEDICATED FULL-WIDTH CODE PAGES -->
+
+<!-- Continuous Natural Flow -->
+
+
+<div class="full-code-container">
+    <div class="code-file-header">
+        <span class="file-icon">&#128196;</span> MainActivity XML Layout &mdash; <code>03_Intent/app/src/main/res/layout/activity_main.xml</code>
+    </div>
+    <pre class="full-code-block"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+
+&lt;androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:id=&quot;@+id/main&quot;&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/textView3&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Login&quot;
+        android:textSize=&quot;24sp&quot;
+        android:textStyle=&quot;bold&quot;
+        app:layout_constraintTop_toTopOf=&quot;parent&quot;
+        app:layout_constraintStart_toStartOf=&quot;parent&quot;
+        app:layout_constraintEnd_toEndOf=&quot;parent&quot;
+        android:layout_marginTop=&quot;64dp&quot; /&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/textView4&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Username&quot;
+        app:layout_constraintTop_toBottomOf=&quot;@id/textView3&quot;
+        app:layout_constraintStart_toStartOf=&quot;parent&quot;
+        android:layout_marginTop=&quot;32dp&quot;
+        android:layout_marginStart=&quot;32dp&quot; /&gt;
+
+    &lt;EditText
+        android:id=&quot;@+id/edittext1&quot;
+        android:layout_width=&quot;0dp&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:hint=&quot;Enter username&quot;
+        android:inputType=&quot;text&quot;
+        app:layout_constraintStart_toEndOf=&quot;@id/textView4&quot;
+        app:layout_constraintEnd_toEndOf=&quot;parent&quot;
+        app:layout_constraintTop_toTopOf=&quot;@id/textView4&quot;
+        android:layout_marginStart=&quot;16dp&quot;
+        android:layout_marginEnd=&quot;32dp&quot; /&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/textView5&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Password&quot;
+        app:layout_constraintTop_toBottomOf=&quot;@id/edittext1&quot;
+        app:layout_constraintStart_toStartOf=&quot;parent&quot;
+        android:layout_marginTop=&quot;24dp&quot;
+        android:layout_marginStart=&quot;32dp&quot; /&gt;
+
+    &lt;EditText
+        android:id=&quot;@+id/edittext2&quot;
+        android:layout_width=&quot;0dp&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:hint=&quot;Enter password&quot;
+        android:inputType=&quot;textPassword&quot;
+        app:layout_constraintStart_toEndOf=&quot;@id/textView5&quot;
+        app:layout_constraintEnd_toEndOf=&quot;parent&quot;
+        app:layout_constraintTop_toTopOf=&quot;@id/textView5&quot;
+        android:layout_marginStart=&quot;16dp&quot;
+        android:layout_marginEnd=&quot;32dp&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn1&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Login&quot;
+        app:layout_constraintTop_toBottomOf=&quot;@id/edittext2&quot;
+        app:layout_constraintStart_toStartOf=&quot;parent&quot;
+        app:layout_constraintEnd_toEndOf=&quot;parent&quot;
+        android:layout_marginTop=&quot;32dp&quot; /&gt;
+
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</code></pre>
+</div>
+
+
+<div class="full-code-container">
+    <div class="code-file-header">
+        <span class="file-icon">&#128196;</span> MainActivity Java Source Code &mdash; <code>03_Intent/app/src/main/java/com/example/intent/MainActivity.java</code>
+    </div>
+    <pre class="full-code-block"><code>package com.example.intent;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText e1, e2;
+    Button b1;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        e1 = findViewById(R.id.edittext1);
+        e2 = findViewById(R.id.edittext2);
+        b1 = findViewById(R.id.btn1);
+
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String username = e1.getText().toString().trim();
+                String pass = e2.getText().toString();
+
+                if (username.isEmpty()) {
+                    e1.setError(&quot;Enter username&quot;);
+                } else if (pass.isEmpty()) {
+                    e2.setError(&quot;Enter password&quot;);
+                } else if ((username.equalsIgnoreCase(&quot;admin&quot;) &amp;&amp; pass.equals(&quot;1234&quot;)) ||
+                           (username.equalsIgnoreCase(&quot;akhil&quot;) &amp;&amp; pass.equals(&quot;akhil@123&quot;)) ||
+                           (username.equalsIgnoreCase(&quot;user&quot;) &amp;&amp; pass.equals(&quot;1234&quot;))) {
+
+                    Toast.makeText(MainActivity.this, &quot;Login successful&quot;, Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                    intent.putExtra(&quot;USER&quot;, username);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(MainActivity.this, &quot;Invalid credentials&quot;, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+}
+</code></pre>
+</div>
+
+
+
+<!-- Continuous Natural Flow -->
+
+
+<div class="full-code-container">
+    <div class="code-file-header">
+        <span class="file-icon">&#128196;</span> MainActivity2 XML Layout (Homepage) &mdash; <code>03_Intent/app/src/main/res/layout/activity_main2.xml</code>
+    </div>
+    <pre class="full-code-block"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+
+&lt;androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:id=&quot;@+id/main&quot;
+    android:padding=&quot;24dp&quot;&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/welcomeText&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Welcome to the Homepage!&quot;
+        android:textSize=&quot;20sp&quot;
+        android:textStyle=&quot;bold&quot;
+        app:layout_constraintTop_toTopOf=&quot;parent&quot;
+        app:layout_constraintStart_toStartOf=&quot;parent&quot;
+        app:layout_constraintEnd_toEndOf=&quot;parent&quot;
+        android:layout_marginTop=&quot;64dp&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/logoutButton&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Logout&quot;
+        app:layout_constraintTop_toBottomOf=&quot;@id/welcomeText&quot;
+        app:layout_constraintStart_toStartOf=&quot;parent&quot;
+        app:layout_constraintEnd_toEndOf=&quot;parent&quot;
+        android:layout_marginTop=&quot;32dp&quot; /&gt;
+
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</code></pre>
+</div>
+
+
+<div class="full-code-container">
+    <div class="code-file-header">
+        <span class="file-icon">&#128196;</span> MainActivity2 Java Source Code (Homepage) &mdash; <code>03_Intent/app/src/main/java/com/example/intent/MainActivity2.java</code>
+    </div>
+    <pre class="full-code-block"><code>package com.example.intent;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity2 extends AppCompatActivity {
+
+    TextView welcomeText;
+    Button logoutButton;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main2);
+
+        welcomeText = findViewById(R.id.welcomeText);
+        logoutButton = findViewById(R.id.logoutButton);
+
+        String username = getIntent().getStringExtra(&quot;USER&quot;);
+        if (username != null &amp;&amp; !username.isEmpty()) {
+            welcomeText.setText(&quot;Welcome, &quot; + username + &quot;!\nYou have logged into Homepage.&quot;);
+        } else {
+            welcomeText.setText(&quot;Welcome to the Homepage!&quot;);
+        }
+
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity2.this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
+            }
+        });
+    }
+}
+</code></pre>
+</div>
+
+
+<!-- DETAILED WALKTHROUGH & EXAMINATION REVIEW -->
+
+<!-- Continuous Natural Flow -->
+
+<h3>5. Detailed Code Walkthrough</h3>
+<ul>
+    <li><strong>Navigation Initiation:</strong> <code>Intent intent = new Intent(MainActivity.this, MainActivity2.class);</code> explicitly couples the source context to the target class token.</li>
+    <li><strong>Data Transport:</strong> <code>intent.putExtra("username", user);</code> packs the string into an internal IPC parcelable map.</li>
+    <li><strong>Data Retrieval:</strong> In <code>MainActivity2</code>, <code>getIntent().getStringExtra("username")</code> queries the incoming intent. If no key matches, it safely returns <code>null</code>.</li>
+    <li><strong>Session Termination:</strong> In <code>MainActivity2</code>, the logout button triggers <code>finish()</code>, popping <code>MainActivity2</code> from the task stack and cleanly revealing <code>MainActivity</code> beneath it.</li>
+</ul>
+
+<h3>6. Practical Variations</h3>
+<ul>
+    <li><strong>Variation 3.1 (Multi-Field Bundle Passing):</strong> Packaging multiple fields (Email, Phone, Role) inside a standalone <code>Bundle</code> object:
+        <pre><code>Bundle b = new Bundle(); b.putString("U", u); b.putInt("AGE", 22); intent.putExtras(b);</code></pre>
+    </li>
+    <li><strong>Variation 3.2 (ActivityResultLauncher Navigation):</strong> Using modern <code>registerForActivityResult</code> to launch a child activity and receive return data back.</li>
+    <li><strong>Variation 3.3 (Clear Task Backstack):</strong> Applying <code>FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_CLEAR_TASK</code> on logout to completely prevent returning to the dashboard via the device Back button.</li>
+</ul>
+
+<!-- ============================================================== -->
+<!-- PROGRAM 04: ACTIVITY LIFE CYCLE CALLBACKS & LOGCAT             -->
+<!-- ============================================================== -->
+<div class="chapter-break"></div>
+<div class="chapter-header">
+    <div class="part-tag">PART III | 10 ORIGINAL UNIVERSITY PRACTICAL PROGRAMS (20MCA243)</div>
+    <h2 class="chapter-title">PROGRAM 04: ACTIVITY LIFE CYCLE CALLBACKS &amp; LOGCAT TRACING</h2>
+</div>
+
+<h3>1. Aim</h3>
+<p>To demonstrate and observe the complete Android Activity lifecycle callback progression (<code>onCreate</code>, <code>onStart</code>, <code>onResume</code>, <code>onPause</code>, <code>onStop</code>, <code>onDestroy</code>, <code>onRestart</code>) through synchronized <code>Toast</code> popups and system <code>Logcat</code> messages.</p>
+
+<h3>2. Theoretical Principles</h3>
+<p>The Android operating system governs Activity lifecycles via an event-driven state machine. When an Activity transitions between states, the framework invokes corresponding callback methods. Observing these callbacks in Logcat provides insight into application initialization, resource management during interruptions (e.g. incoming calls), and memory cleanup when navigating away.</p>
+
+<h3>3. Components &amp; APIs Used</h3>
+<ul>
+    <li><strong>Callbacks:</strong> <code>onCreate()</code>, <code>onStart()</code>, <code>onResume()</code>, <code>onPause()</code>, <code>onStop()</code>, <code>onRestart()</code>, <code>onDestroy()</code>.</li>
+    <li><strong>Core APIs:</strong> <code>Log.d(TAG, message)</code>, <code>Toast.makeText().show()</code>, <code>super.onCallback()</code>.</li>
+</ul>
+
+<div class="diagram-container">
+    <img src="diagrams/05_activity_lifecycle.svg" alt="Activity Lifecycle" class="diagram-img" style="max-height: 200px;" />
+    <div class="diagram-caption">Figure P4.1: Activity Lifecycle Callback Transitions.</div>
+</div>
+
+<!-- DEDICATED FULL-WIDTH CODE PAGES -->
+
+<!-- Continuous Natural Flow -->
+
+
+<div class="full-code-container">
+    <div class="code-file-header">
+        <span class="file-icon">&#128196;</span> XML Layout Source Code &mdash; <code>04_Activity_Life_Cycle/app/src/main/res/layout/activity_main.xml</code>
+    </div>
+    <pre class="full-code-block"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout
+    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:id=&quot;@+id/main&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:orientation=&quot;vertical&quot;
+    android:gravity=&quot;center&quot;
+    android:padding=&quot;24dp&quot;&gt;
+
+    &lt;TextView
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Activity Life Cycle&quot;
+        android:textSize=&quot;26sp&quot;
+        android:textStyle=&quot;bold&quot;
+        android:layout_marginBottom=&quot;24dp&quot; /&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/tvState&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Current State: Initializing&quot;
+        android:textSize=&quot;20sp&quot;
+        android:textColor=&quot;#1976D2&quot;
+        android:textStyle=&quot;bold&quot;
+        android:layout_marginBottom=&quot;20dp&quot; /&gt;
+
+    &lt;TextView
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Observe lifecycle callbacks via Toasts and in Logcat using tag: Appstate&quot;
+        android:textSize=&quot;14sp&quot;
+        android:gravity=&quot;center&quot;
+        android:textColor=&quot;#666666&quot; /&gt;
+
+&lt;/LinearLayout&gt;
+</code></pre>
+</div>
+
+
+<div class="full-code-container">
+    <div class="code-file-header">
+        <span class="file-icon">&#128196;</span> Java Source Code Implementation &mdash; <code>04_Activity_Life_Cycle/app/src/main/java/com/example/activity_life_cycle/MainActivity.java</code>
+    </div>
+    <pre class="full-code-block"><code>package com.example.activity_life_cycle;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = &quot;Appstate&quot;;
+    private TextView tvState;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        tvState = findViewById(R.id.tvState);
+        updateStatus(&quot;Created&quot;);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        updateStatus(&quot;Starting&quot;);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateStatus(&quot;Resuming&quot;);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        updateStatus(&quot;Paused&quot;);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        updateStatus(&quot;Stopped&quot;);
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        updateStatus(&quot;Restarted&quot;);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        updateStatus(&quot;Destroyed&quot;);
+    }
+
+    private void updateStatus(String state) {
+        Log.d(TAG, state);
+        Toast.makeText(this, state, Toast.LENGTH_SHORT).show();
+        if (tvState != null) {
+            tvState.setText(&quot;Current State: &quot; + state);
+        }
+    }
+}
+</code></pre>
+</div>
+
+
+<!-- DETAILED WALKTHROUGH & EXAMINATION REVIEW -->
+
+<!-- Continuous Natural Flow -->
+
+<h3>4. Detailed Code Walkthrough</h3>
+<ul>
+    <li><strong>Callback Sequence at App Launch:</strong> <code>onCreate() &rarr; onStart() &rarr; onResume()</code>. The Activity is now in the active, foreground running state.</li>
+    <li><strong>Pressing Home Button:</strong> <code>onPause() &rarr; onStop()</code>. The Activity is hidden and pushed to the background stack.</li>
+    <li><strong>Returning from Background:</strong> <code>onRestart() &rarr; onStart() &rarr; onResume()</code>. The Activity resumes interactive operation without executing <code>onCreate()</code> again.</li>
+    <li><strong>Screen Orientation Change:</strong> <code>onPause() &rarr; onStop() &rarr; onDestroy() &rarr; onCreate() &rarr; onStart() &rarr; onResume()</code>. The OS destroys and completely recreates the Activity to reload resources for the new configuration!</li>
+</ul>
+
+<h3>5. Practical Variations</h3>
+<ul>
+    <li><strong>Variation 4.1 (State Preservation via onSaveInstanceState):</strong> Saving counters or draft text across screen rotations:
+        <pre><code>@Override protected void onSaveInstanceState(Bundle out) { super.onSaveInstanceState(out); out.putInt("COUNT", count); }</code></pre>
+    </li>
+    <li><strong>Variation 4.2 (On-Screen Event History Log):</strong> Appending each lifecycle transition string into a dynamic <code>TextView</code> or <code>ListView</code>.</li>
+    <li><strong>Variation 4.3 (Sensor &amp; Camera Lifecycle Management):</strong> Registering a sensor listener in <code>onResume()</code> and unregistering it in <code>onPause()</code> to conserve battery.</li>
+</ul>
+
+<!-- ============================================================== -->
+<!-- PROGRAM 05: SELECTION CONTROLS (CHECKBOX & RADIOGROUP)         -->
+<!-- ============================================================== -->
+<div class="chapter-break"></div>
+<div class="chapter-header">
+    <div class="part-tag">PART III | 10 ORIGINAL UNIVERSITY PRACTICAL PROGRAMS (20MCA243)</div>
+    <h2 class="chapter-title">PROGRAM 05: SELECTION CONTROLS (CHECKBOX &amp; RADIOGROUP)</h2>
+</div>
+
+<h3>1. Aim</h3>
+<p>To design an interactive student survey screen using selection controls: single-choice mutually exclusive gender selection using <code>RadioGroup</code> / <code>RadioButton</code>, and multiple-choice language proficiency selection using independent <code>CheckBox</code> controls.</p>
+
+<h3>2. Theoretical Principles</h3>
+<p>Selection controls capture discrete categorical choices. A <code>RadioGroup</code> acts as a ViewGroup container enforcing mutual exclusion: checking one <code>RadioButton</code> automatically deselects all others. Its selected state is queried via <code>getCheckedRadioButtonId()</code>. In contrast, <code>CheckBox</code> controls operate independently, allowing any combination of zero, one, or multiple selections, evaluated individually using <code>isChecked()</code>.</p>
+
+<!-- DEDICATED FULL-WIDTH CODE PAGES -->
+
+<!-- Continuous Natural Flow -->
+
+
+<div class="full-code-container">
+    <div class="code-file-header">
+        <span class="file-icon">&#128196;</span> XML Layout Implementation &mdash; <code>05_Checkbox_and_Radiobutton/app/src/main/res/layout/activity_main.xml</code>
+    </div>
+    <pre class="full-code-block"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+
+&lt;LinearLayout
+    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:orientation=&quot;vertical&quot;
+    android:padding=&quot;20dp&quot;&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/h1&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginTop=&quot;40dp&quot;
+        android:gravity=&quot;center&quot;
+        android:text=&quot;Registration&quot;
+        android:textSize=&quot;24sp&quot;
+        android:textStyle=&quot;bold&quot; /&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/gender&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginTop=&quot;40dp&quot;
+        android:text=&quot;Choose Gender&quot;
+        android:textSize=&quot;20sp&quot; /&gt;
+
+    &lt;RadioGroup
+        android:id=&quot;@+id/rg&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:orientation=&quot;vertical&quot;&gt;
+
+        &lt;RadioButton
+            android:id=&quot;@+id/male&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;Male&quot;
+            android:textSize=&quot;18sp&quot; /&gt;
+
+        &lt;RadioButton
+            android:id=&quot;@+id/female&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;Female&quot;
+            android:textSize=&quot;18sp&quot; /&gt;
+
+    &lt;/RadioGroup&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/lang&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginTop=&quot;30dp&quot;
+        android:text=&quot;Select Known Languages&quot;
+        android:textSize=&quot;20sp&quot; /&gt;
+
+    &lt;CheckBox
+        android:id=&quot;@+id/e&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;English&quot;
+        android:textSize=&quot;18sp&quot; /&gt;
+
+    &lt;CheckBox
+        android:id=&quot;@+id/m&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Malayalam&quot;
+        android:textSize=&quot;18sp&quot; /&gt;
+
+    &lt;CheckBox
+        android:id=&quot;@+id/h&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Hindi&quot;
+        android:textSize=&quot;18sp&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/submit&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_gravity=&quot;center&quot;
+        android:layout_marginTop=&quot;30dp&quot;
+        android:text=&quot;Submit&quot; /&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/tv&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginTop=&quot;30dp&quot;
+        android:text=&quot;&quot;
+        android:textSize=&quot;18sp&quot; /&gt;
+
+&lt;/LinearLayout&gt;</code></pre>
+</div>
+
+
+<div class="full-code-container">
+    <div class="code-file-header">
+        <span class="file-icon">&#128196;</span> Java Source Code Implementation &mdash; <code>05_Checkbox_and_Radiobutton/app/src/main/java/com/example/checkbox_and_radiobutton/MainActivity.java</code>
+    </div>
+    <pre class="full-code-block"><code>package com.example.checkbox_and_radiobutton;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+    Button b1;
+    RadioGroup rg;
+    RadioButton r1, r2;
+    CheckBox e, m, h;
+    TextView t;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        b1 = findViewById(R.id.submit);
+        rg = findViewById(R.id.rg);
+        r1 = findViewById(R.id.male);
+        r2 = findViewById(R.id.female);
+        e = findViewById(R.id.e);
+        m = findViewById(R.id.m);
+        h = findViewById(R.id.h);
+        t = findViewById(R.id.tv);
+
+        // Submit Button Click
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                StringBuilder result = new StringBuilder();
+
+                // 1. Gender check
+                int selectedGenderId = rg.getCheckedRadioButtonId();
+                if (selectedGenderId != -1) {
+                    RadioButton selectedGender = findViewById(selectedGenderId);
+                    result.append(&quot;Gender: &quot;).append(selectedGender.getText().toString()).append(&quot;\n&quot;);
+                } else {
+                    result.append(&quot;Gender: Not Selected\n&quot;);
+                }
+
+                // 2. Languages check
+                StringBuilder langs = new StringBuilder();
+                if (e.isChecked()) {
+                    langs.append(&quot;English &quot;);
+                }
+                if (m.isChecked()) {
+                    langs.append(&quot;Malayalam &quot;);
+                }
+                if (h.isChecked()) {
+                    langs.append(&quot;Hindi &quot;);
+                }
+
+                if (langs.length() &gt; 0) {
+                    result.append(&quot;Languages Known: &quot;).append(langs.toString().trim());
+                } else {
+                    result.append(&quot;Languages Known: None selected&quot;);
+                }
+
+                // Display on screen
+                t.setText(result.toString());
+
+                Toast.makeText(MainActivity.this, &quot;Submitted Successfully&quot;, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+}
+</code></pre>
+</div>
+
+
+<!-- DETAILED WALKTHROUGH & EXAMINATION REVIEW -->
+
+<!-- Continuous Natural Flow -->
+
+<h3>3. Detailed Code Walkthrough</h3>
+<ul>
+    <li><strong>Single-Choice Gender Evaluation:</strong> <code>int selectedId = radioGroup.getCheckedRadioButtonId();</code> retrieves the ID of the selected button. If valid, <code>findViewById(selectedId).getText()</code> extracts the chosen gender label.</li>
+    <li><strong>Multi-Choice CheckBox Accumulation:</strong> Using a <code>StringBuilder</code>, each <code>CheckBox</code> is checked via <code>isChecked()</code>. If true, its label is appended.</li>
+    <li><strong>Validation:</strong> If no radio button is selected (<code>selectedId == -1</code>), the app prompts the user to select their gender before submitting.</li>
+</ul>
+
+<h3>4. Practical Variations (Predefined &rarr; User Input &rarr; Dynamic State)</h3>
+<ul>
+    <li><strong>Variation 5.1 (Static Form Submission):</strong> As implemented, collecting choices on button click.</li>
+    <li><strong>Variation 5.2 (Real-Time Reactive Toggling):</strong> Using <code>setOnCheckedChangeListener</code> on checkboxes to update an on-screen preview dynamically without needing a submit button.</li>
+    <li><strong>Variation 5.3 (Dynamic Options Ingestion):</strong> Inflating RadioButtons and CheckBoxes dynamically at runtime from a database or array of strings.</li>
+</ul>
+
+<!-- ============================================================== -->
+<!-- PROGRAM 06: IMPLICIT INTENT & SYSTEM ACTIONS                  -->
+<!-- ============================================================== -->
+<div class="chapter-break"></div>
+<div class="chapter-header">
+    <div class="part-tag">PART III | 10 ORIGINAL UNIVERSITY PRACTICAL PROGRAMS (20MCA243)</div>
+    <h2 class="chapter-title">PROGRAM 06: IMPLICIT INTENTS &amp; SYSTEM INTEGRATIONS</h2>
+</div>
+
+<h3>1. Aim</h3>
+<p>To demonstrate the execution of <strong>Implicit Intents</strong> in Android by launching external system applications: opening an institution website (<code>ACTION_VIEW</code> to CET website), dialing telephone numbers (<code>ACTION_DIAL</code>), dispatching emails (<code>ACTION_SENDTO</code>), and launching maps.</p>
+
+<h3>2. Theoretical Principles</h3>
+<p>An <strong>Implicit Intent</strong> specifies an abstract action and a standardized data URI rather than a destination class. The Android OS <code>PackageManager</code> inspects all installed apps' <code>&lt;intent-filter&gt;</code> declarations to determine compatible targets. If multiple apps match, the OS presents a system disambiguation dialog (chooser).</p>
+
+<div class="diagram-container">
+    <img src="diagrams/09_implicit_intent.svg" alt="Implicit Intent" class="diagram-img" style="max-height: 200px;" />
+    <div class="diagram-caption">Figure P6.1: Implicit Intent Resolution Mechanism.</div>
+</div>
+
+<!-- DEDICATED FULL-WIDTH CODE PAGES -->
+
+<!-- Continuous Natural Flow -->
+
+
+<div class="full-code-container">
+    <div class="code-file-header">
+        <span class="file-icon">&#128196;</span> XML Layout Implementation &mdash; <code>06_Implicit_Intent/app/src/main/res/layout/activity_main.xml</code>
+    </div>
+    <pre class="full-code-block"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+
+&lt;LinearLayout
+    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:id=&quot;@+id/main&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:orientation=&quot;vertical&quot;
+    android:padding=&quot;30dp&quot;&gt;
+
+    &lt;TextView
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;IMPLICIT INTENT&quot;
+        android:textSize=&quot;26sp&quot;
+        android:textStyle=&quot;bold&quot;
+        android:gravity=&quot;center&quot;
+        android:layout_marginTop=&quot;30dp&quot;
+        android:layout_marginBottom=&quot;30dp&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/website&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Open Website&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/phone&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Open Phone Dialer&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/email&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Open Email&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/maps&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Open Maps&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/share&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Share Text&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/sms&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Send SMS&quot; /&gt;
+
+&lt;/LinearLayout&gt;</code></pre>
+</div>
+
+
+<div class="full-code-container">
+    <div class="code-file-header">
+        <span class="file-icon">&#128196;</span> Java Source Code Implementation &mdash; <code>06_Implicit_Intent/app/src/main/java/com/example/implicit_intent/MainActivity.java</code>
+    </div>
+    <pre class="full-code-block"><code>package com.example.implicit_intent;
+
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    Button website, phone, email, maps, share, sms;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        website = findViewById(R.id.website);
+        phone = findViewById(R.id.phone);
+        email = findViewById(R.id.email);
+        maps = findViewById(R.id.maps);
+        share = findViewById(R.id.share);
+        sms = findViewById(R.id.sms);
+
+        // Open Website (College of Engineering Trivandrum)
+        website.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(&quot;https://www.cet.ac.in&quot;));
+                    startActivity(intent);
+                    Toast.makeText(MainActivity.this, &quot;Opening CET Website...&quot;, Toast.LENGTH_SHORT).show();
+                } catch (ActivityNotFoundException e) {
+                    Toast.makeText(MainActivity.this, &quot;No browser found&quot;, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        // Open Phone Dialer
+        phone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(&quot;tel:9876543210&quot;));
+                    startActivity(intent);
+                    Toast.makeText(MainActivity.this, &quot;Opening Phone Dialer...&quot;, Toast.LENGTH_SHORT).show();
+                } catch (ActivityNotFoundException e) {
+                    Toast.makeText(MainActivity.this, &quot;No dialer found&quot;, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        // Open Email
+        email.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent intent = new Intent(Intent.ACTION_SENDTO);
+                    intent.setData(Uri.parse(&quot;mailto:example@cet.ac.in&quot;));
+                    intent.putExtra(Intent.EXTRA_SUBJECT, &quot;MCA Lab Query&quot;);
+                    intent.putExtra(Intent.EXTRA_TEXT, &quot;Hello from Implicit Intent App!&quot;);
+                    startActivity(intent);
+                    Toast.makeText(MainActivity.this, &quot;Opening Email App...&quot;, Toast.LENGTH_SHORT).show();
+                } catch (ActivityNotFoundException e) {
+                    Toast.makeText(MainActivity.this, &quot;No email client found&quot;, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        // Open Maps (College of Engineering Trivandrum coordinates)
+        maps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(&quot;geo:8.5458,76.9063?q=College+of+Engineering+Trivandrum&quot;));
+                    startActivity(intent);
+                    Toast.makeText(MainActivity.this, &quot;Opening Maps...&quot;, Toast.LENGTH_SHORT).show();
+                } catch (ActivityNotFoundException e) {
+                    Toast.makeText(MainActivity.this, &quot;No maps app found&quot;, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        // Share Text
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType(&quot;text/plain&quot;);
+                intent.putExtra(Intent.EXTRA_TEXT, &quot;Hello from Android Implicit Intent experiment!&quot;);
+                startActivity(Intent.createChooser(intent, &quot;Share via&quot;));
+            }
+        });
+
+        // Open SMS
+        sms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse(&quot;smsto:9876543210&quot;));
+                    intent.putExtra(&quot;sms_body&quot;, &quot;Hello from Implicit Intent App&quot;);
+                    startActivity(intent);
+                    Toast.makeText(MainActivity.this, &quot;Opening SMS...&quot;, Toast.LENGTH_SHORT).show();
+                } catch (ActivityNotFoundException e) {
+                    Toast.makeText(MainActivity.this, &quot;No SMS app found&quot;, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+}
+</code></pre>
+</div>
+
+
+<!-- DETAILED WALKTHROUGH & EXAMINATION REVIEW -->
+
+<!-- Continuous Natural Flow -->
+
+<h3>3. Detailed Code Walkthrough</h3>
+<ul>
+    <li><strong>Browser Launch:</strong> <code>new Intent(Intent.ACTION_VIEW, Uri.parse("https://cet.ac.in"))</code> opens the URL in Chrome or default browser.</li>
+    <li><strong>Phone Dialer:</strong> <code>new Intent(Intent.ACTION_DIAL, Uri.parse("tel:9876543210"))</code> pre-fills the dialer pad without requiring dangerous call permissions.</li>
+    <li><strong>Defensive Handling:</strong> All implicit calls are wrapped in <code>try-catch (ActivityNotFoundException e)</code> to guard against devices lacking matching handlers (e.g., tablets with no telephony dialer).</li>
+</ul>
+
+<!-- ============================================================== -->
+<!-- PROGRAM 07: LISTVIEW & ARRAYADAPTER IMPLEMENTATION            -->
+<!-- ============================================================== -->
+<div class="chapter-break"></div>
+<div class="chapter-header">
+    <div class="part-tag">PART III | 10 ORIGINAL UNIVERSITY PRACTICAL PROGRAMS (20MCA243)</div>
+    <h2 class="chapter-title">PROGRAM 07: LISTVIEW &amp; ARRAYADAPTER IMPLEMENTATION</h2>
+</div>
+
+<h3>1. Aim</h3>
+<p>To populate an Android <code>ListView</code> with a collection of academic course elements using an <code>ArrayAdapter&lt;String&gt;</code>, recycle list row views, and handle item selection events using <code>OnItemClickListener</code>.</p>
+
+<h3>2. Theoretical Principles</h3>
+<p>An <code>AdapterView</code> displays repetitive collection data using the Adapter structural pattern. An <code>ArrayAdapter</code> binds an in-memory array or <code>ArrayList</code> to individual row layouts (e.g. <code>android.R.layout.simple_list_item_1</code>). Item click events are captured via <code>OnItemClickListener</code>, providing the clicked position index and row ID.</p>
+
+<div class="diagram-container">
+    <img src="diagrams/13_listview_adapter.svg" alt="ListView Adapter" class="diagram-img" style="max-height: 200px;" />
+    <div class="diagram-caption">Figure P7.1: Adapter Bridge between Java Collections and AdapterView rows.</div>
+</div>
+
+<!-- DEDICATED FULL-WIDTH CODE PAGES -->
+
+<!-- Continuous Natural Flow -->
+
+
+<div class="full-code-container">
+    <div class="code-file-header">
+        <span class="file-icon">&#128196;</span> XML Layout Implementation &mdash; <code>07_List_View/app/src/main/res/layout/activity_main.xml</code>
+    </div>
+    <pre class="full-code-block"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout
+    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:orientation=&quot;vertical&quot;
+    android:padding=&quot;16dp&quot;&gt;
+
+    &lt;TextView
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;LIST VIEW&quot;
+        android:textSize=&quot;24sp&quot;
+        android:textStyle=&quot;bold&quot;
+        android:gravity=&quot;center&quot;
+        android:layout_marginTop=&quot;16dp&quot;
+        android:layout_marginBottom=&quot;16dp&quot; /&gt;
+
+    &lt;ListView
+        android:id=&quot;@+id/lv&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;match_parent&quot;
+        android:divider=&quot;#CCCCCC&quot;
+        android:dividerHeight=&quot;1dp&quot; /&gt;
+
+&lt;/LinearLayout&gt;
+</code></pre>
+</div>
+
+
+<div class="full-code-container">
+    <div class="code-file-header">
+        <span class="file-icon">&#128196;</span> Java Source Code Implementation &mdash; <code>07_List_View/app/src/main/java/com/example/list_view/MainActivity.java</code>
+    </div>
+    <pre class="full-code-block"><code>package com.example.list_view;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    ListView lv;
+    String[] arr = {&quot;Deepak&quot;, &quot;Subi&quot;, &quot;Misira&quot;, &quot;Bhavana&quot;, &quot;Zuhri&quot;, &quot;Akhil&quot;, &quot;Rahul&quot;};
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        lv = findViewById(R.id.lv);
+
+        ArrayAdapter&lt;String&gt; adapter = new ArrayAdapter&lt;&gt;(
+                this,
+                android.R.layout.simple_list_item_1,
+                arr
+        );
+        lv.setAdapter(adapter);
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView&lt;?&gt; parent, View view, int position, long id) {
+                Toast.makeText(MainActivity.this, &quot;Name Clicked: &quot; + arr[position], Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+}
+</code></pre>
+</div>
+
+
+<!-- DETAILED WALKTHROUGH & EXAMINATION REVIEW -->
+
+<!-- Continuous Natural Flow -->
+
+<h3>3. Dynamic Data Variation (Predefined &rarr; User Input &rarr; Dynamic State)</h3>
+<p>In standard university practicals, a predefined static array is used. Here is the progressive 3-stage dynamic variation:</p>
+<div class="box box-example">
+    <div class="box-title">3-STAGE DYNAMIC DATA | USER-ENTERED ITEMS IN LISTVIEW</div>
+    <pre><code>// Stage 1: Dynamic ArrayList Collection
+ArrayList&lt;String&gt; courseList = new ArrayList&lt;&gt;();
+courseList.add("MCA - Mobile App Development");
+courseList.add("M.Tech - Cloud Computing");
+
+ArrayAdapter&lt;String&gt; adapter = new ArrayAdapter&lt;&gt;(this, 
+    android.R.layout.simple_list_item_1, courseList);
+listView.setAdapter(adapter);
+
+// Stage 2 &amp; 3: Capturing User Input and Dynamically Updating View
+btnAdd.setOnClickListener(new View.OnClickListener() {
+    String newItem = etInput.getText().toString().trim();
+    if (!newItem.isEmpty()) {
+        courseList.add(newItem);               // Add to collection
+        adapter.notifyDataSetChanged();        // Notify adapter to re-render!
+        etInput.setText("");                   // Clear input box
+    }
+});</code></pre>
+</div>
+
+<!-- ============================================================== -->
+<!-- PROGRAM 08: SCROLLVIEW WITH DYNAMIC VIEW POPULATION           -->
+<!-- ============================================================== -->
+<div class="chapter-break"></div>
+<div class="chapter-header">
+    <div class="part-tag">PART III | 10 ORIGINAL UNIVERSITY PRACTICAL PROGRAMS (20MCA243)</div>
+    <h2 class="chapter-title">PROGRAM 08: SCROLLVIEW WITH DYNAMIC VIEW POPULATION</h2>
+</div>
+
+<h3>1. Aim</h3>
+<p>To implement an Android <code>ScrollView</code> container hosting a vertical layout of interactive elements, demonstrating dynamic programmatic view addition at runtime and adhering to the single direct child ViewGroup constraint.</p>
+
+<div class="diagram-container">
+    <img src="diagrams/15_scrollview_hierarchy.svg" alt="ScrollView Hierarchy" class="diagram-img" style="max-height: 200px;" />
+    <div class="diagram-caption">Figure P8.1: ScrollView Single-Child ViewGroup Hierarchy.</div>
+</div>
+
+<!-- DEDICATED FULL-WIDTH CODE PAGES -->
+
+<!-- Continuous Natural Flow -->
+
+
+<div class="full-code-container">
+    <div class="code-file-header">
+        <span class="file-icon">&#128196;</span> XML Layout Implementation &mdash; <code>08_Scroll_View/app/src/main/res/layout/activity_main.xml</code>
+    </div>
+    <pre class="full-code-block"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout
+    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:orientation=&quot;vertical&quot;&gt;
+
+    &lt;TextView
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;SCROLL VIEW DEMO&quot;
+        android:textSize=&quot;22sp&quot;
+        android:textStyle=&quot;bold&quot;
+        android:gravity=&quot;center&quot;
+        android:padding=&quot;16dp&quot;
+        android:background=&quot;#E0E0E0&quot; /&gt;
+
+    &lt;ScrollView
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;match_parent&quot;&gt;
+
+        &lt;LinearLayout
+            android:id=&quot;@+id/linearLayoutContainer&quot;
+            android:layout_width=&quot;match_parent&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:orientation=&quot;vertical&quot;
+            android:padding=&quot;16dp&quot; /&gt;
+
+    &lt;/ScrollView&gt;
+
+&lt;/LinearLayout&gt;
+</code></pre>
+</div>
+
+
+<div class="full-code-container">
+    <div class="code-file-header">
+        <span class="file-icon">&#128196;</span> Java Source Code Implementation &mdash; <code>08_Scroll_View/app/src/main/java/com/example/scroll_view/MainActivity.java</code>
+    </div>
+    <pre class="full-code-block"><code>package com.example.scroll_view;
+
+import android.os.Bundle;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        LinearLayout linearLayout = findViewById(R.id.linearLayoutContainer);
+
+        for (int i = 1; i &lt;= 25; i++) {
+            TextView textView = new TextView(this);
+            textView.setText(&quot;Scroll Item &quot; + i + &quot;: Android MCA Lab&quot;);
+            textView.setTextSize(20);
+            textView.setPadding(24, 24, 24, 24);
+            linearLayout.addView(textView);
+        }
+    }
+}
+</code></pre>
+</div>
+
+
+<!-- DETAILED WALKTHROUGH & EXAMINATION REVIEW -->
+
+<!-- Continuous Natural Flow -->
+
+<h3>2. Theoretical Golden Rule of ScrollView</h3>
+<div class="box box-remember">
+    <div class="box-title">THE GOLDEN RULE OF SCROLLVIEW</div>
+    <p>A <code>ScrollView</code> can host strictly <strong>one</strong> direct child view or layout container. Placing multiple widgets directly inside a ScrollView produces an <code>IllegalStateException: ScrollView can host only one direct child</code>. Always wrap multiple widgets in a single parent <code>LinearLayout</code>.</p>
+</div>
+
+<!-- ============================================================== -->
+<!-- PROGRAM 09: DROPDOWN SPINNER & ONITEMSELECTEDLISTENER          -->
+<!-- ============================================================== -->
+<div class="chapter-break"></div>
+<div class="chapter-header">
+    <div class="part-tag">PART III | 10 ORIGINAL UNIVERSITY PRACTICAL PROGRAMS (20MCA243)</div>
+    <h2 class="chapter-title">PROGRAM 09: DROPDOWN SPINNER &amp; ONITEMSELECTEDLISTENER</h2>
+</div>
+
+<h3>1. Aim</h3>
+<p>To implement a compact dropdown <code>Spinner</code> selector populated with catalog items using an <code>ArrayAdapter&lt;String&gt;</code>, capturing user item selections via <code>OnItemSelectedListener</code> and displaying visual feedback.</p>
+
+<div class="diagram-container">
+    <img src="diagrams/14_spinner_adapter.svg" alt="Spinner Adapter Flow" class="diagram-img" style="max-height: 200px;" />
+    <div class="diagram-caption">Figure P9.1: Spinner Data Binding via ArrayAdapter.</div>
+</div>
+
+<!-- DEDICATED FULL-WIDTH CODE PAGES -->
+
+<!-- Continuous Natural Flow -->
+
+
+<div class="full-code-container">
+    <div class="code-file-header">
+        <span class="file-icon">&#128196;</span> XML Layout Implementation &mdash; <code>09_Spinner/app/src/main/res/layout/activity_main.xml</code>
+    </div>
+    <pre class="full-code-block"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout
+    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:orientation=&quot;vertical&quot;
+    android:padding=&quot;24dp&quot;&gt;
+
+    &lt;TextView
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;SPINNER&quot;
+        android:textSize=&quot;26sp&quot;
+        android:textStyle=&quot;bold&quot;
+        android:gravity=&quot;center&quot;
+        android:layout_marginTop=&quot;20dp&quot;
+        android:layout_marginBottom=&quot;32dp&quot; /&gt;
+
+    &lt;TextView
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Select a Fruit:&quot;
+        android:textSize=&quot;18sp&quot;
+        android:layout_marginBottom=&quot;8dp&quot; /&gt;
+
+    &lt;Spinner
+        android:id=&quot;@+id/sp&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:padding=&quot;12dp&quot;
+        android:layout_marginBottom=&quot;32dp&quot; /&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/t1&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Selected Fruit: None&quot;
+        android:textSize=&quot;20sp&quot;
+        android:textColor=&quot;#2E7D32&quot;
+        android:textStyle=&quot;bold&quot; /&gt;
+
+&lt;/LinearLayout&gt;
+</code></pre>
+</div>
+
+
+<div class="full-code-container">
+    <div class="code-file-header">
+        <span class="file-icon">&#128196;</span> Java Source Code Implementation &mdash; <code>09_Spinner/app/src/main/java/com/example/spinner/MainActivity.java</code>
+    </div>
+    <pre class="full-code-block"><code>package com.example.spinner;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity {
+
+    Spinner s;
+    TextView t;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        s = findViewById(R.id.sp);
+        t = findViewById(R.id.t1);
+
+        ArrayList&lt;String&gt; fruitList = new ArrayList&lt;&gt;();
+        fruitList.add(&quot;Apple&quot;);
+        fruitList.add(&quot;Mango&quot;);
+        fruitList.add(&quot;Pineapple&quot;);
+        fruitList.add(&quot;Banana&quot;);
+        fruitList.add(&quot;Orange&quot;);
+        fruitList.add(&quot;Grapes&quot;);
+
+        ArrayAdapter&lt;String&gt; adapter = new ArrayAdapter&lt;&gt;(
+                this,
+                android.R.layout.simple_spinner_dropdown_item,
+                fruitList
+        );
+        s.setAdapter(adapter);
+
+        s.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView&lt;?&gt; parent, View view, int position, long id) {
+                String selected = fruitList.get(position);
+                t.setText(&quot;Selected Fruit: &quot; + selected);
+                Toast.makeText(MainActivity.this, &quot;Selected: &quot; + selected, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView&lt;?&gt; parent) {
+                t.setText(&quot;Selected Fruit: None&quot;);
+            }
+        });
+    }
+}
+</code></pre>
+</div>
+
+
+<!-- DETAILED WALKTHROUGH & EXAMINATION REVIEW -->
+
+<!-- Continuous Natural Flow -->
+
+<h3>2. Dynamic Spinner Variation: User Input to Dynamic Collection</h3>
+<div class="box box-concept">
+    <div class="box-title">DYNAMIC SPINNER DATA FLOW | PREDEFINED &rarr; USER INPUT &rarr; ADAPTER UPDATE</div>
+    <p>The standard lab program uses a static array. Below is the full implementation that takes user input from an <code>EditText</code> and appends it dynamically:</p>
+    <pre><code>// 1. Dynamic ArrayList backing
+ArrayList&lt;String&gt; fruitList = new ArrayList&lt;&gt;();
+fruitList.add("Apple");
+fruitList.add("Mango");
+
+ArrayAdapter&lt;String&gt; adapter = new ArrayAdapter&lt;&gt;(this, 
+    android.R.layout.simple_spinner_item, fruitList);
+adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+spinner.setAdapter(adapter);
+
+// 2. Dynamic Input Capture &amp; Validation
+btnAddFruit.setOnClickListener(new View.OnClickListener() {
+    String fruit = etNewFruit.getText().toString().trim();
+    if (fruit.isEmpty()) {
+        etNewFruit.setError("Enter fruit name");
+        return;
+    }
+    fruitList.add(fruit);                  // Stage 3: Dynamic Data Update
+    adapter.notifyDataSetChanged();       // Immediately reflects in Spinner dropdown!
+    etNewFruit.setText("");                // Clear input field
+    Toast.makeText(MainActivity.this, "Added: " + fruit, Toast.LENGTH_SHORT).show();
+});</code></pre>
+</div>
+
+<!-- ============================================================== -->
+<!-- PROGRAM 10: SHAREDPREFERENCES PERSISTENT KEY-VALUE STORAGE     -->
+<!-- ============================================================== -->
+<div class="chapter-break"></div>
+<div class="chapter-header">
+    <div class="part-tag">PART III | 10 ORIGINAL UNIVERSITY PRACTICAL PROGRAMS (20MCA243)</div>
+    <h2 class="chapter-title">PROGRAM 10: SHAREDPREFERENCES PERSISTENT KEY-VALUE STORAGE</h2>
+</div>
+
+<h3>1. Aim</h3>
+<p>To demonstrate local client-side persistent storage in Android by creating, reading, updating, and clearing key-value pairs (Username, Email) using the <code>SharedPreferences</code> and <code>SharedPreferences.Editor</code> APIs.</p>
+
+<div class="diagram-container">
+    <img src="diagrams/12_shared_preferences_flow.svg" alt="SharedPreferences Flow" class="diagram-img" style="max-height: 200px;" />
+    <div class="diagram-caption">Figure P10.1: SharedPreferences Key-Value Storage Architecture.</div>
+</div>
+
+<!-- DEDICATED FULL-WIDTH CODE PAGES -->
+
+<!-- Continuous Natural Flow -->
+
+
+<div class="full-code-container">
+    <div class="code-file-header">
+        <span class="file-icon">&#128196;</span> XML Layout Implementation &mdash; <code>10_Shared_Preferences/app/src/main/res/layout/activity_main.xml</code>
+    </div>
+    <pre class="full-code-block"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout
+    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:orientation=&quot;vertical&quot;
+    android:padding=&quot;24dp&quot;&gt;
+
+    &lt;TextView
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;SHARED PREFERENCES&quot;
+        android:textSize=&quot;24sp&quot;
+        android:textStyle=&quot;bold&quot;
+        android:gravity=&quot;center&quot;
+        android:layout_marginTop=&quot;20dp&quot;
+        android:layout_marginBottom=&quot;24dp&quot; /&gt;
+
+    &lt;EditText
+        android:id=&quot;@+id/et_username&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:hint=&quot;Enter Username&quot;
+        android:inputType=&quot;text&quot;
+        android:layout_marginBottom=&quot;16dp&quot; /&gt;
+
+    &lt;EditText
+        android:id=&quot;@+id/et_email&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:hint=&quot;Enter Email&quot;
+        android:inputType=&quot;textEmailAddress&quot;
+        android:layout_marginBottom=&quot;24dp&quot; /&gt;
+
+    &lt;LinearLayout
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:orientation=&quot;horizontal&quot;
+        android:layout_marginBottom=&quot;12dp&quot;&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn_write&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_weight=&quot;1&quot;
+            android:layout_marginEnd=&quot;6dp&quot;
+            android:text=&quot;Write Data&quot; /&gt;
+
+        &lt;Button
+            android:id=&quot;@+id/btn_read&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_weight=&quot;1&quot;
+            android:layout_marginStart=&quot;6dp&quot;
+            android:text=&quot;Read Data&quot; /&gt;
+
+    &lt;/LinearLayout&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_clear&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Clear Data&quot;
+        android:layout_marginBottom=&quot;24dp&quot; /&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/txt_status&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Status: No data loaded&quot;
+        android:textSize=&quot;18sp&quot;
+        android:padding=&quot;16dp&quot;
+        android:background=&quot;#F0F0F0&quot;
+        android:textColor=&quot;#333333&quot; /&gt;
+
+&lt;/LinearLayout&gt;
+</code></pre>
+</div>
+
+
+<div class="full-code-container">
+    <div class="code-file-header">
+        <span class="file-icon">&#128196;</span> Java Source Code Implementation &mdash; <code>10_Shared_Preferences/app/src/main/java/com/example/shared_preferences/MainActivity.java</code>
+    </div>
+    <pre class="full-code-block"><code>package com.example.shared_preferences;
+
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    private static final String PREF_NAME = &quot;MyPrefs&quot;;
+    private static final String KEY_USER = &quot;username&quot;;
+    private static final String KEY_EMAIL = &quot;email&quot;;
+
+    EditText etUsername, etEmail;
+    Button btnWrite, btnRead, btnClear;
+    TextView txtStatus;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        etUsername = findViewById(R.id.et_username);
+        etEmail = findViewById(R.id.et_email);
+        btnWrite = findViewById(R.id.btn_write);
+        btnRead = findViewById(R.id.btn_read);
+        btnClear = findViewById(R.id.btn_clear);
+        txtStatus = findViewById(R.id.txt_status);
+
+        // Prefill default sample data from record
+        etUsername.setText(&quot;demo1po&quot;);
+        etEmail.setText(&quot;demo1@gmail.com&quot;);
+
+        // Write to SharedPreferences
+        btnWrite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String user = etUsername.getText().toString().trim();
+                String email = etEmail.getText().toString().trim();
+
+                if (user.isEmpty() || email.isEmpty()) {
+                    Toast.makeText(MainActivity.this, &quot;Please enter both fields&quot;, Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                SharedPreferences sp = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putString(KEY_USER, user);
+                editor.putString(KEY_EMAIL, email);
+                editor.apply();
+
+                txtStatus.setText(&quot;Written Data:\nUsername: &quot; + user + &quot;\nEmail: &quot; + email);
+                Toast.makeText(MainActivity.this, &quot;Data Saved Successfully&quot;, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Read from SharedPreferences
+        btnRead.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences sp = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
+                String user = sp.getString(KEY_USER, null);
+                String email = sp.getString(KEY_EMAIL, null);
+
+                if (user != null &amp;&amp; email != null) {
+                    txtStatus.setText(&quot;Loaded from SharedPreferences:\nUsername: &quot; + user + &quot;\nEmail: &quot; + email);
+                    Toast.makeText(MainActivity.this, &quot;Data Loaded&quot;, Toast.LENGTH_SHORT).show();
+                } else {
+                    txtStatus.setText(&quot;Status: No data found in SharedPreferences&quot;);
+                    Toast.makeText(MainActivity.this, &quot;No saved data found&quot;, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        // Clear SharedPreferences
+        btnClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences sp = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
+                SharedPreferences.Editor editor = sp.edit();
+                editor.clear();
+                editor.apply();
+
+                txtStatus.setText(&quot;Status: SharedPreferences cleared&quot;);
+                Toast.makeText(MainActivity.this, &quot;Data Cleared&quot;, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+}
+</code></pre>
+</div>
+
+
+<!-- DETAILED WALKTHROUGH & EXAMINATION REVIEW -->
+
+<!-- Continuous Natural Flow -->
+
+<h3>2. Detailed Code Walkthrough</h3>
+<ul>
+    <li><strong>Opening Storage:</strong> <code>SharedPreferences sp = getSharedPreferences("MyPrefs", MODE_PRIVATE);</code> opens an XML file stored in private app data storage.</li>
+    <li><strong>Saving Data:</strong> <code>sp.edit().putString("name", name).putString("email", email).apply();</code> stages the key-value edits and persists them asynchronously.</li>
+    <li><strong>Reading Data:</strong> <code>sp.getString("name", "");</code> extracts the string with an empty fallback default.</li>
+    <li><strong>Clearing Data:</strong> <code>sp.edit().clear().apply();</code> wipes all stored keys, resetting the state.</li>
+</ul>
+
+<h3>3. Viva Focus: apply() versus commit()</h3>
+<table class="academic-table">
+    <thead><tr><th>Criteria</th><th>apply()</th><th>commit()</th></tr></thead>
+    <tbody>
+        <tr><td><strong>Thread Execution</strong></td><td>Asynchronous (writes to disk in background worker thread).</td><td>Synchronous (writes to disk on calling thread).</td></tr>
+        <tr><td><strong>Return Value</strong></td><td><code>void</code> (fire-and-forget).</td><td><code>boolean</code> (returns true if write succeeded).</td></tr>
+        <tr><td><strong>UI Thread Impact</strong></td><td>Completely safe for Main UI thread; zero frame drops.</td><td>Can block UI thread during heavy disk I/O (risk of ANR).</td></tr>
+    </tbody>
+</table>
+
+    
+<div class="chapter-break"></div>
+<div class="chapter-header">
+    <div class="part-tag">PART IV &amp; V | INTEGRATED MULTI-COMPONENT APPLICATIONS</div>
+    <h2 class="chapter-title">APPLICATION 1: ENTERPRISE AUTHENTICATION &amp; PROFILE MANAGER</h2>
+</div>
+
+<p class="lead-text">This progressive application combines credential capture, rigorous validation, session persistence using <code>SharedPreferences</code>, cross-activity data exchange via <code>Intent</code>, and secure logout state management.</p>
+
+<div class="diagram-container">
+    <img src="diagrams/16_login_flowchart.svg" alt="Auth Flow" class="diagram-img" />
+    <div class="diagram-caption">Figure IA1.1: Multi-stage Authentication and Profile Lifecycle Flowchart.</div>
+</div>
+
+<div class="two-col">
+    <div class="col-left">
+        <h3>Variation 1.1: Basic UI Layout</h3>
+        <p>Introduces raw text capture via <code>EditText</code> and a submission <code>Button</code> without validation.</p>
+        <pre><code>// Var 1.1: Extracting raw strings
+String u = etUser.getText().toString();
+String p = etPass.getText().toString();</code></pre>
+
+        <h3>Variation 1.2: Validation &amp; Error Badges</h3>
+        <p>Integrates <code>setError()</code> on empty fields and checks credentials with Toast feedback.</p>
+        <pre><code>// Var 1.2: Validation logic
+if (u.isEmpty()) etUser.setError("Required");
+else if (p.isEmpty()) etPass.setError("Required");
+else if (u.equals("admin") &amp;&amp; p.equals("1234")) {
+    Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
+}</code></pre>
+
+        <h3>Variation 1.3: SharedPreferences Session</h3>
+        <p>Stores an <code>IS_LOGGED_IN</code> boolean flag so restarting the app remembers the active user.</p>
+        <pre><code>// Var 1.3: Session write
+SharedPreferences sp = getSharedPreferences("Auth", MODE_PRIVATE);
+sp.edit().putString("USER", u).putBoolean("LOGGED", true).apply();</code></pre>
+    </div>
+    <div class="col-right">
+        <h3>Variation 1.4: Explicit Intent Navigation</h3>
+        <p>Passes the authenticated username to <code>ProfileActivity</code> via Intent Extras.</p>
+        <pre><code>// Var 1.4: Intent data transfer
+Intent intent = new Intent(this, ProfileActivity.class);
+intent.putExtra("LOGGED_USER", u);
+startActivity(intent);</code></pre>
+
+        <h3>Variation 1.5: Complete Auth &amp; Profile System</h3>
+        <p>The definitive production architecture incorporating auto-login checks in <code>onCreate()</code> and a complete Logout routine that wipes the session and returns to login:</p>
+        <pre><code>// Var 1.5: Auto-login &amp; Logout
+public class ProfileActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle b) {
+        super.onCreate(b);
+        setContentView(R.layout.activity_profile);
+        
+        Button btnLogout = findViewById(R.id.btnLogout);
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences sp = getSharedPreferences("Auth", MODE_PRIVATE);
+                sp.edit().clear().apply(); // Wipe session
+                
+                Intent i = new Intent(ProfileActivity.this, MainActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(i);
+                finish();
+            }
+        });
+    }
+}</code></pre>
+    </div>
+</div>
+
+<!-- APPLICATION 2 -->
+<div class="chapter-break"></div>
+<div class="chapter-header">
+    <div class="part-tag">PART IV &amp; V | INTEGRATED MULTI-COMPONENT APPLICATIONS</div>
+    <h2 class="chapter-title">APPLICATION 2: STUDENT REGISTRATION &amp; ACADEMIC PROFILE SYSTEM</h2>
+</div>
+
+<div class="diagram-container">
+    <img src="diagrams/17_student_reg_flowchart.svg" alt="Student Reg Flow" class="diagram-img" />
+    <div class="diagram-caption">Figure IA2.1: Student Registration Data Capture and Multi-Activity Summary Flowchart.</div>
+</div>
+
+<div class="two-col">
+    <div class="col-left">
+        <h3>Variation 2.1: Basic Student Form</h3>
+        <p>Captures Name, University Roll Number, and Age using numeric and text <code>EditText</code> controls.</p>
+
+        <h3>Variation 2.2: Course Selection via Spinner</h3>
+        <p>Binds an academic program list (MCA, M.Tech, B.Tech) to a <code>Spinner</code> using <code>ArrayAdapter</code>.</p>
+        <pre><code>String[] courses = {"MCA", "M.Tech CSE", "B.Tech"};
+ArrayAdapter&lt;String&gt; adapter = new ArrayAdapter&lt;&gt;(
+    this, android.R.layout.simple_spinner_dropdown_item, courses);
+spCourse.setAdapter(adapter);</code></pre>
+
+        <h3>Variation 2.3: Demographics &amp; Skills Controls</h3>
+        <p>Introduces a <code>RadioGroup</code> for Gender selection (Male/Female) and independent <code>CheckBox</code> controls for elective technical skills (Java, Python, Mobile App Dev).</p>
+    </div>
+    <div class="col-right">
+        <h3>Variation 2.4: Intent Summary Transition</h3>
+        <p>Bundles validated inputs and forwards them to a read-only <code>SummaryActivity</code>.</p>
+
+        <h3>Variation 2.5: Complete Academic Profile System</h3>
+        <p>Full enterprise implementation with multi-field validation, ArrayList parceling, and styled summary card rendering:</p>
+        <pre><code>// Var 2.5: Bundling complex registration payload
+ArrayList&lt;String&gt; skills = new ArrayList&lt;&gt;();
+if (cbWeb.isChecked()) skills.add("Web Programming");
+if (cbMobile.isChecked()) skills.add("Mobile Dev");
+
+Intent intent = new Intent(MainActivity.this, StudentSummaryActivity.class);
+intent.putExtra("NAME", name);
+intent.putExtra("ROLL", roll);
+intent.putExtra("COURSE", course);
+intent.putExtra("GENDER", gender);
+intent.putStringArrayListExtra("SKILLS", skills);
+startActivity(intent);</code></pre>
+    </div>
+</div>
+
+<!-- APPLICATION 3 -->
+<div class="chapter-break"></div>
+<div class="chapter-header">
+    <div class="part-tag">PART IV &amp; V | INTEGRATED MULTI-COMPONENT APPLICATIONS</div>
+    <h2 class="chapter-title">APPLICATION 3: ITEM SELECTION &amp; SHOPPING CART MANAGEMENT</h2>
+</div>
+
+<div class="diagram-container">
+    <img src="diagrams/18_shopping_cart_flowchart.svg" alt="Shopping Cart Flow" class="diagram-img" />
+    <div class="diagram-caption">Figure IA3.1: Inventory Selection, Dynamic Totaling, and Order Checkout Pipeline.</div>
+</div>
+
+<div class="two-col">
+    <div class="col-left">
+        <h3>Variation 3.1: Product Selection Dropdown</h3>
+        <p>Displays inventory items with unit prices in a dropdown <code>Spinner</code>.</p>
+
+        <h3>Variation 3.2: Dynamic Cost Calculation</h3>
+        <p>Computes <code>unitPrice * quantity</code> upon user input and displays running totals.</p>
+
+        <h3>Variation 3.3: Cart Memory Storage</h3>
+        <p>Appends selected product lines into a runtime Java <code>ArrayList&lt;String&gt;</code>.</p>
+        <pre><code>ArrayList&lt;String&gt; cart = new ArrayList&lt;&gt;();
+cart.add("Android Handbook (Qty 2) = $100");</code></pre>
+    </div>
+    <div class="col-right">
+        <h3>Variation 3.4: Real-time ListView Rendering</h3>
+        <p>Connects an <code>ArrayAdapter</code> to a <code>ListView</code>, updating the UI dynamically via <code>adapter.notifyDataSetChanged()</code>.</p>
+
+        <h3>Variation 3.5: Complete E-Commerce Checkout</h3>
+        <p>Enables adding multiple items, computing grand total with sales tax, item removal on click, and launching an Order Receipt Activity:</p>
+        <pre><code>// Var 3.5: Order Dispatch
+Intent checkout = new Intent(this, ReceiptActivity.class);
+checkout.putStringArrayListExtra("CART_ITEMS", cartItems);
+checkout.putExtra("TOTAL_AMOUNT", grandTotal);
+startActivity(checkout);</code></pre>
+    </div>
+</div>
+
+<!-- APPLICATION 4 -->
+<div class="chapter-break"></div>
+<div class="chapter-header">
+    <div class="part-tag">PART IV &amp; V | INTEGRATED MULTI-COMPONENT APPLICATIONS</div>
+    <h2 class="chapter-title">APPLICATION 4: USER REGISTRATION &amp; PROFILE SETTINGS MANAGER</h2>
+</div>
+
+<div class="diagram-container">
+    <img src="diagrams/19_profile_manager_flowchart.svg" alt="Profile Flow" class="diagram-img" />
+    <div class="diagram-caption">Figure IA4.1: Persistent Settings Sync via SharedPreferences.</div>
+</div>
+
+<div class="two-col">
+    <div class="col-left">
+        <h3>Variation 4.1: Contact Info Form</h3>
+        <p>Captures user Full Name, Email Address, and Phone Number.</p>
+
+        <h3>Variation 4.2: Switches &amp; Toggles</h3>
+        <p>Adds modern UI toggles: <code>Switch</code> for Dark Mode and Notification preferences.</p>
+
+        <h3>Variation 4.3: Real-Time Input Sanitization</h3>
+        <p>Validates email format using Android regex pattern <code>Patterns.EMAIL_ADDRESS.matcher(email).matches()</code>.</p>
+    </div>
+    <div class="col-right">
+        <h3>Variation 4.4: Profile Display Activity</h3>
+        <p>Navigates to a formatted user card layout via Explicit Intent.</p>
+
+        <h3>Variation 4.5: Complete Persistent Profile Manager</h3>
+        <p>Synchronizes all fields to <code>SharedPreferences</code>, automatically re-populates values on app restart, and includes a full reset routine:</p>
+        <pre><code>// Var 4.5: Profile Auto-Sync
+SharedPreferences sp = getSharedPreferences("ProfilePrefs", MODE_PRIVATE);
+// Auto-load on onCreate
+etName.setText(sp.getString("NAME", ""));
+swNotify.setChecked(sp.getBoolean("NOTIFY", true));
+
+// Save on Click
+sp.edit()
+  .putString("NAME", etName.getText().toString())
+  .putBoolean("NOTIFY", swNotify.isChecked())
+  .apply();</code></pre>
+    </div>
+</div>
+
+<!-- APPLICATION 5 -->
+<div class="chapter-break"></div>
+<div class="chapter-header">
+    <div class="part-tag">PART IV &amp; V | INTEGRATED MULTI-COMPONENT APPLICATIONS</div>
+    <h2 class="chapter-title">APPLICATION 5: MULTI-PAGE UNIVERSITY PORTAL &amp; UTILITIES HUB</h2>
+</div>
+
+<div class="diagram-container">
+    <img src="diagrams/20_portal_navigation.svg" alt="Portal Flow" class="diagram-img" />
+    <div class="diagram-caption">Figure IA5.1: Multi-Page Portal Navigation &amp; Dispatch Graph.</div>
+</div>
+
+<div class="two-col">
+    <div class="col-left">
+        <h3>Variation 5.1: Dashboard Navigation</h3>
+        <p>Central dashboard menu navigating to independent sub-activities.</p>
+
+        <h3>Variation 5.2: Bi-directional Activity Results</h3>
+        <p>Uses <code>startActivityForResult()</code> to request feedback or settings from secondary screens.</p>
+
+        <h3>Variation 5.3: Implicit Intent Integration Hub</h3>
+        <p>Embeds CET Web Portal (<code>ACTION_VIEW</code>) and Campus Location coordinates in Google Maps (<code>geo:</code>).</p>
+    </div>
+    <div class="col-right">
+        <h3>Variation 5.4: Portal State Caching</h3>
+        <p>Caches recent user activities and visits in <code>SharedPreferences</code>.</p>
+
+        <h3>Variation 5.5: Complete University Information Portal</h3>
+        <p>A flagship enterprise portal combining explicit navigation, implicit web/map integrations, dynamic calculator utilities, profile caches, and an <code>AlertDialog</code> confirmation exit dialog:</p>
+        <pre><code>// Var 5.5: Exit Confirmation Dialog
+new AlertDialog.Builder(MainActivity.this)
+    .setTitle("Exit Portal")
+    .setMessage("Are you sure you want to exit?")
+    .setPositiveButton("Yes", (d, w) -&gt; finish())
+    .setNegativeButton("No", null)
+    .show();</code></pre>
+    </div>
+</div>
+
+    
+<div class="chapter-break"></div>
+<div class="chapter-header">
+    <div class="part-tag">PART VII | QUICK REVISION &amp; EXAMINATION REFERENCE</div>
+    <h2 class="chapter-title">HIGH-YIELD REVISION CHEAT SHEETS &amp; COMPARISON TABLES</h2>
+</div>
+
+<h3>1. Android Architecture Layer Quick Summary</h3>
+<table class="academic-table">
+    <tr><th>Layer</th><th>Underlying Tech</th><th>Primary Responsibilities</th><th>Key Components</th></tr>
+    <tr><td><strong>Applications</strong></td><td>Java / Kotlin</td><td>User interaction &amp; presentation</td><td>Home, Phone, Custom MCA Apps</td></tr>
+    <tr><td><strong>Application Framework</strong></td><td>Java APIs</td><td>High-level services &amp; management</td><td>ActivityManager, WindowManager, ContentProviders</td></tr>
+    <tr><td><strong>Libraries &amp; Runtime</strong></td><td>C/C++ &amp; DEX</td><td>Native engines &amp; bytecode execution</td><td>SQLite, WebKit, OpenGL ES, ART (AOT/JIT)</td></tr>
+    <tr><td><strong>Hardware Abstraction (HAL)</strong></td><td>C/C++ stubs</td><td>Device driver standardization</td><td>Camera, Audio, Bluetooth, Sensors HAL</td></tr>
+    <tr><td><strong>Linux Kernel</strong></td><td>C</td><td>Hardware interface &amp; core OS services</td><td>Process management, Binder IPC, LMK, Power</td></tr>
+</table>
+
+<h3>2. Android Layout Attributes Quick Reference</h3>
+<table class="academic-table">
+    <tr><th>Attribute</th><th>Valid Layouts</th><th>Functional Purpose</th></tr>
+    <tr><td><code>android:orientation</code></td><td>LinearLayout</td><td>Defines arrangement axis: <code>vertical</code> or <code>horizontal</code>.</td></tr>
+    <tr><td><code>android:layout_weight</code></td><td>LinearLayout</td><td>Distributes surplus dimension proportionally among sibling views.</td></tr>
+    <tr><td><code>android:gravity</code></td><td>View / ViewGroup</td><td>Controls alignment of <i>content inside</i> the view (e.g. text inside button).</td></tr>
+    <tr><td><code>android:layout_gravity</code></td><td>Child of ViewGroup</td><td>Controls alignment of the <i>view itself</i> inside its parent container.</td></tr>
+    <tr><td><code>android:layout_margin</code></td><td>All Views</td><td>Defines external spacing around the view perimeter.</td></tr>
+    <tr><td><code>android:padding</code></td><td>All Views</td><td>Defines internal spacing between view boundary and its content.</td></tr>
+    <tr><td><code>app:layout_constraintTop_to...</code></td><td>ConstraintLayout</td><td>Anchors the top constraint edge to a target sibling or parent boundary.</td></tr>
+</table>
+
+<h3>3. Storage Solutions Comparison Matrix</h3>
+<table class="academic-table">
+    <tr><th>Storage Option</th><th>Data Format</th><th>Visibility</th><th>Persistence</th><th>Typical Use Case</th></tr>
+    <tr><td><strong>SharedPreferences</strong></td><td>XML Key-Value pairs</td><td>Private to app</td><td>Permanent (until cleared)</td><td>User settings, login session tokens</td></tr>
+    <tr><td><strong>Internal Storage</strong></td><td>Raw binary / text files</td><td>Private to app</td><td>Permanent (until uninstalled)</td><td>Downloaded caches, private app files</td></tr>
+    <tr><td><strong>External Storage</strong></td><td>Shared media files</td><td>Public / Scoped</td><td>User-managed</td><td>Photos, videos, documents, music</td></tr>
+    <tr><td><strong>SQLite / Room</strong></td><td>Relational SQL tables</td><td>Private to app</td><td>Permanent structured</td><td>Complex relational catalogs, offline caching</td></tr>
+</table>
+
+<div class="chapter-break"></div>
+<div class="chapter-header">
+    <div class="part-tag">PART VII | UNIVERSITY EXAMINATION PREPARATION</div>
+    <h2 class="chapter-title">30 HIGH-YIELD VIVA VOCE EXAMINATION QUESTIONS &amp; ANSWERS</h2>
+</div>
+
+<div class="viva-container">
+    <div class="viva-item">
+        <div class="viva-q">1. What is the Android Manifest file and why is it mandatory?</div>
+        <div class="viva-a"><code>AndroidManifest.xml</code> is the fundamental deployment descriptor and contract of an Android application. It declares the application package name, all components (Activities, Services, Broadcast Receivers, Content Providers), required system permissions, minimum/target SDK versions, and hardware requirements. The OS refuses to execute unregistered components.</div>
+    </div>
+
+    <div class="viva-item">
+        <div class="viva-q">2. What is the role of the auto-generated R class in Android?</div>
+        <div class="viva-a">The <code>R</code> class is an auto-generated Java class created by the AAPT2 tool. It maps all resources under the <code>res/</code> directory into static hexadecimal 32-bit integer constants (e.g., <code>R.id.btnLogin</code>, <code>R.layout.activity_main</code>), enabling type-safe programmatic access from Java code.</div>
+    </div>
+
+    <div class="viva-item">
+        <div class="viva-q">3. Differentiate between dp (density-independent pixels) and sp (scale-independent pixels).</div>
+        <div class="viva-a">Both units scale across different hardware screen densities based on a 160 dpi baseline. However, <code>sp</code> additionally factors in the user's system-level accessibility font size preferences. Hence, <code>dp</code> is used for layout dimensions (widths, heights, margins), while <code>sp</code> is strictly reserved for text typography (<code>textSize</code>).</div>
+    </div>
+
+    <div class="viva-item">
+        <div class="viva-q">4. Explain the difference between Explicit Intent and Implicit Intent.</div>
+        <div class="viva-a">An <strong>Explicit Intent</strong> explicitly specifies the exact destination target class (e.g. <code>new Intent(this, SecondActivity.class)</code>). An <strong>Implicit Intent</strong> declares a generalized action (e.g. <code>ACTION_VIEW</code>, <code>ACTION_DIAL</code>) and data URI, delegating to the Android OS to resolve the best matching external application via Intent Filters.</div>
+    </div>
+
+    <div class="viva-item">
+        <div class="viva-q">5. What happens during an Activity orientation change (portrait to landscape)?</div>
+        <div class="viva-a">By default, a screen rotation constitutes a runtime configuration change. The Android OS completely tears down the active activity (executing <code>onPause &rarr; onStop &rarr; onDestroy</code>) and recreates a fresh instance from scratch (<code>onCreate &rarr; onStart &rarr; onResume</code>) to load resources from alternative qualifier folders (e.g., <code>layout-land/</code>).</div>
+    </div>
+
+    <div class="viva-item">
+        <div class="viva-q">6. How is user session state persisted across orientation changes?</div>
+        <div class="viva-a">Temporary UI state can be saved in the <code>onSaveInstanceState(Bundle outState)</code> callback and restored in <code>onCreate(Bundle savedInstanceState)</code> or <code>onRestoreInstanceState()</code>. For persistent storage across app restarts, <code>SharedPreferences</code> or a database is used.</div>
+    </div>
+
+    <div class="viva-item">
+        <div class="viva-q">7. What is an Adapter and why is it necessary in Android?</div>
+        <div class="viva-a">An <strong>Adapter</strong> is a structural bridge between a data source (such as an array or <code>ArrayList</code>) and an <code>AdapterView</code> (such as <code>ListView</code> or <code>Spinner</code>). It inflates and binds individual data items to child view rows on demand, recycling views to minimize memory consumption.</div>
+    </div>
+
+    <div class="viva-item">
+        <div class="viva-q">8. What is the function of android:layout_weight in LinearLayout?</div>
+        <div class="viva-a"><code>layout_weight</code> specifies how remaining unused space along the layout's orientation axis should be divided among sibling views. When set to <code>0dp</code> width (horizontal) or <code>0dp</code> height (vertical) alongside weight values, views expand proportionally relative to each other.</div>
+    </div>
+
+    <div class="viva-item">
+        <div class="viva-q">9. Compare apply() versus commit() in SharedPreferences.Editor.</div>
+        <div class="viva-a"><code>commit()</code> writes data synchronously to disk on the main calling thread and returns a boolean status, risking UI stuttering. <code>apply()</code> commits changes to the in-memory cache immediately and writes to disk asynchronously in a background worker thread, ensuring smooth UI performance.</div>
+    </div>
+
+    <div class="viva-item">
+        <div class="viva-q">10. What is the Golden Rule of ScrollView layout architecture?</div>
+        <div class="viva-a">A <code>ScrollView</code> can host strictly <strong>one</strong> direct child view element. To place multiple widgets inside a ScrollView, all widgets must be nested inside a single parent container (such as a vertical <code>LinearLayout</code>).</div>
+    </div>
+
+    <div class="viva-item">
+        <div class="viva-q">11. Why should you never nest a ListView inside a ScrollView?</div>
+        <div class="viva-a">Nesting a scrollable view inside another scrollable container causes touch event conflicts and breaks view recycling. The parent ScrollView cannot calculate the dynamic child height, resulting in the ListView rendering only one or two rows or failing to scroll.</div>
+    </div>
+
+    <div class="viva-item">
+        <div class="viva-q">12. What causes an ActivityNotFoundException in Android?</div>
+        <div class="viva-a">An <code>ActivityNotFoundException</code> occurs when an implicit intent is triggered, but no installed application on the device matches the specified action, data scheme, or category. It must be guarded against using <code>try-catch</code> or <code>intent.resolveActivity()</code>.</div>
+    </div>
+
+    <div class="viva-item">
+        <div class="viva-q">13. What is an ANR error and how is it prevented?</div>
+        <div class="viva-a"><strong>Application Not Responding (ANR)</strong> is a system dialog displayed when an application freezes the UI thread for longer than 5 seconds (or broadcast receiver for > 10s). It is prevented by offloading long-running tasks (network, disk I/O, heavy parsing) to background threads.</div>
+    </div>
+
+    <div class="viva-item">
+        <div class="viva-q">14. Differentiate between RadioGroup and CheckBox.</div>
+        <div class="viva-a"><code>RadioGroup</code> enforces single-choice mutual exclusion among its child <code>RadioButton</code> views (selecting one deselects others). <code>CheckBox</code> allows independent multiple-choice selection, where any combination of options can be toggled simultaneously.</div>
+    </div>
+
+    <div class="viva-item">
+        <div class="viva-q">15. What is the purpose of android:exported="true" in Android 12+?</div>
+        <div class="viva-a">Beginning in Android 12 (API 31), any component (Activity, Service, Receiver) containing an <code>&lt;intent-filter&gt;</code> must explicitly declare <code>android:exported="true"</code> (if accessible to outside apps/launcher) or <code>false</code> (if strictly private) to mitigate security vulnerabilities.</div>
+    </div>
+
+    <div class="viva-item">
+        <div class="viva-q">16. What is the Android Runtime (ART) Ahead-Of-Time (AOT) compilation?</div>
+        <div class="viva-a">ART compiles DEX bytecode directly into native machine code (ELF binaries) during application installation (AOT) and runtime idle periods. This eliminates on-the-fly interpretation overhead, speeding up execution and conserving battery power compared to the legacy Dalvik VM.</div>
+    </div>
+
+    <div class="viva-item">
+        <div class="viva-q">17. How do you pass primitive data between Activities using Intent?</div>
+        <div class="viva-a">Data is attached in the sending Activity using <code>intent.putExtra(key, value)</code> and extracted in the destination Activity via <code>getIntent().getStringExtra(key)</code>, <code>getIntExtra(key, defaultValue)</code>, or <code>getBooleanExtra(key, defaultValue)</code>.</div>
+    </div>
+
+    <div class="viva-item">
+        <div class="viva-q">18. What is the purpose of finish() in an Activity?</div>
+        <div class="viva-a">Calling <code>finish()</code> explicitly terminates the current Activity instance, initiating its destruction lifecycle (<code>onPause &rarr; onStop &rarr; onDestroy</code>) and popping it off the back-stack so the user returns to the preceding screen.</div>
+    </div>
+
+    <div class="viva-item">
+        <div class="viva-q">19. What is the function of the android.permission.INTERNET declaration?</div>
+        <div class="viva-a">It is a standard normal permission declared in <code>AndroidManifest.xml</code> granting the application access to open network sockets and retrieve remote web resources (e.g. via HTTP/HTTPS).</div>
+    </div>
+
+    <div class="viva-item">
+        <div class="viva-q">20. What is ViewBinding and why is it preferred over findViewById()?</div>
+        <div class="viva-a">ViewBinding generates binding classes for each XML layout containing direct, null-safe, and compile-time type-safe references to all views with IDs, eliminating <code>NullPointerException</code> and <code>ClassCastException</code> risks inherent to manual <code>findViewById()</code>.</div>
+    </div>
+
+    <div class="viva-item">
+        <div class="viva-q">21. Explain the difference between match_parent and wrap_content.</div>
+        <div class="viva-a"><code>match_parent</code> forces the view to expand and occupy all available space within its parent container. <code>wrap_content</code> restricts the view dimensions to only the size necessary to encompass its internal contents (e.g., text or image boundaries).</div>
+    </div>
+
+    <div class="viva-item">
+        <div class="viva-q">22. What is the difference between an Intent Action and Intent Data?</div>
+        <div class="viva-a">An <strong>Action</strong> specifies the operation to be performed (e.g., <code>ACTION_VIEW</code>, <code>ACTION_SEND</code>). <strong>Data</strong> provides the URI upon which that action operates, encoded with specific schemes such as <code>https://</code> for websites or <code>tel:</code> for dialers.</div>
+    </div>
+
+    <div class="viva-item">
+        <div class="viva-q">23. How does OnItemClickListener differ from OnClickListener?</div>
+        <div class="viva-a"><code>OnClickListener</code> is attached to standalone individual views (like Button, TextView). <code>OnItemClickListener</code> is attached to an AdapterView container (ListView, GridView) and provides parameters indicating the exact clicked row position (<code>position</code>) and data row ID (<code>id</code>).</div>
+    </div>
+
+    <div class="viva-item">
+        <div class="viva-q">24. What is the purpose of Logcat and the Log.d() method?</div>
+        <div class="viva-a">Logcat is the system logging buffer in Android Studio. <code>Log.d(TAG, message)</code> writes debug messages tagged with an identifier, allowing developers to inspect program flow, variable states, and exception traces without displaying visual artifacts to end users.</div>
+    </div>
+
+    <div class="viva-item">
+        <div class="viva-q">25. What is the Android Binder IPC mechanism?</div>
+        <div class="viva-a">Binder is a high-performance Linux kernel driver and IPC mechanism that facilitates remote procedure calls and transaction memory buffers between distinct Android processes, enabling secure communication between apps and system services.</div>
+    </div>
+
+    <div class="viva-item">
+        <div class="viva-q">26. What happens if super.onCreate() is omitted in an Activity?</div>
+        <div class="viva-a">Omitting <code>super.onCreate(savedInstanceState)</code> causes the runtime framework to throw a <code>SuperNotCalledException</code>, crashing the application immediately upon launch because base framework initialization was bypassed.</div>
+    </div>
+
+    <div class="viva-item">
+        <div class="viva-q">27. What is an Intent Filter?</div>
+        <div class="viva-a">An <code>&lt;intent-filter&gt;</code> is an XML declaration inside <code>AndroidManifest.xml</code> that specifies the types of implicit intents an Activity, Service, or BroadcastReceiver can respond to based on declared actions, categories, and data schemes.</div>
+    </div>
+
+    <div class="viva-item">
+        <div class="viva-q">28. How is an AlertDialog constructed in Android?</div>
+        <div class="viva-a">An <code>AlertDialog</code> is instantiated using the Builder pattern: <code>new AlertDialog.Builder(context).setTitle(...).setMessage(...).setPositiveButton(...).setNegativeButton(...).show()</code>.</div>
+    </div>
+
+    <div class="viva-item">
+        <div class="viva-q">29. What is Scoped Storage in modern Android?</div>
+        <div class="viva-a">Introduced in Android 10 (API 29), Scoped Storage isolates apps by giving each app private storage access while requiring the system Photo Picker or Storage Access Framework (SAF) for user-shared storage, preventing apps from scanning unrelated files across the SD card.</div>
+    </div>
+
+    <div class="viva-item">
+        <div class="viva-q">30. What are the key stages in building an APK file?</div>
+        <div class="viva-a">1) AAPT2 compiles XML resources into binary XML and <code>R.java</code>. 2) <code>javac</code> compiles Java code into <code>.class</code> bytecode. 3) D8 dexer converts class files into Dalvik Executable (<code>.dex</code>) format. 4) APK Packager zips DEX, resources, and assets. 5) <code>apksigner</code> signs with a digital certificate and <code>zipalign</code> optimizes alignment for memory efficiency.</div>
+    </div>
+</div>
+
+    
+</body>
+</html>
