@@ -6,11 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     EditText t1;
-
     Button b0, b1, b2, b3, b4, b5, b6, b7, b8, b9;
     Button b10, b11, b12, b13, b14, b15, b16, bac;
 
@@ -35,177 +35,134 @@ public class MainActivity extends AppCompatActivity {
         b8 = findViewById(R.id.b8);
         b9 = findViewById(R.id.b9);
 
-        b10 = findViewById(R.id.b10);
-        b11 = findViewById(R.id.b11);
-        b12 = findViewById(R.id.b12);
-        b13 = findViewById(R.id.b13);
-        b14 = findViewById(R.id.b14);
-        b15 = findViewById(R.id.b15);
-        b16 = findViewById(R.id.b16);
-        bac = findViewById(R.id.bac);
+        b10 = findViewById(R.id.b10); // .
+        b11 = findViewById(R.id.b11); // backspace
+        b12 = findViewById(R.id.b12); // +
+        b13 = findViewById(R.id.b13); // -
+        b14 = findViewById(R.id.b14); // x
+        b15 = findViewById(R.id.b15); // /
+        b16 = findViewById(R.id.b16); // =
+        bac = findViewById(R.id.bac); // AC
 
-        b0.setOnClickListener(new View.OnClickListener() {
+        // Digits
+        View.OnClickListener digitListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                t1.append("0");
+                Button b = (Button) view;
+                t1.append(b.getText().toString());
             }
-        });
+        };
 
-        b1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                t1.append("1");
-            }
-        });
+        b0.setOnClickListener(digitListener);
+        b1.setOnClickListener(digitListener);
+        b2.setOnClickListener(digitListener);
+        b3.setOnClickListener(digitListener);
+        b4.setOnClickListener(digitListener);
+        b5.setOnClickListener(digitListener);
+        b6.setOnClickListener(digitListener);
+        b7.setOnClickListener(digitListener);
+        b8.setOnClickListener(digitListener);
+        b9.setOnClickListener(digitListener);
 
-        b2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                t1.append("2");
-            }
-        });
-
-        b3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                t1.append("3");
-            }
-        });
-
-        b4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                t1.append("4");
-            }
-        });
-
-        b5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                t1.append("5");
-            }
-        });
-
-        b6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                t1.append("6");
-            }
-        });
-
-        b7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                t1.append("7");
-            }
-        });
-
-        b8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                t1.append("8");
-            }
-        });
-
-        b9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                t1.append("9");
-            }
-        });
-
+        // Decimal point
         b10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                t1.append(".");
-            }
-        });
-
-        b12.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                firstNumber = t1.getText().toString();
-                operator = "+";
-                t1.setText("");
-            }
-        });
-
-        b13.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                firstNumber = t1.getText().toString();
-                operator = "-";
-                t1.setText("");
-            }
-        });
-
-        b14.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                firstNumber = t1.getText().toString();
-                operator = "x";
-                t1.setText("");
-            }
-        });
-
-        b15.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                firstNumber = t1.getText().toString();
-                operator = "/";
-                t1.setText("");
-            }
-        });
-
-        b11.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
                 String text = t1.getText().toString();
-
-                if (text.length() > 0) {
-                    t1.setText(
-                            text.substring(0, text.length() - 1)
-                    );
+                if (!text.contains(".")) {
+                    if (text.isEmpty()) {
+                        t1.append("0.");
+                    } else {
+                        t1.append(".");
+                    }
                 }
             }
         });
 
+        // Operators (+, -, x, /)
+        View.OnClickListener opListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String currentText = t1.getText().toString().trim();
+                if (!currentText.isEmpty()) {
+                    firstNumber = currentText;
+                    Button b = (Button) view;
+                    operator = b.getText().toString();
+                    t1.setText("");
+                }
+            }
+        };
+
+        b12.setOnClickListener(opListener);
+        b13.setOnClickListener(opListener);
+        b14.setOnClickListener(opListener);
+        b15.setOnClickListener(opListener);
+
+        // Backspace
+        b11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String text = t1.getText().toString();
+                if (!text.isEmpty()) {
+                    t1.setText(text.substring(0, text.length() - 1));
+                }
+            }
+        });
+
+        // All Clear (AC)
         bac.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 t1.setText("");
                 firstNumber = "";
                 operator = "";
             }
         });
 
+        // Equals (=)
         b16.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String secondNumber = t1.getText().toString().trim();
 
-                String secondNumber = t1.getText().toString();
-
-                double num1 = Double.parseDouble(firstNumber);
-                double num2 = Double.parseDouble(secondNumber);
-
-                double result = 0;
-
-                if (operator.equals("+")) {
-                    result = num1 + num2;
-                }
-                else if (operator.equals("-")) {
-                    result = num1 - num2;
-                }
-                else if (operator.equals("x")) {
-                    result = num1 * num2;
-                }
-                else if (operator.equals("/")) {
-                    result = num1 / num2;
+                if (firstNumber.isEmpty() || secondNumber.isEmpty() || operator.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Enter numbers and operator", Toast.LENGTH_SHORT).show();
+                    return;
                 }
 
-                t1.setText(String.valueOf(result));
+                try {
+                    double num1 = Double.parseDouble(firstNumber);
+                    double num2 = Double.parseDouble(secondNumber);
+                    double result = 0;
+
+                    if (operator.equals("+")) {
+                        result = num1 + num2;
+                    } else if (operator.equals("-")) {
+                        result = num1 - num2;
+                    } else if (operator.equals("x")) {
+                        result = num1 * num2;
+                    } else if (operator.equals("/")) {
+                        if (num2 == 0) {
+                            Toast.makeText(MainActivity.this, "Cannot divide by zero", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        result = num1 / num2;
+                    }
+
+                    // Format nicely: display whole numbers without trailing .0
+                    String resultStr;
+                    if (result == (long) result) {
+                        resultStr = String.valueOf((long) result);
+                    } else {
+                        resultStr = String.valueOf(result);
+                    }
+
+                    t1.setText(resultStr);
+                    firstNumber = resultStr;
+                    operator = "";
+                } catch (NumberFormatException e) {
+                    Toast.makeText(MainActivity.this, "Invalid number", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
