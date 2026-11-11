@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decision Tree Induction: Core Theory</title>
+  
+  <!-- MathJax Configuration -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #4338ca;
+      --primary-light: #e0e7ff;
+      --secondary: #0284c7;
+      --success: #059669;
+      --success-bg: #ecfdf5;
+      --success-border: #10b981;
+      --danger: #dc2626;
+      --danger-bg: #fef2f2;
+      --danger-border: #ef4444;
+      --warning: #d97706;
+      --warning-bg: #fffbeb;
+      --dark: #0f172a;
+      --card-bg: #ffffff;
+      --border-color: #cbd5e1;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      background: #f8fafc;
+      color: var(--text-main);
+      line-height: 1.5;
+      padding: 24px 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header-banner {
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%);
+      color: #ffffff;
+      padding: 28px 24px;
+      border-radius: 14px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 20px -4px rgba(49, 46, 129, 0.25);
+    }
+
+    .header-tag {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      padding: 3px 12px;
+      border-radius: 50px;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 8px;
+    }
+
+    .header-banner h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 22pt;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .header-banner p {
+      color: #c7d2fe;
+      font-size: 11pt;
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 18px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14pt;
+      color: var(--dark);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h2::before {
+      content: "";
+      width: 4px;
+      height: 18px;
+      background: var(--primary);
+      border-radius: 3px;
+      display: inline-block;
+    }
+
+    ul, ol {
+      margin: 8px 0 12px 22px;
+      color: #334155;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    /* Panels & Formulas */
+    .formula-panel {
+      background: #faf5ff;
+      border: 1px solid #e9d5ff;
+      border-left: 4px solid #9333ea;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin: 10px 0;
+    }
+
+    /* SVG Tree Diagrams */
+    .svg-tree-container {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 14px;
+      text-align: center;
+      margin: 14px 0;
+    }
+
+    .tree-svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Bottom Navigation Pagination */
+    .nav-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 24px;
+      padding: 16px 20px;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary);
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 10.5pt;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.1s ease;
+    }
+
+    .nav-btn:hover {
+      background: #3730a3;
+      transform: translateY(-1px);
+    }
+
+    .nav-btn:active {
+      transform: translateY(0);
+    }
+
+    /* Print Setup */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 10mm 12mm;
+      }
+
+      body {
+        background: #fff !important;
+        color: #000 !important;
+        padding: 0 !important;
+        font-size: 9.5pt;
+      }
+
+      .container {
+        max-width: 100% !important;
+      }
+
+      .nav-footer {
+        display: none !important;
+      }
+
+      .header-banner {
+        background: #1e1b4b !important;
+        color: #fff !important;
+        padding: 16px !important;
+        margin-bottom: 12px !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .section-card {
+        border: 1px solid #cbd5e1 !important;
+        box-shadow: none !important;
+        margin-bottom: 12px !important;
+        padding: 12px 14px !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      .formula-panel, .svg-tree-container {
+        overflow: visible !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      .formula-panel {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header Banner -->
+  <div class="header-banner">
+    <span class="header-tag">Machine Learning &bull; Exam Core Theory</span>
+    <h1>Decision Tree Induction: Core Theory</h1>
+    <p>Definitions, Tree Anatomy, Induction Steps & Attribute Selection Measures</p>
+  </div>
+
+  <!-- 1. Definition & Structural Anatomy -->
+  <div class="section-card">
+    <h2>1. Definition & Structural Anatomy</h2>
+    <p>
+      A <strong>Decision Tree</strong> is a non-parametric supervised learning model used for both <strong>Classification</strong> and <strong>Regression</strong> tasks. It represents decision logic through a hierarchical flowchart structure:
+    </p>
+
+    <div class="svg-tree-container">
+      <svg width="480" height="140" viewBox="0 0 480 140" class="tree-svg">
+        <!-- Root Node -->
+        <circle cx="240" cy="20" r="16" fill="#4338ca" stroke="#312e81" stroke-width="1.5" />
+        <text x="240" y="24" fill="#ffffff" font-family="Space Grotesk" font-size="9" font-weight="bold" text-anchor="middle">Root Node</text>
+
+        <!-- Branches from Root -->
+        <line x1="225" y1="28" x2="140" y2="60" stroke="#64748b" stroke-width="1.5" />
+        <line x1="255" y1="28" x2="340" y2="60" stroke="#64748b" stroke-width="1.5" />
+
+        <text x="170" y="40" fill="#4338ca" font-family="Fira Code" font-size="8" font-weight="bold">Branch (Condition A)</text>
+        <text x="310" y="40" fill="#4338ca" font-family="Fira Code" font-size="8" font-weight="bold">Branch (Condition B)</text>
+
+        <!-- Internal Node -->
+        <polygon points="140,60 170,75 140,90 110,75" fill="#d97706" stroke="#b45309" stroke-width="1.5" />
+        <text x="140" y="78" fill="#ffffff" font-family="Space Grotesk" font-size="8" font-weight="bold" text-anchor="middle">Internal Node</text>
+
+        <!-- Leaf / Class Label -->
+        <rect x="280" y="64" width="120" height="22" rx="4" fill="#ecfdf5" stroke="#10b981" stroke-width="1.2" />
+        <text x="340" y="78" fill="#065f46" font-family="Plus Jakarta Sans" font-size="8.5" font-weight="bold" text-anchor="middle">Leaf / Class Label</text>
+
+        <!-- Sub-branches -->
+        <line x1="125" y1="84" x2="80" y2="112" stroke="#64748b" stroke-width="1.5" />
+        <line x1="155" y1="84" x2="200" y2="112" stroke="#64748b" stroke-width="1.5" />
+
+        <!-- Sub-leaves -->
+        <rect x="25" y="112" width="110" height="22" rx="4" fill="#ecfdf5" stroke="#10b981" stroke-width="1.2" />
+        <text x="80" y="126" fill="#065f46" font-family="Plus Jakarta Sans" font-size="8.5" font-weight="bold" text-anchor="middle">Leaf / Class A</text>
+
+        <rect x="145" y="112" width="110" height="22" rx="4" fill="#fef2f2" stroke="#ef4444" stroke-width="1.2" />
+        <text x="200" y="126" fill="#991b1b" font-family="Plus Jakarta Sans" font-size="8.5" font-weight="bold" text-anchor="middle">Leaf / Class B</text>
+      </svg>
+    </div>
+
+    <ul>
+      <li><strong>Root Node:</strong> Topmost node evaluating the single attribute with the highest predictive value.</li>
+      <li><strong>Internal / Decision Nodes:</strong> Intermediate nodes evaluating conditions on individual attributes.</li>
+      <li><strong>Branches:</strong> Outgoing pathways representing outcomes of attribute tests.</li>
+      <li><strong>Leaf / Terminal Nodes:</strong> Bottom-most nodes holding final target class predictions (no further splitting).</li>
+    </ul>
+  </div>
+
+  <!-- 2. Decision Tree Induction Steps (ID3 Algorithm) -->
+  <div class="section-card">
+    <h2>2. Decision Tree Induction Steps (ID3 Algorithm)</h2>
+    <ol>
+      <li><strong>Calculate Base Entropy:</strong> Compute target entropy across the entire training set $S$.</li>
+      <li><strong>Evaluate Attributes:</strong> For each candidate attribute $A$, compute conditional entropies for all its value subsets and calculate Information Gain $\text{Gain}(S, A)$.</li>
+      <li><strong>Select Best Split:</strong> Pick the attribute with the <strong>Maximum Information Gain</strong> as the current decision node.</li>
+      <li><strong>Branch Creation:</strong> Create an outgoing branch for each distinct value of the selected attribute.</li>
+      <li><strong>Recursive Splitting & Base Cases:</strong>
+        <ul>
+          <li>If a branch subset is pure &rarr; Create a <strong>Leaf Node</strong> with that class label.</li>
+          <li>If no attributes remain &rarr; Create a <strong>Leaf Node</strong> assigned to the majority class.</li>
+          <li>Otherwise &rarr; Recursively repeat steps 1–4 on the remaining branch subset.</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h3>Stopping Criteria:</h3>
+    <ul>
+      <li>All instances at a node belong to the exact same class ($\text{Entropy} = 0$).</li>
+      <li>No remaining candidate attributes are available for further branching.</li>
+      <li>No instances remain for a given branch value.</li>
+    </ul>
+  </div>
+
+  <!-- 3. Attribute Selection Measures (ASM) -->
+  <div class="section-card">
+    <h2>3. Attribute Selection Measures (ASM)</h2>
+    <div class="formula-panel">
+      <p><strong>Entropy (Impurity Measure):</strong></p>
+      $$\text{Entropy}(S) = -\sum_{i=1}^{c} p_i \log_2(p_i)$$
+
+      <p style="margin-top: 12px;"><strong>Information Gain (ID3 Metric):</strong></p>
+      $$\text{Gain}(S, A) = \text{Entropy}(S) - \sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} \text{Entropy}(S_v)$$
+
+      <p style="margin-top: 12px;"><strong>Gini Impurity (CART Metric):</strong></p>
+      $$\text{Gini}(S) = 1 - \sum_{i=1}^{c} p_i^2$$
+    </div>
+  </div>
+
+  <!-- Bottom Navigation Buttons -->
+  <div class="nav-footer">
+    <a href="#" class="nav-btn">&larr; Previous</a>
+    <a href="1.html" class="nav-btn">Next &rarr;</a>
+  </div>
+
+</div>
+
+</body>
+</html>

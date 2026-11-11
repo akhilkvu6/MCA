@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decision Tree Learning: Complete Master Sheet</title>
+  
+  <!-- MathJax Configuration -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #4338ca;
+      --primary-light: #e0e7ff;
+      --secondary: #0284c7;
+      --success: #059669;
+      --success-bg: #ecfdf5;
+      --success-border: #10b981;
+      --danger: #dc2626;
+      --danger-bg: #fef2f2;
+      --danger-border: #ef4444;
+      --warning: #d97706;
+      --warning-bg: #fffbeb;
+      --dark: #0f172a;
+      --card-bg: #ffffff;
+      --border-color: #cbd5e1;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      background: #f8fafc;
+      color: var(--text-main);
+      line-height: 1.5;
+      padding: 24px 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header-banner {
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%);
+      color: #ffffff;
+      padding: 28px 24px;
+      border-radius: 14px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 20px -4px rgba(49, 46, 129, 0.25);
+    }
+
+    .header-tag {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      padding: 3px 12px;
+      border-radius: 50px;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 8px;
+    }
+
+    .header-banner h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 22pt;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .header-banner p {
+      color: #c7d2fe;
+      font-size: 11pt;
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 18px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14pt;
+      color: var(--dark);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h2::before {
+      content: "";
+      width: 4px;
+      height: 18px;
+      background: var(--primary);
+      border-radius: 3px;
+      display: inline-block;
+    }
+
+    h3 {
+      font-size: 11pt;
+      color: var(--primary);
+      margin: 12px 0 8px 0;
+      font-weight: 700;
+    }
+
+    /* Tables */
+    .table-wrapper {
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 9.5pt;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f1f5f9;
+      color: #334155;
+      font-weight: 700;
+      padding: 8px 10px;
+      border-bottom: 2px solid var(--border-color);
+      text-transform: uppercase;
+      font-size: 8pt;
+      letter-spacing: 0.5px;
+    }
+
+    td {
+      padding: 7px 10px;
+      border-bottom: 1px solid var(--border-color);
+      color: #334155;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .badge-yes {
+      background: var(--success-bg);
+      color: var(--success);
+      border: 1px solid var(--success-border);
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 8pt;
+    }
+
+    .badge-no {
+      background: var(--danger-bg);
+      color: var(--danger);
+      border: 1px solid var(--danger-border);
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 8pt;
+    }
+
+    .highlight-row {
+      background-color: #f5f3ff !important;
+      font-weight: 600;
+    }
+
+    /* Panels & Boxes */
+    .formula-panel {
+      background: #faf5ff;
+      border: 1px solid #e9d5ff;
+      border-left: 4px solid #9333ea;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin: 10px 0;
+    }
+
+    .math-callout {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-left: 4px solid var(--secondary);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin: 8px 0;
+    }
+
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .chart-container {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 12px;
+      height: 220px;
+      position: relative;
+    }
+
+    /* Tree Diagram SVG */
+    .svg-tree-container {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 14px;
+      text-align: center;
+      margin: 10px 0;
+    }
+
+    .tree-svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Rules Card */
+    .rules-card {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-top: 12px;
+    }
+
+    .rule-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Fira Code', monospace;
+      font-size: 9pt;
+      margin: 6px 0;
+      color: #166534;
+    }
+
+    .rule-bullet {
+      background: var(--success);
+      color: #ffffff;
+      font-size: 7.5pt;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    /* Print Setup */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 10mm 12mm;
+      }
+
+      body {
+        background: #fff !important;
+        color: #000 !important;
+        padding: 0 !important;
+        font-size: 9.5pt;
+      }
+
+      .container {
+        max-width: 100% !important;
+        margin: 0 !important;
+      }
+
+      .header-banner {
+        background: #1e1b4b !important;
+        color: #fff !important;
+        padding: 16px !important;
+        margin-bottom: 12px !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .section-card {
+        border: 1px solid #cbd5e1 !important;
+        box-shadow: none !important;
+        margin-bottom: 12px !important;
+        padding: 12px 14px !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      .table-wrapper, .math-callout, .formula-panel, .chart-container, .svg-tree-container {
+        overflow: visible !important;
+        overflow-x: visible !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      th, .highlight-row, .badge-yes, .badge-no, .formula-panel, .math-callout, .rules-card {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header Banner -->
+  <div class="header-banner">
+   
+    <h1>Decision Tree Learning: Complete Notes</h1>
+    <p>Complete Step-by-Step Numerical Example (Table 6.3), Equations, Charts, and Final Tree Diagram</p>
+  </div>
+
+  <!-- Section 1: Problem Statement & Dataset -->
+  <div class="section-card">
+    <h2>1. Problem Statement & Training Dataset T</h2>
+    <p>
+      <strong>Example 6.3:</strong> Assess a student's performance during his course of study and predict whether a student will get a job offer or not in his final year of the course. The training dataset $T$ consists of <strong>10 data instances</strong> with attributes: <code>CGPA</code>, <code>Interactiveness</code>, <code>Practical Knowledge</code>, and <code>Communication Skills</code>. The target class attribute is <code>Job Offer</code>.
+    </p>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>S.No.</th>
+            <th>CGPA</th>
+            <th>Interactiveness</th>
+            <th>Practical Knowledge</th>
+            <th>Communication Skills</th>
+            <th>Job Offer (Target)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>&ge; 9</td><td>Yes</td><td>Very good</td><td>Good</td><td><span class="badge-yes">Yes</span></td></tr>
+          <tr><td>2</td><td>&ge; 8</td><td>No</td><td>Good</td><td>Moderate</td><td><span class="badge-yes">Yes</span></td></tr>
+          <tr><td>3</td><td>&ge; 9</td><td>No</td><td>Average</td><td>Poor</td><td><span class="badge-no">No</span></td></tr>
+          <tr><td>4</td><td>&lt; 8</td><td>No</td><td>Average</td><td>Good</td><td><span class="badge-no">No</span></td></tr>
+          <tr><td>5</td><td>&ge; 8</td><td>Yes</td><td>Good</td><td>Moderate</td><td><span class="badge-yes">Yes</span></td></tr>
+          <tr><td>6</td><td>&ge; 9</td><td>Yes</td><td>Good</td><td>Moderate</td><td><span class="badge-yes">Yes</span></td></tr>
+          <tr><td>7</td><td>&lt; 8</td><td>Yes</td><td>Good</td><td>Poor</td><td><span class="badge-no">No</span></td></tr>
+          <tr><td>8</td><td>&ge; 9</td><td>No</td><td>Very good</td><td>Good</td><td><span class="badge-yes">Yes</span></td></tr>
+          <tr><td>9</td><td>&ge; 8</td><td>Yes</td><td>Good</td><td>Good</td><td><span class="badge-yes">Yes</span></td></tr>
+          <tr><td>10</td><td>&ge; 8</td><td>Yes</td><td>Average</td><td>Good</td><td><span class="badge-yes">Yes</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Section 2: Formulas & Base Entropy -->
+  <div class="section-card">
+    <h2>2. Fundamental Formulas & Target Class Entropy</h2>
+    <div class="formula-panel">
+      <p><strong>1. Entropy Formula:</strong></p>
+      $$\text{Entropy}(S) = -\sum_{i=1}^{c} p_i \log_2(p_i)$$
+      <p style="margin-top: 6px;"><strong>2. Information Gain Formula:</strong></p>
+      $$\text{Gain}(S, A) = \text{Entropy}(S) - \sum_{v \in \text{Values}(A)} \frac{|S_v|}{|S|} \text{Entropy}(S_v)$$
+    </div>
+    
+    <h3>Step 1: Calculate Target Class Entropy for Dataset T</h3>
+    <p>Target Class (Job Offer) distribution: <strong>Yes = 7, No = 3</strong> (Total = 10)</p>
+    <div class="math-callout">
+      $$\text{Entropy(Target Attribute = Job Offer)} = \text{Entropy}(7, 3) = -\left[\frac{7}{10}\log_2\left(\frac{7}{10}\right) + \frac{3}{10}\log_2\left(\frac{3}{10}\right)\right]$$
+      $$= -(-0.3599 + -0.5208) = \mathbf{0.8807}$$
+    </div>
+  </div>
+
+  <!-- Section 3: Iteration 1 Calculations -->
+  <div class="section-card">
+    <h2>3. Iteration 1: Attribute Entropy & Gain Calculations</h2>
+    <p><strong>Step 2:</strong> Calculate the expected entropy and information gain for all 4 attributes.</p>
+
+    <!-- Attributes A & B -->
+    <div class="grid-2col" style="align-items: stretch; margin-top: 8px;">
+      <div>
+        <h3>A. Attribute: CGPA (Table 6.4)</h3>
+        <div class="table-wrapper">
+          <table>
+            <thead><tr><th>CGPA</th><th>Yes</th><th>No</th><th>Total</th><th>Entropy</th></tr></thead>
+            <tbody>
+              <tr><td>&ge; 9</td><td>3</td><td>1</td><td>4</td><td>&minus;</td></tr>
+              <tr><td>&ge; 8</td><td>4</td><td>0</td><td>4</td><td>0</td></tr>
+              <tr><td>&lt; 8</td><td>0</td><td>2</td><td>2</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="math-callout" style="font-size: 8.5pt;">
+          $$\text{Entropy}(T, \text{CGPA}) = \frac{4}{10}\left[-\frac{3}{4}\log_2\frac{3}{4} - \frac{1}{4}\log_2\frac{1}{4}\right] + 0 + 0 = \mathbf{0.3243}$$
+          $$\text{Gain}(\text{CGPA}) = 0.8807 - 0.3243 = \mathbf{0.5564}$$
+        </div>
+      </div>
+
+      <div>
+        <h3>B. Attribute: Interactiveness (Table 6.5)</h3>
+        <div class="table-wrapper">
+          <table>
+            <thead><tr><th>Interactiveness</th><th>Yes</th><th>No</th><th>Total</th><th>Entropy</th></tr></thead>
+            <tbody>
+              <tr><td>YES</td><td>5</td><td>1</td><td>6</td><td>&minus;</td></tr>
+              <tr><td>NO</td><td>2</td><td>2</td><td>4</td><td>&minus;</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="math-callout" style="font-size: 8.5pt;">
+          $$\text{Entropy}(T, \text{Interact}) = \frac{6}{10}(0.6497) + \frac{4}{10}(0.9994) = \mathbf{0.7896}$$
+          $$\text{Gain}(\text{Interactiveness}) = 0.8807 - 0.7896 = \mathbf{0.0911}$$
+        </div>
+      </div>
+    </div>
+
+    <!-- Attributes C & D -->
+    <div class="grid-2col" style="align-items: stretch; margin-top: 8px;">
+      <div>
+        <h3>C. Practical Knowledge (Table 6.6)</h3>
+        <div class="table-wrapper">
+          <table>
+            <thead><tr><th>Practical Knowledge</th><th>Yes</th><th>No</th><th>Total</th><th>Entropy</th></tr></thead>
+            <tbody>
+              <tr><td>Very Good</td><td>2</td><td>0</td><td>2</td><td>0</td></tr>
+              <tr><td>Average</td><td>1</td><td>2</td><td>3</td><td>&minus;</td></tr>
+              <tr><td>Good</td><td>4</td><td>1</td><td>5</td><td>&minus;</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="math-callout" style="font-size: 8.5pt;">
+          $$\text{Entropy}(T, \text{PK}) = 0 + \frac{3}{10}(0.9177) + \frac{5}{10}(0.7215) = \mathbf{0.6361}$$
+          $$\text{Gain}(\text{Practical Knowledge}) = 0.8807 - 0.6361 = \mathbf{0.2446}$$
+        </div>
+      </div>
+
+      <div>
+        <h3>D. Communication Skills (Table 6.7)</h3>
+        <div class="table-wrapper">
+          <table>
+            <thead><tr><th>Communication Skills</th><th>Yes</th><th>No</th><th>Total</th><th>Entropy</th></tr></thead>
+            <tbody>
+              <tr><td>Good</td><td>4</td><td>1</td><td>5</td><td>&minus;</td></tr>
+              <tr><td>Moderate</td><td>3</td><td>0</td><td>3</td><td>0</td></tr>
+              <tr><td>Poor</td><td>0</td><td>2</td><td>2</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="math-callout" style="font-size: 8.5pt;">
+          $$\text{Entropy}(T, \text{Comm}) = \frac{5}{10}(0.7215) + 0 + 0 = \mathbf{0.3609}$$
+          $$\text{Gain}(\text{Communication Skills}) = 0.8807 - 0.3609 = \mathbf{0.5203}$$
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 4: Root Selection & Iteration 1 Summary -->
+  <div class="section-card">
+    <h2>4. Root Node Selection & Iteration 1 Summary</h2>
+    <p><strong>Step 3:</strong> Choose the attribute with the maximum Information Gain (lowest entropy) to form the <strong>Root Node</strong>.</p>
+
+    <div class="grid-2col" style="margin-top: 10px;">
+      <div>
+        <h3>Table 6.8: Information Gain Summary</h3>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th style="text-align: left;">Attributes</th>
+                <th>Gain</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="highlight-row">
+                <td style="text-align: left;"><strong>CGPA</strong></td>
+                <td><strong>0.5564</strong></td>
+                <td><span class="badge-yes">Selected Root</span></td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Communication Skills</td>
+                <td>0.5203</td>
+                <td>Discarded</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Practical Knowledge</td>
+                <td>0.2446</td>
+                <td>Discarded</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Interactiveness</td>
+                <td>0.0911</td>
+                <td>Discarded</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size: 9pt; color: var(--text-muted);">
+          &bull; <strong>CGPA &ge; 8:</strong> Pure leaf &rarr; <code>Job offer = Yes</code><br>
+          &bull; <strong>CGPA &lt; 8:</strong> Pure leaf &rarr; <code>Job offer = No</code><br>
+          &bull; <strong>CGPA &ge; 9:</strong> Impure branch (3 Yes, 1 No) &rarr; Requires <strong>Iteration 2</strong>
+        </p>
+      </div>
+
+      <div class="chart-container">
+        <canvas id="gainChart1"></canvas>
+      </div>
+    </div>
+
+    <!-- Tree 1 -->
+    <h3 style="margin-top: 16px;">Figure 6.3: Decision Tree After Iteration 1</h3>
+    <div class="svg-tree-container">
+      <svg width="580" height="185" viewBox="0 0 580 185" class="tree-svg">
+        <circle cx="290" cy="24" r="20" fill="#4338ca" stroke="#312e81" stroke-width="1.5" />
+        <text x="290" y="28" fill="#ffffff" font-family="Space Grotesk" font-size="10" font-weight="bold" text-anchor="middle">CGPA</text>
+        
+        <line x1="275" y1="38" x2="110" y2="80" stroke="#64748b" stroke-width="1.5" />
+        <line x1="290" y1="44" x2="290" y2="80" stroke="#64748b" stroke-width="1.5" />
+        <line x1="305" y1="38" x2="470" y2="80" stroke="#64748b" stroke-width="1.5" />
+        
+        <rect x="175" y="48" width="40" height="16" rx="3" fill="#e0e7ff" />
+        <text x="195" y="60" fill="#3730a3" font-family="Fira Code" font-size="9" font-weight="bold" text-anchor="middle">&ge; 8</text>
+
+        <rect x="270" y="55" width="40" height="16" rx="3" fill="#fef3c7" />
+        <text x="290" y="67" fill="#92400e" font-family="Fira Code" font-size="9" font-weight="bold" text-anchor="middle">&ge; 9</text>
+
+        <rect x="365" y="48" width="40" height="16" rx="3" fill="#fee2e2" />
+        <text x="385" y="60" fill="#991b1b" font-family="Fira Code" font-size="9" font-weight="bold" text-anchor="middle">&lt; 8</text>
+
+        <!-- Leaf 1 -->
+        <rect x="45" y="80" width="130" height="28" rx="5" fill="#ecfdf5" stroke="#10b981" stroke-width="1.2" />
+        <text x="110" y="98" fill="#065f46" font-family="Plus Jakarta Sans" font-size="10" font-weight="bold" text-anchor="middle">Job offer = Yes</text>
+
+        <!-- Leaf 2 -->
+        <rect x="405" y="80" width="130" height="28" rx="5" fill="#fef2f2" stroke="#ef4444" stroke-width="1.2" />
+        <text x="470" y="98" fill="#991b1b" font-family="Plus Jakarta Sans" font-size="10" font-weight="bold" text-anchor="middle">Job offer = No</text>
+
+        <!-- Subset Data Box -->
+        <g transform="translate(185, 80)">
+          <rect x="0" y="0" width="210" height="92" rx="5" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2" />
+          <rect x="0" y="0" width="210" height="18" rx="5 5 0 0" fill="#f1f5f9" />
+          <text x="105" y="13" fill="#334155" font-family="Space Grotesk" font-size="8.5" font-weight="bold" text-anchor="middle">Subset: CGPA &ge; 9 (4 instances)</text>
+          
+          <line x1="0" y1="18" x2="210" y2="18" stroke="#cbd5e1" />
+          <text x="8" y="34" fill="#475569" font-family="Fira Code" font-size="8">Inst 1: Yes, VG, Good &rarr; Yes</text>
+          <text x="8" y="50" fill="#475569" font-family="Fira Code" font-size="8">Inst 3: No, Avg, Poor &rarr; No</text>
+          <text x="8" y="66" fill="#475569" font-family="Fira Code" font-size="8">Inst 6: Yes, Good, Mod &rarr; Yes</text>
+          <text x="8" y="82" fill="#475569" font-family="Fira Code" font-size="8">Inst 8: No, VG, Good &rarr; Yes</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Section 5: Iteration 2 -->
+  <div class="section-card">
+    <h2>5. Iteration 2: Sub-tree for Branch (CGPA &ge; 9)</h2>
+    <p>Subset consists of 4 data instances: Instances 1, 3, 6, 8 (3 Yes, 1 No).</p>
+
+    <div class="math-callout">
+      $$\text{Entropy}(T_{\text{sub}}) = \text{Entropy}(3, 1) = -\left[\frac{3}{4}\log_2\frac{3}{4} + \frac{1}{4}\log_2\frac{1}{4}\right] = \mathbf{0.8108}$$
+    </div>
+
+    <div class="grid-2col" style="margin-top: 10px;">
+      <div>
+        <div class="math-callout" style="font-size: 8.5pt;">
+          <p><strong>1. Interactiveness:</strong></p>
+          $$\text{Gain}(\text{Interact}) = 0.8108 - 0.4997 = \mathbf{0.3111}$$
+          <p style="margin-top: 4px;"><strong>2. Practical Knowledge:</strong></p>
+          $$\text{Gain}(\text{PK}) = 0.8108 - 0 = \mathbf{0.8108}$$
+          <p style="margin-top: 4px;"><strong>3. Communication Skills:</strong></p>
+          $$\text{Gain}(\text{Comm}) = 0.8108 - 0 = \mathbf{0.8108}$$
+        </div>
+
+        <h3>Table 6.9: Total Gain (Iteration 2)</h3>
+        <div class="table-wrapper">
+          <table>
+            <thead><tr><th style="text-align: left;">Attributes</th><th>Gain</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td style="text-align: left;">Interactiveness</td><td>0.3111</td><td>Impure</td></tr>
+              <tr class="highlight-row"><td style="text-align: left;"><strong>Practical Knowledge</strong></td><td><strong>0.8108</strong></td><td><span class="badge-yes">Selected Split</span></td></tr>
+              <tr class="highlight-row"><td style="text-align: left;"><strong>Communication Skills</strong></td><td><strong>0.8108</strong></td><td>Alternative Pure</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="chart-container">
+        <canvas id="gainChart2"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 6: Final Decision Tree & Rules -->
+  <div class="section-card">
+    <h2>6. Final Decision Tree (Figure 6.4) & Extracted Decision Rules</h2>
+
+    <div class="svg-tree-container">
+      <svg width="600" height="210" viewBox="0 0 600 210" class="tree-svg">
+        <!-- Root -->
+        <circle cx="300" cy="22" r="18" fill="#4338ca" stroke="#312e81" stroke-width="1.5" />
+        <text x="300" y="26" fill="#ffffff" font-family="Space Grotesk" font-size="10" font-weight="bold" text-anchor="middle">CGPA</text>
+        
+        <!-- Root Branches -->
+        <line x1="285" y1="34" x2="100" y2="70" stroke="#64748b" stroke-width="1.5" />
+        <line x1="300" y1="40" x2="300" y2="70" stroke="#64748b" stroke-width="1.5" />
+        <line x1="315" y1="34" x2="500" y2="70" stroke="#64748b" stroke-width="1.5" />
+        
+        <rect x="170" y="42" width="40" height="15" rx="3" fill="#e0e7ff" />
+        <text x="190" y="53" fill="#3730a3" font-family="Fira Code" font-size="8.5" font-weight="bold" text-anchor="middle">&ge; 8</text>
+
+        <rect x="280" y="48" width="40" height="15" rx="3" fill="#fef3c7" />
+        <text x="300" y="59" fill="#92400e" font-family="Fira Code" font-size="8.5" font-weight="bold" text-anchor="middle">&ge; 9</text>
+
+        <rect x="390" y="42" width="40" height="15" rx="3" fill="#fee2e2" />
+        <text x="410" y="53" fill="#991b1b" font-family="Fira Code" font-size="8.5" font-weight="bold" text-anchor="middle">&lt; 8</text>
+
+        <!-- Leaves 1 & 2 -->
+        <rect x="35" y="70" width="130" height="26" rx="4" fill="#ecfdf5" stroke="#10b981" stroke-width="1.2" />
+        <text x="100" y="87" fill="#065f46" font-family="Plus Jakarta Sans" font-size="9.5" font-weight="bold" text-anchor="middle">Job offer = Yes</text>
+
+        <rect x="435" y="70" width="130" height="26" rx="4" fill="#fef2f2" stroke="#ef4444" stroke-width="1.2" />
+        <text x="500" y="87" fill="#991b1b" font-family="Plus Jakarta Sans" font-size="9.5" font-weight="bold" text-anchor="middle">Job offer = No</text>
+
+        <!-- Diamond: PK -->
+        <polygon points="300,70 335,87 300,104 265,87" fill="#d97706" stroke="#b45309" stroke-width="1.5" />
+        <text x="300" y="90" fill="#ffffff" font-family="Space Grotesk" font-size="9.5" font-weight="bold" text-anchor="middle">PK</text>
+
+        <!-- PK Sub-branches -->
+        <line x1="275" y1="94" x2="175" y2="140" stroke="#64748b" stroke-width="1.5" />
+        <line x1="300" y1="104" x2="300" y2="140" stroke="#64748b" stroke-width="1.5" />
+        <line x1="325" y1="94" x2="425" y2="140" stroke="#64748b" stroke-width="1.5" />
+
+        <rect x="190" y="110" width="55" height="15" rx="3" fill="#e0e7ff" />
+        <text x="217" y="121" fill="#3730a3" font-family="Fira Code" font-size="8" font-weight="bold" text-anchor="middle">Very good</text>
+
+        <rect x="275" y="118" width="50" height="15" rx="3" fill="#fee2e2" />
+        <text x="300" y="129" fill="#991b1b" font-family="Fira Code" font-size="8" font-weight="bold" text-anchor="middle">Average</text>
+
+        <rect x="365" y="110" width="40" height="15" rx="3" fill="#e0e7ff" />
+        <text x="385" y="121" fill="#3730a3" font-family="Fira Code" font-size="8" font-weight="bold" text-anchor="middle">Good</text>
+
+        <!-- Final Sub-leaves -->
+        <rect x="110" y="140" width="125" height="26" rx="4" fill="#ecfdf5" stroke="#10b981" stroke-width="1.2" />
+        <text x="172" y="157" fill="#065f46" font-family="Plus Jakarta Sans" font-size="9" font-weight="bold" text-anchor="middle">Job offer = Yes</text>
+
+        <rect x="240" y="140" width="120" height="26" rx="4" fill="#fef2f2" stroke="#ef4444" stroke-width="1.2" />
+        <text x="300" y="157" fill="#991b1b" font-family="Plus Jakarta Sans" font-size="9" font-weight="bold" text-anchor="middle">Job offer = No</text>
+
+        <rect x="365" y="140" width="125" height="26" rx="4" fill="#ecfdf5" stroke="#10b981" stroke-width="1.2" />
+        <text x="427" y="157" fill="#065f46" font-family="Plus Jakarta Sans" font-size="9" font-weight="bold" text-anchor="middle">Job offer = Yes</text>
+      </svg>
+    </div>
+
+    <!-- Production Rules -->
+    <div class="rules-card">
+      <h3 style="color: #166534; margin: 0 0 6px 0;">Extracted Classification Rules:</h3>
+      <div class="rule-item">
+        <span class="rule-bullet">Rule 1</span>
+        <span>IF (CGPA &ge; 8) &rarr; <strong>Job offer = Yes</strong></span>
+      </div>
+      <div class="rule-item">
+        <span class="rule-bullet">Rule 2</span>
+        <span>IF (CGPA &lt; 8) &rarr; <strong>Job offer = No</strong></span>
+      </div>
+      <div class="rule-item">
+        <span class="rule-bullet">Rule 3</span>
+        <span>IF (CGPA &ge; 9) AND (Practical Knowledge = Average) &rarr; <strong>Job offer = No</strong></span>
+      </div>
+      <div class="rule-item">
+        <span class="rule-bullet">Rule 4</span>
+        <span>IF (CGPA &ge; 9) AND (Practical Knowledge &isin; {Good, Very good}) &rarr; <strong>Job offer = Yes</strong></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Navigation Buttons -->
+  <div class="nav-footer">
+    <a href="11.html" class="nav-btn">&larr; Previous</a>
+    <a href="1.html" class="nav-btn">Next &rarr;</a>
+  </div>
+</div>
+
+<!-- Chart Scripts -->
+<script>
+  // Chart 1
+  const ctx1 = document.getElementById('gainChart1').getContext('2d');
+  new Chart(ctx1, {
+    type: 'bar',
+    data: {
+      labels: ['CGPA (Winner)', 'Comm Skills', 'Practical Know.', 'Interactiveness'],
+      datasets: [{
+        label: 'Information Gain',
+        data: [0.5564, 0.5203, 0.2446, 0.0911],
+        backgroundColor: ['#4f46e5', '#38bdf8', '#fbbf24', '#cbd5e1'],
+        borderColor: ['#3730a3', '#0284c7', '#d97706', '#94a3b8'],
+        borderWidth: 1,
+        borderRadius: 4
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        title: {
+          display: true,
+          text: 'Iteration 1: Information Gain Comparison',
+          font: { family: 'Space Grotesk', size: 11, weight: 'bold' }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 0.65,
+          ticks: { font: { family: 'Fira Code', size: 8 } }
+        },
+        x: {
+          ticks: { font: { family: 'Plus Jakarta Sans', size: 8.5 } }
+        }
+      }
+    }
+  });
+
+  // Chart 2
+  const ctx2 = document.getElementById('gainChart2').getContext('2d');
+  new Chart(ctx2, {
+    type: 'bar',
+    data: {
+      labels: ['Practical Know. (Winner)', 'Comm Skills (Pure)', 'Interactiveness'],
+      datasets: [{
+        label: 'Subset Gain',
+        data: [0.8108, 0.8108, 0.3111],
+        backgroundColor: ['#10b981', '#06b6d4', '#cbd5e1'],
+        borderColor: ['#059669', '#0891b2', '#94a3b8'],
+        borderWidth: 1,
+        borderRadius: 4
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        title: {
+          display: true,
+          text: 'Iteration 2: Subset Gain Comparison',
+          font: { family: 'Space Grotesk', size: 11, weight: 'bold' }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 0.9,
+          ticks: { font: { family: 'Fira Code', size: 8 } }
+        },
+        x: {
+          ticks: { font: { family: 'Plus Jakarta Sans', size: 8.5 } }
+        }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
