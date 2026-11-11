@@ -41,6 +41,13 @@ MCA/
 │   └── Installation/
 │
 ├── Semester 3/
+│   ├── 20MCA201 DATA SCIENCE & MACHINE LEARNING/
+│   ├── 20MCA203 DESIGN & ANALYSIS OF ALGORITHMS/
+│   ├── 20MCA241 DATA SCIENCE LAB/
+│   ├── 20MCA243 MOBILE APPLICATION DEVELOPMENT LAB/
+│   ├── 20MCA267 CYBER FORENSICS/
+│   ├── 20MCA283 DEEP LEARNING/
+│   └── Study Captures/
 │
 └── README.md
 ```
@@ -123,19 +130,44 @@ Installation guides and setup documentation for required development and databas
 
 # 📙 Semester 3
 
-🚀 **Currently pursuing Semester 3.**
+Academic coursework, practical laboratory experiments, theory notes, and study resources for Semester 3.
 
-This section will be updated with:
+### 📊 20MCA201 — Data Science & Machine Learning
+Theory notes (M01–M05), data exploration, statistical charting, supervised & unsupervised algorithms, ANN, past university question papers, series exams, and reference textbooks.
 
-* 📚 Course materials
-* 💻 Laboratory programs
-* 📝 Assignments
-* 🧪 Practical exercises
-* 🚀 Mini projects
-* 📖 Notes and study resources
-* 🔗 Useful academic resources
+📁 [Open Data Science & Machine Learning](./Semester%203/20MCA201%20DATA%20SCIENCE%20%26%20MACHINE%20LEARNING)
 
-📁 [Open Semester 3](./Semester%203)
+### ⚡ 20MCA203 — Design & Analysis of Algorithms
+Algorithm design techniques, asymptotic notation, divide-and-conquer, greedy methods, dynamic programming, backtracking, branch-and-bound, NP-completeness, past papers, and CLRS textbook.
+
+📁 [Open Design & Analysis of Algorithms](./Semester%203/20MCA203%20DESIGN%20%26%20ANALYSIS%20OF%20ALGORITHMS)
+
+### 🧪 20MCA241 — Data Science Lab
+Python practical implementations using NumPy (18 programs), Pandas (12 programs), Matplotlib (12 visual scripts + output plots), ML algorithms (KNN, Naive Bayes, Decision Trees, K-Means, Regression, SVM), Jupyter notebooks, and certified lab records.
+
+📁 [Open Data Science Lab](./Semester%203/20MCA241%20DATA%20SCIENCE%20LAB)
+
+### 📱 20MCA243 — Mobile Application Development Lab
+10 native Android applications developed with Android Studio, Java, and XML layouts. Includes the Second Edition 60-page comprehensive theory and practical handbook, certified student records, and viva-voce guides.
+
+📁 [Open Mobile Application Development Lab](./Semester%203/20MCA243%20MOBILE%20APPLICATION%20DEVELOPMENT%20LAB)
+
+### 🛡️ 20MCA267 — Cyber Forensics (Elective III)
+Digital forensics investigation procedures, disk acquisition, file system forensics (FAT, NTFS, ext), network/mobile forensics, technical seminar presentations on digital storage systems, and reference textbooks.
+
+📁 [Open Cyber Forensics](./Semester%203/20MCA267%20CYBER%20FORENSICS)
+
+### 🧠 20MCA283 — Deep Learning (Elective IV)
+Neural networks, activation functions, optimization, CNN architectures, sequence modeling with RNN & LSTM, GANs, autoencoders, series exams with valuation schemes, prompt engineering seminar, and Generative Deep Learning textbook.
+
+📁 [Open Deep Learning](./Semester%203/20MCA283%20DEEP%20LEARNING)
+
+### 📷 Study Captures & Curriculum
+High-resolution whiteboard study captures (1–7) and official KTU MCA S3/S4 syllabus.
+
+📁 [Open Study Captures](./Semester%203/Study%20Captures) • 📄 [Open Syllabus PDF](./Semester%203/MCA%20S3%20S4.pdf)
+
+📁 [Open Semester 3 Master Folder](./Semester%203)
 
 ---
 
